@@ -1,7 +1,11 @@
 # Node
 node_modules/
 npm-debug.log*
+
+# Environment Variables
 .env
+.env.local
+.env.*
 
 # IDEs
 .vscode/
@@ -17,3 +21,12 @@ logs/
 
 # OS
 .DS_Store
+
+# Temporary files
+tmp/
+temp/
+
+# Next.js
+.next/
+out/
+
