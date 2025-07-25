@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ThemeToggleButton } from "@/components/theme-toggle-button";
 export default function Home() {
   const [status, setStatus] = useState("");
 
@@ -46,6 +47,7 @@ export default function Home() {
          <Link href="/auth" className="text-blue-600 hover:text-blue-800 underline">
           Go to Login
         </Link>
+        <ThemeToggleButton />
       </main>
     </div>
   );
