@@ -4,8 +4,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ThemeToggleButton } from "@/components/theme-toggle-button";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "@/components/language-switcher";
+
 export default function Home() {
-  const [status, setStatus] = useState("");
+  const t = useTranslations('home');
+    const [status, setStatus] = useState("");
 
   useEffect(() => {
     const getHealth = async () => {
@@ -32,22 +36,23 @@ export default function Home() {
           height={150}
           className="mb-8 dark:invert"
         />
-        <h1 className="text-4xl font-bold">Welcome to Protothon Website!</h1>
+        <h1 className="text-4xl font-bold">{t('title')}</h1>
         <p className="text-lg text-gray-500">
           Under development... 🛠️
         </p>
         <p className="text-lg">
           API Health:&nbsp;
-          {status ? (
-            <span className="text-green-600">{status}</span>
-          ) : (
-            <span className="text-red-600">Error</span>
-          )}
+            {status ? (
+              <span className="text-green-600">{status}</span>
+            ) : (
+              <span className="text-red-600">Error</span>
+            )}
         </p> 
          <Link href="/auth" className="text-blue-600 hover:text-blue-800 underline">
           Go to Login
         </Link>
         <ThemeToggleButton />
+        <LanguageSwitcher/>
       </main>
     </div>
   );

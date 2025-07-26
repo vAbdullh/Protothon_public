@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "target": "ES2017",
     "lib": [
@@ -31,8 +33,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "lib/supabaseClient.js"  ],
+    "**/*.tsx",
+    "lib/supabaseClient.js",
+    "app/[locale]2/layou.atsx"
+  ],
   "exclude": [
     "node_modules"
   ]
