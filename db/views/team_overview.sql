@@ -8,6 +8,7 @@ SELECT
   t.leader_id,
   u.name_en AS leader_name_en,
   u.name_ar AS leader_name_ar,
+  t.created_at AS team_created_at,
   COUNT(tm.user_id) AS member_count
 FROM teams t
 JOIN users u ON u.id = t.leader_id
