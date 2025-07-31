@@ -3,13 +3,12 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ThemeToggleButton } from "@/components/theme-toggle-button";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "@/components/language-switcher";
+import UIControls from "@/components/ui-controls";
 
 export default function Home() {
   const t = useTranslations('home');
-    const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     const getHealth = async () => {
@@ -42,17 +41,16 @@ export default function Home() {
         </p>
         <p className="text-lg">
           API Health:&nbsp;
-            {status ? (
-              <span className="text-green-600">{status}</span>
-            ) : (
-              <span className="text-red-600">Error</span>
-            )}
-        </p> 
-         <Link href="/auth" className="text-blue-600 hover:text-blue-800 underline">
-          Go to Login
+          {status ? (
+            <span className="text-green-600">{status}</span>
+          ) : (
+            <span className="text-red-600">Error</span>
+          )}
+        </p>
+        <Link href="/auth" className="text-blue-600 hover:text-blue-800 underline">
+          Go to Dashboard
         </Link>
-        <ThemeToggleButton />
-        <LanguageSwitcher/>
+        <UIControls />
       </main>
     </div>
   );
