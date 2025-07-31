@@ -1,5 +1,20 @@
 {
-    "home":{
-        "title":"Welcome to Protothon Website!"
+    "shared":{
+        "protothon":"Protothon",
+        "loading":"Loading"
+    },
+    "DashboardLogin":{
+        "title":"Dashboard Login",
+        "description":"Login to your Protothon Dashboard",
+        "email":"Email",
+        "password":"Password",
+        "loginPassword":"Login with Password",
+        "loginEmail":"Login with Email Link",
+        "errInvalidCredentials":"Invalid email or password",
+        "errEmailNotFound":"Email not found",
+        "errPasswordRequired":"Password is required",
+        "errEmailRequired":"Email is required",
+        "errInvalidEmail":"Invalid email format",
+        "checkYourEmail":"Check your email for the login link"
     }
 }

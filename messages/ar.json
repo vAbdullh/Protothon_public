@@ -1,5 +1,20 @@
 {
-    "home":{
-        "title":"مرحباً بكم في موقع بروتوثون!"
+    "shared":{
+        "protothon":"بروتوثون",
+        "loading":"جار التحميل"
+    },
+    "DashboardLogin":{
+        "title":"الوصول إلى لوحة التحكم",
+        "description":"قم بتسجيل الدخول إلى لوحة تحكم بروتوثون",
+        "email":"البريد الإلكتروني",
+        "password":"كلمة المرور",
+        "loginPassword":"الدخول بكلمة المرور",
+        "loginEmail":"الدخول برابط البريد",
+        "errInvalidCredentials":"البريد الإلكتروني أو كلمة المرور غير صحيحة",
+        "errEmailNotFound":"البريد الإلكتروني غير موجود",
+        "errPasswordRequired":"كلمة المرور مطلوبة",
+        "errEmailRequired":"البريد الإلكتروني مطلوب",
+        "errInvalidEmail":"البريد الإلكتروني غير صالح",
+        "checkYourEmail":"تحقق من بريدك الإلكتروني للحصول على رابط الدخول"
     }
 }
