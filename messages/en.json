@@ -16,5 +16,8 @@
         "errEmailRequired":"Email is required",
         "errInvalidEmail":"Invalid email format",
         "checkYourEmail":"Check your email for the login link"
+    },
+    "dashboardSidebar":{
+        "applications":"Applied Teams"
     }
 }

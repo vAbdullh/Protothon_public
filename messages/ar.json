@@ -16,5 +16,8 @@
         "errEmailRequired":"البريد الإلكتروني مطلوب",
         "errInvalidEmail":"البريد الإلكتروني غير صالح",
         "checkYourEmail":"تحقق من بريدك الإلكتروني للحصول على رابط الدخول"
+    },
+    "dashboardSidebar":{
+        "applications":"الفرق المتقدمة"
     }
 }
