@@ -31,7 +31,7 @@ export function LoginForm() {
     const checkAuth = async () => {
       const { data } = await supabase.auth.getUser();
       if (data?.user) {
-        router.push("/admin");
+        router.push("/dashboard");
       }
     };
     checkAuth();
@@ -81,7 +81,7 @@ export function LoginForm() {
       if (error) throw error;
 
       if (type === "password") {
-        router.push("/admin");
+        router.push("/dashboard");
       } else {
         setMessage("Magic link sent to your email!");
         setEmailSent(true);

@@ -11,7 +11,7 @@ export default function AuthLayout({ children }) {
     const checkAuth = async () => {
       const { data } = await supabase.auth.getUser();
       if (data?.user) {
-        router.push('/admin');
+        router.push('/dashboard');
       }
     };
     checkAuth();
