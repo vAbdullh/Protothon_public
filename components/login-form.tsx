@@ -71,11 +71,16 @@ export function LoginForm() {
       if (!isEmailValid || (type === "password" && !isPasswordValid)) {
         return;
       }
-
+// add callback to /dashboard in magic  link
       const authAction =
         type === "password"
           ? supabase.auth.signInWithPassword({ email, password })
-          : supabase.auth.signInWithOtp({ email });
+          : supabase.auth.signInWithOtp({ 
+          email,
+          options: {
+            emailRedirectTo: `${window.location.origin}/dashboard` 
+          }
+        });
 
       const { error } = await authAction;
       if (error) throw error;
