@@ -20,7 +20,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <Button onClick={switchLanguage}>
+    <Button  variant="outline" size='lg' onClick={switchLanguage}>
       {locale === 'en' ? 'العربية' : 'English'}
     </Button>
   );
