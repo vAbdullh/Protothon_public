@@ -18,6 +18,7 @@
         "checkYourEmail":"تحقق من بريدك الإلكتروني للحصول على رابط الدخول"
     },
     "dashboardSidebar":{
-        "applications":"الفرق المتقدمة"
+        "applications":"الفرق المتقدمة",
+        "members":"بيانات الأعضاء والقادة"
     }
 }

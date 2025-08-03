@@ -18,6 +18,7 @@
         "checkYourEmail":"Check your email for the login link"
     },
     "dashboardSidebar":{
-        "applications":"Applied Teams"
+        "applications":"Applied Teams",
+        "members":"Members & Leader Overview"
     }
 }

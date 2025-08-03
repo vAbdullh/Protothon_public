@@ -1,4 +1,4 @@
-import { Users2 } from "lucide-react"
+import { ClipboardList, Users2 } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 
 import {
@@ -13,7 +13,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/shadcn/sidebar"
-import { use } from "react"
 import UIControls from "../ui-controls"
 import { UserBox } from "./users-box"
 
@@ -22,6 +21,11 @@ const items = [
   {
     title: 'applications',
     url: "/dashboard",
+    icon: ClipboardList,
+  },
+  {
+    title: 'members',
+    url: "/dashboard/members",
     icon: Users2,
   },
 ]
@@ -35,7 +39,6 @@ export function AdminSidebar() {
   return (
     <Sidebar side={isRTL ? 'right' : 'left'}>
       <SidebarHeader>
-      {/* title {tShared('protothon')} */}
         <SidebarGroupLabel>{tShared('protothon')}</SidebarGroupLabel>
       </SidebarHeader>
       <SidebarContent>
