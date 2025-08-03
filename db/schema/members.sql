@@ -4,7 +4,7 @@ CREATE TABLE members (
   name_en TEXT NOT NULL,
   gender TEXT NOT NULL,
   phone TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
+  email TEXT  NOT NULL,
   university TEXT NOT NULL,
   major TEXT NOT NULL,
   university_id TEXT, -- nullable if not from KAU  
