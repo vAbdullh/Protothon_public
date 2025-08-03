@@ -1,4 +1,4 @@
-import { ClipboardList, Users2 } from "lucide-react"
+import { ChartNoAxesGantt, ClipboardList, Users2 } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
 
 import {
@@ -20,8 +20,13 @@ import Link from "next/link"
 // Menu items.
 const items = [
   {
-    title: 'applications',
+    title: 'overview',
     url: "/dashboard",
+    icon: ChartNoAxesGantt,
+  },
+  {
+    title: 'applications',
+    url: "/dashboard/applications",
     icon: ClipboardList,
   },
   {
