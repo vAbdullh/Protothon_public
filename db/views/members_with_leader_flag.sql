@@ -6,6 +6,7 @@ SELECT
   m.email,
   m.phone,
   m.university,
+  m.gender,
   m.major,
   m.university_id,
   EXISTS (
