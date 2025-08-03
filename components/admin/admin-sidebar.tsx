@@ -15,6 +15,7 @@ import {
 } from "@/components/shadcn/sidebar"
 import UIControls from "../ui-controls"
 import { UserBox } from "./users-box"
+import Link from "next/link"
 
 // Menu items.
 const items = [
@@ -48,10 +49,10 @@ export function AdminSidebar() {
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{tSidebar(item.title)}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
