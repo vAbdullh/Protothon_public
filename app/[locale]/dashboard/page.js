@@ -95,7 +95,6 @@ export default function Page() {
         {loading ? 'Loading...' : 'Fetch Team Overview'}
       </button>
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      {/* {data && <pre>{JSON.stringify(data, null, 2)}</pre>} */}
       {data && data.map((item)=>(
         <div key={item.application_id} className='border p-4 mb-4 flex justify-between items-center'>
           <h2>{item.team_name}</h2>
