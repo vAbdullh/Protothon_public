@@ -29,14 +29,14 @@ export async function GET() {
 
   try {
     const { data, error } = await supabaseAdmin
-      .from('team_overview')
+      .from('application_overview')
       .select('*')
 
     if (error) {
       return NextResponse.json(
         { error: error.message },
         { status: 500 }
-      )
+      ) 
     }
 
     return NextResponse.json(data)

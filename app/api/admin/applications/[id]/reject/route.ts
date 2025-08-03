@@ -11,7 +11,7 @@ export async function POST(_: Request, { params }: { params: { id: string } }) {
   const { id } = params
 
   const { error } = await supabaseAdmin
-    .from('teams') 
+    .from('applications') 
     .update({ status: 'rejected' })
     .eq('id', id)
 

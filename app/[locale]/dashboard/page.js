@@ -37,14 +37,14 @@ export default function Page() {
     }
   }
 
-  const onReject = async (teamId) => {
+  const onReject = async (id) => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
         throw new Error('Not authenticated')
       }
 
-      const response = await fetch(`/api/admin/applications/${teamId}/reject`, {
+      const response = await fetch(`/api/admin/applications/${id}/reject`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${session.access_token}`,
@@ -62,14 +62,14 @@ export default function Page() {
       fetchTeamOverview();
     }
   }
-  const onApprove = async (teamId) => {
+  const onApprove = async (id) => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
         throw new Error('Not authenticated')
       }
 
-      const response = await fetch(`/api/admin/applications/${teamId}/approve`, {
+      const response = await fetch(`/api/admin/applications/${id}/approve`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${session.access_token}`,
@@ -97,16 +97,16 @@ export default function Page() {
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
       {/* {data && <pre>{JSON.stringify(data, null, 2)}</pre>} */}
       {data && data.map((item)=>(
-        <div key={item.team_id} className='border p-4 mb-4 flex justify-between items-center'>
+        <div key={item.application_id} className='border p-4 mb-4 flex justify-between items-center'>
           <h2>{item.team_name}</h2>
           <p>Track: {item.track}</p>
           <p>Idea Title: {item.idea_title}</p>
           <p>Status: {item.status}</p>
           <p>Leader: {item.leader_name_en} ({item.leader_name_ar})</p>
           <p>Members: {item.member_count}</p>
-          <p>Created At: {new Date(item.team_created_at).toLocaleString()}</p>
-          <button onClick={() => onApprove(item.team_id)} className='bg-green-500 text-white px-2 py-1 rounded'>Approve</button>
-          <button onClick={() => onReject(item.team_id)} className='bg-red-500 text-white px-2 py-1 rounded ml-2'>Reject</button>
+          <p>Created At: {new Date(item.application_created_at).toLocaleString()}</p>
+          <button onClick={() => onApprove(item.application_id)} className='bg-green-500 text-white px-2 py-1 rounded'>Approve</button>
+          <button onClick={() => onReject(item.application_id)} className='bg-red-500 text-white px-2 py-1 rounded ml-2'>Reject</button>
         </div>
       ))}
     </div>
