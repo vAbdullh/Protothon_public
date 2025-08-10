@@ -1,63 +1,70 @@
 'use client';
 
-import React, { useState } from 'react'
-import { supabase } from '@/lib/supabaseClient'
-import { Venus, Mars } from 'lucide-react'
+import React, { useEffect, useState } from 'react';
+import { DashboardTable } from '@/components/admin/dashboard-table'; // Your reusable component path
+import { supabase } from '@/lib/supabaseClient';
+import { University } from 'lucide-react';
+import { H1 } from '@/components/shadcn/typography-h1';
+import { Button } from '@/components/shadcn/button';
 
 export default function Page() {
-    const [data, setData] = useState(null)
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(false)
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-    const fetchTeamOverview = async () => {
-        setLoading(true);
-        setError(null);
-        setData(null);
-        try {
-            const { data: { session } } = await supabase.auth.getSession()
-            if (!session) {
-                throw new Error('Not authenticated')
-            }
+  const fetchMembers = async () => {
+    setLoading(true);
+    setError(null);
+    setData(null);
+    try {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        throw new Error('Not authenticated')
+      }
 
-            const response = await fetch('/api/admin/members', {
-                headers: {
-                    'Authorization': `Bearer ${session.access_token}`
-                }
-            })
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`)
-            }
-            const result = await response.json()
-            setData(result)
-            setError(null)
-        } catch (err) {
-            setError(err.message)
-            setData(null)
-        } finally {
-            setLoading(false)
+      const response = await fetch('/api/admin/members', {
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`
         }
+      })
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      const result = await response.json()
+      setData(result)
+      setError(null)
+    } catch (err) {
+      setError(err.message)
+      setData(null)
+    } finally {
+      setLoading(false)
     }
+  }
 
-    return (
-        <div>
-            <h1>Admin Dashboard - members</h1>
-            <button disabled={loading} onClick={fetchTeamOverview} className='bg-blue-500 text-white px-4 py-2 rounded my-2'>
-                {loading ? 'Loading...' : 'Fetch members Overview'}
-            </button>
-            {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-            {data && data.map((item) => (
-                <div key={item.member_id} className='border p-4 mb-4 flex justify-between items-center'>
-                    <h2>{item.name_en}</h2>
-                    <p>{item.name_ar}</p>
-                    {item.gender == 'male' ? <p className='text-blue-500'><Mars /></p> : <p className='text-pink-500'><Venus /></p>}
-                    <p>{item.email}</p>
-                    <p>{item.phone}</p>
-                    <p>{item.university}</p>
-                    <p>{item.major}</p>
-                    <p>{item.university_id ? item.university_id : <span className="text-gray-400 italic tracking-wider">N/A</span>}</p>
-                    <p>{item.is_leader ? 'Leader' : 'Member'}</p>
-                </div>
-            ))}
-        </div>
-    )
+  useEffect(() => {
+    fetchMembers();
+  }, []);
+
+  const columns = [
+    { key: 'name_en', label: 'Name (EN)', type: 'text' },
+    { key: 'name_ar', label: 'Name (AR)', type: 'text' },
+    { key: 'gender', label: 'Gender', type: 'gender' },
+    { key: 'email', label: 'Email', type: 'text' },
+    { key: 'university', label: 'University', type: 'text' },
+    { key: 'major', label: 'Major', type: 'text' },
+    { key: 'university_id', label: 'University ID', type: 'text' },
+  ];
+
+  return (
+    <div className="p-6 flex flex-col space-y-8">
+      <H1>Members List</H1>
+      <Button disabled={loading} variant='default' className='w-fit self-end' onClick={fetchMembers}>{loading ? 'loading...' : 'Refresh'}</Button>
+      {error && <p className="text-red-500">Error: {error}</p>}
+      {data && data.length > 0 ? (  
+        <DashboardTable data={data} columns={columns} />
+      ) : (
+        loading ? <p>Loading...</p> : <p>No members found.</p>
+      )}
+    </div>
+  );
 }
