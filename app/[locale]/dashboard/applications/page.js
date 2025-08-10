@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { DashboardTable } from '@/components/admin/dashboard-table';
 import { supabase } from '@/lib/supabaseClient';
 import { H1 } from '@/components/shadcn/typography-h1';
@@ -44,6 +44,7 @@ export default function Page() {
       setLoading(false);
     }
   };
+
   const columns = [
     { key: 'team_name', label: 'Team Name', type: 'text' },
     { key: 'track', label: 'Track', type: 'text' },
@@ -54,13 +55,17 @@ export default function Page() {
     { key: 'status', label: 'Status', type: 'status' },
   ];
 
+  useEffect(() => {
+    fetchTeamOverview();
+  }, []);
+
   return (
     <div className="p-6 flex flex-col space-y-8">
       <H1>Applications</H1>
-      <Button 
-        disabled={loading} 
-        variant="default" 
-        className="w-fit self-end" 
+      <Button
+        disabled={loading}
+        variant="default"
+        className="w-fit self-end"
         onClick={fetchTeamOverview}
       >
         {loading ? 'Loading...' : 'Refresh'}

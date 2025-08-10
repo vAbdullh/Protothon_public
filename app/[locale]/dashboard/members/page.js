@@ -41,10 +41,6 @@ export default function Page() {
     }
   }
 
-  useEffect(() => {
-    fetchMembers();
-  }, []);
-
   const columns = [
     { key: 'name_en', label: 'Name (EN)', type: 'text' },
     { key: 'name_ar', label: 'Name (AR)', type: 'text' },
@@ -55,12 +51,16 @@ export default function Page() {
     { key: 'university_id', label: 'University ID', type: 'text' },
   ];
 
+  useEffect(() => {
+    fetchMembers();
+  }, []);
+
   return (
     <div className="p-6 flex flex-col space-y-8">
       <H1>Members List</H1>
       <Button disabled={loading} variant='default' className='w-fit self-end' onClick={fetchMembers}>{loading ? 'loading...' : 'Refresh'}</Button>
       {error && <p className="text-red-500">Error: {error}</p>}
-      {data && data.length > 0 ? (  
+      {data && data.length > 0 ? (
         <DashboardTable data={data} columns={columns} />
       ) : (
         loading ? <p>Loading...</p> : <p>No members found.</p>
