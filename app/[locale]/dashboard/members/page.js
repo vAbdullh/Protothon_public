@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { DashboardTable } from '@/components/admin/dashboard-table'; // Your reusable component path
+import { DashboardTable } from '@/components/admin/dashboard-table';
 import { supabase } from '@/lib/supabaseClient';
 import { University } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { H1 } from '@/components/shadcn/typography-h1';
 import { Button } from '@/components/shadcn/button';
 
@@ -11,6 +12,13 @@ export default function Page() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const t = {
+  labels: useTranslations('labels'),
+  shared: useTranslations('shared'),
+  messages: useTranslations('messages'),
+  headings: useTranslations('headings')
+  };
 
   const fetchMembers = async () => {
     setLoading(true);
@@ -42,13 +50,13 @@ export default function Page() {
   }
 
   const columns = [
-    { key: 'name_en', label: 'Name (EN)', type: 'text' },
-    { key: 'name_ar', label: 'Name (AR)', type: 'text' },
-    { key: 'gender', label: 'Gender', type: 'gender' },
-    { key: 'email', label: 'Email', type: 'text' },
-    { key: 'university', label: 'University', type: 'text' },
-    { key: 'major', label: 'Major', type: 'text' },
-    { key: 'university_id', label: 'University ID', type: 'text' },
+    { key: 'name_en', label: t.labels('nameEn'), type: 'text' },
+    { key: 'name_ar', label: t.labels('nameAr'), type: 'text' },
+    { key: 'gender', label: t.labels('gender'), type: 'gender' },
+    { key: 'email', label: t.labels('email'), type: 'text' },
+    { key: 'university', label: t.labels('university'), type: 'text' },
+    { key: 'major', label: t.labels('major'), type: 'text' },
+    { key: 'university_id', label: t.labels('universityId'), type: 'text' },
   ];
 
   useEffect(() => {
@@ -57,13 +65,15 @@ export default function Page() {
 
   return (
     <div className="p-6 flex flex-col space-y-8">
-      <H1>Members List</H1>
-      <Button disabled={loading} variant='default' className='w-fit self-end' onClick={fetchMembers}>{loading ? 'loading...' : 'Refresh'}</Button>
+      <H1>{t.headings('membersList')}</H1>
+      <Button disabled={loading} variant='default' className='w-fit self-end' onClick={fetchMembers}>
+        {loading ? t.shared('loading') : t.shared('refresh')}
+      </Button>
       {error && <p className="text-red-500">Error: {error}</p>}
       {data && data.length > 0 ? (
         <DashboardTable data={data} columns={columns} />
       ) : (
-        loading ? <p>Loading...</p> : <p>No members found.</p>
+        loading ? <p>{t.shared('loading')}</p> : <p>{t.messages('noMembersFound')}</p>
       )}
     </div>
   );

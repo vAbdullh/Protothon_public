@@ -1,7 +1,8 @@
 {
     "shared":{
         "protothon":"بروتوثون",
-        "loading":"جار التحميل"
+        "loading":"جار التحميل",
+        "refresh": "تحديث"
     },
     "DashboardLogin":{
         "title":"الوصول إلى لوحة التحكم",
@@ -21,5 +22,29 @@
         "overview":"نظرة عامة",
         "applications":"الفرق المتقدمة",
         "members":"بيانات الأعضاء والقادة"
+    },
+    "labels": {
+        "nameEn": "الاسم (إنجليزي)",
+        "nameAr": "الاسم (عربي)",
+        "gender": "الجنس",
+        "email": "البريد الإلكتروني",
+        "university": "الجامعة",
+        "major": "التخصص",
+        "universityId": "الرقم الجامعي",
+        "teamName": "اسم الفريق",
+        "track": "المسار",
+        "ideaTitle": "عنوان الفكرة",
+        "status": "الحالة",
+        "leader": "القائد",
+        "members": "الأعضاء",
+        "createdAt": "تاريخ الإنشاء"
+    },
+    "headings": {
+        "applicationsList": "قائمة الفرق المتقدمة",
+        "membersList": "قائمة الأعضاء"
+    },
+    "messages": {
+        "noMembersFound": "لم يتم العثور على أعضاء",
+        "noApplicationsFound": "لم يتم العثور على فرق"
     }
 }

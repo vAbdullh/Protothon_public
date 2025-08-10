@@ -5,6 +5,7 @@ import { DashboardTable } from '@/components/admin/dashboard-table';
 import { supabase } from '@/lib/supabaseClient';
 import { H1 } from '@/components/shadcn/typography-h1';
 import { Button } from '@/components/shadcn/button';
+import { useTranslations } from 'next-intl';
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -45,14 +46,21 @@ export default function Page() {
     }
   };
 
+  const t = {
+    labels: useTranslations('labels'),
+    shared: useTranslations('shared'),
+    messages: useTranslations('messages'),
+    headings: useTranslations('headings')
+  };
+
   const columns = [
-    { key: 'team_name', label: 'Team Name', type: 'text' },
-    { key: 'track', label: 'Track', type: 'text' },
-    { key: 'idea_title', label: 'Idea Title', type: 'text' },
-    { key: 'leader', label: 'Leader', type: 'text' },
-    { key: 'member_count', label: 'Members', type: 'text' },
-    { key: 'created_at', label: 'Created At', type: 'date' },
-    { key: 'status', label: 'Status', type: 'status' },
+    { key: 'team_name', label: t.labels('teamName'), type: 'text' },
+    { key: 'track', label: t.labels('track'), type: 'text' },
+    { key: 'idea_title', label: t.labels('ideaTitle'), type: 'text' },
+    { key: 'leader', label: t.labels('leader'), type: 'text' },
+    { key: 'member_count', label: t.labels('members'), type: 'text' },
+    { key: 'created_at', label: t.labels('createdAt'), type: 'date' },
+    { key: 'status', label: t.labels('status'), type: 'status' },
   ];
 
   useEffect(() => {
@@ -61,20 +69,20 @@ export default function Page() {
 
   return (
     <div className="p-6 flex flex-col space-y-8">
-      <H1>Applications</H1>
+      <H1>{t.headings('applicationsList')}</H1>
       <Button
         disabled={loading}
         variant="default"
         className="w-fit self-end"
         onClick={fetchTeamOverview}
       >
-        {loading ? 'Loading...' : 'Refresh'}
+        {loading ? t.shared('loading') : t.shared('refresh')}
       </Button>
       {error && <p className="text-red-500">Error: {error}</p>}
       {data && data.length > 0 ? (
         <DashboardTable data={data} columns={columns} />
       ) : (
-        loading ? <p>Loading...</p> : <p>No applications found.</p>
+        loading ? <p>{t.shared('loading')}</p> : <p>{t.messages('noApplicationsFound')}</p>
       )}
     </div>
   );

@@ -1,7 +1,8 @@
 {
     "shared":{
         "protothon":"Protothon",
-        "loading":"Loading"
+        "loading":"Loading",
+        "refresh": "Refresh"
     },
     "DashboardLogin":{
         "title":"Dashboard Login",
@@ -21,5 +22,33 @@
         "overview":"Overview",
         "applications":"Applied Teams",
         "members":"Members & Leader Overview"
+    },
+    "labels": {
+        "nameEn": "Name (EN)",
+        "nameAr": "Name (AR)",
+        "gender": "Gender",
+        "email": "Email",
+        "university": "University",
+        "major": "Major",
+        "universityId": "University ID",
+        "teamName": "Team Name",
+        "track": "Track",
+        "ideaTitle": "Idea Title",
+        "status": "Status",
+        "leader": "Leader",
+        "members": "Members",
+        "createdAt": "Created At"
+    },
+    "headings": {
+        "applicationsList": "Applications List",
+        "membersList": "Members List"
+    },
+    "messages": {
+        "noMembersFound": "No members found",
+        "noApplicationsFound": "No applications found"
+    },
+    "headings": {
+        "applications": "Applications",
+        "membersList": "Members List"
     }
 }
