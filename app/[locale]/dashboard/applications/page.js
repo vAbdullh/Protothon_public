@@ -1,113 +1,76 @@
 'use client';
 
-import React, { useState } from 'react'
-import { supabase } from '@/lib/supabaseClient'
+import React, { useState } from 'react';
+import { DashboardTable } from '@/components/admin/dashboard-table';
+import { supabase } from '@/lib/supabaseClient';
+import { H1 } from '@/components/shadcn/typography-h1';
+import { Button } from '@/components/shadcn/button';
 
 export default function Page() {
-  const [data, setData] = useState(null)
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const fetchTeamOverview = async () => {
     setLoading(true);
     setError(null);
-    setData(null);
+    setData([]);
     try {
-      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
-        throw new Error('Not authenticated')
+        throw new Error('Not authenticated');
       }
 
       const response = await fetch('/api/admin/applications', {
         headers: {
           'Authorization': `Bearer ${session.access_token}`
         }
-      })
+      });
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-      const result = await response.json()
-      setData(result)
-      setError(null)
+      const result = await response.json();
+      setData(result.map(item => ({
+        ...item,
+        leader: `${item.leader_name_en} (${item.leader_name_ar})`,
+        created_at: item.application_created_at,
+        actions: item.application_id
+      })));
+      setError(null);
     } catch (err) {
-      setError(err.message)
-      setData(null)
+      setError(err.message);
+      setData([]);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
-  const onReject = async (id) => {
-    try {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        throw new Error('Not authenticated')
-      }
-
-      const response = await fetch(`/api/admin/applications/${id}/reject`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${session.access_token}`,
-          'Content-Type': 'application/json'
-        }
-      })
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      const result = await response.json()
-      console.log('Rejection successful:', result)
-    } catch (err) {
-      console.error('Error rejecting application:', err)
-    } finally{
-      fetchTeamOverview();
-    }
-  }
-  const onApprove = async (id) => {
-    try {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        throw new Error('Not authenticated')
-      }
-
-      const response = await fetch(`/api/admin/applications/${id}/approve`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${session.access_token}`,
-          'Content-Type': 'application/json'
-        }
-      })
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      const result = await response.json()
-      console.log('Approval successful:', result)
-    } catch (err) {
-      console.error('Error approving application:', err)
-    } finally{
-      fetchTeamOverview();
-    }
-  }
+  };
+  const columns = [
+    { key: 'team_name', label: 'Team Name', type: 'text' },
+    { key: 'track', label: 'Track', type: 'text' },
+    { key: 'idea_title', label: 'Idea Title', type: 'text' },
+    { key: 'leader', label: 'Leader', type: 'text' },
+    { key: 'member_count', label: 'Members', type: 'text' },
+    { key: 'created_at', label: 'Created At', type: 'date' },
+    { key: 'status', label: 'Status', type: 'status' },
+  ];
 
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      <button disabled={loading} onClick={fetchTeamOverview} className='bg-blue-500 text-white px-4 py-2 rounded my-2'>
-        {loading ? 'Loading...' : 'Fetch Team Overview'}
-      </button>
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      {data && data.map((item)=>(
-        <div key={item.application_id} className='border p-4 mb-4 flex justify-between items-center'>
-          <h2>{item.team_name}</h2>
-          <p>Track: {item.track}</p>
-          <p>Idea Title: {item.idea_title}</p>
-          <p>Status: {item.status}</p>
-          <p>Leader: {item.leader_name_en} ({item.leader_name_ar})</p>
-          <p>Members: {item.member_count}</p>
-          <p>Created At: {new Date(item.application_created_at).toLocaleString()}</p>
-          <button onClick={() => onApprove(item.application_id)} className='bg-green-500 text-white px-2 py-1 rounded'>Approve</button>
-          <button onClick={() => onReject(item.application_id)} className='bg-red-500 text-white px-2 py-1 rounded ml-2'>Reject</button>
-        </div>
-      ))}
+    <div className="p-6 flex flex-col space-y-8">
+      <H1>Applications</H1>
+      <Button 
+        disabled={loading} 
+        variant="default" 
+        className="w-fit self-end" 
+        onClick={fetchTeamOverview}
+      >
+        {loading ? 'Loading...' : 'Refresh'}
+      </Button>
+      {error && <p className="text-red-500">Error: {error}</p>}
+      {data && data.length > 0 ? (
+        <DashboardTable data={data} columns={columns} />
+      ) : (
+        loading ? <p>Loading...</p> : <p>No applications found.</p>
+      )}
     </div>
-  )
+  );
 }
