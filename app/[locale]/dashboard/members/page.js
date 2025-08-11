@@ -7,6 +7,7 @@ import { University } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { H1 } from '@/components/shadcn/typography-h1';
 import { Button } from '@/components/shadcn/button';
+import Loader from '@/components/admin/loader';
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -73,7 +74,7 @@ export default function Page() {
       {data && data.length > 0 ? (
         <DashboardTable data={data} columns={columns} />
       ) : (
-        loading ? <p>{t.shared('loading')}</p> : <p>{t.messages('noMembersFound')}</p>
+        Loader ? <Loader /> : <p>{t.messages('noMembersFound')}</p>
       )}
     </div>
   );
