@@ -4,14 +4,18 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { Mars, Venus } from "lucide-react";
 import { useLocale } from 'next-intl';
 import { Badge } from "../shadcn/badge";
+import { Button } from "../shadcn/button";
 
-type ColumnType = 'text' | 'gender' | 'date' | 'badge' | 'status';
+type ColumnType = 'text' | 'gender' | 'date' | 'badge' | 'status' | 'button';
 
 type TableColumn<T> = {
   key: keyof T;
   label: string;
   type: ColumnType;
   render?: (value: T[keyof T], row: T) => React.ReactNode;
+  onClick?: (value: T[keyof T], row: T) => void;
+  value?: string; 
+  icon?: React.ComponentType;
 };
 
 type ReusableTableProps<T> = {
@@ -38,11 +42,22 @@ export function DashboardTable<T>({ caption, columns, data }: ReusableTableProps
         return (
           <Badge variant="default">{value as string}</Badge>
         );
-        case 'status':
+      case 'status':
             return (
                 <span className={`inline-block px-2 py-1 rounded-sm text-xs capitalize font-semibold ${value === 'approved' ? 'bg-green-200 text-green-800' : value === 'rejected' ? 'bg-red-200 text-red-800' : 'bg-yellow-200 text-yellow-800'}`}>
                     {value as string}
                 </span>
+            )
+      case 'button':
+            return (
+                <Button 
+                  variant="outline" 
+                  className="cursor-pointer"
+                  onClick={() => col.onClick?.(value, row)}
+                >
+                  <col.icon />
+                  {col?.value}
+                </Button>
             )
       default:
         return value as string;
