@@ -2,9 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import { H1 } from '@/components/shadcn/typography-h1';
 import { Button } from '@/components/shadcn/button';
-import { useTranslations } from 'next-intl';
 import { useRouter, useParams } from 'next/navigation';
 import Loader from '@/components/admin/loader';
 
@@ -44,13 +42,6 @@ export default function ApplicationDetails() {
     }
   };
 
-  const t = {
-    labels: useTranslations('labels'),
-    shared: useTranslations('shared'),
-    messages: useTranslations('messages'),
-    headings: useTranslations('headings')
-  };
-
   useEffect(() => {
     if (applicationId) {
       fetchApplicationDetails();
@@ -58,45 +49,73 @@ export default function ApplicationDetails() {
   }, [applicationId]);
 
   if (loading) return <Loader />;
-  if (error) return <p className="text-red-500">Error: {error}</p>;
-  if (!application) return <p>{t.messages('noApplicationFound')}</p>;
 
-  return (
-    <div className="p-6 flex flex-col space-y-8">
-      <div className="flex justify-between items-center">
-        <H1>{t.headings('applicationDetails')}</H1>
+  if (error) {
+    return (
+      <div className="p-6">
+        <h1 className="text-xl font-bold">Error</h1>
+        <p className="text-red-500">{error}</p>
         <Button
           variant="outline"
           onClick={() => router.push('/dashboard/applications')}
+          className="mt-4"
         >
-          {t.shared('backToList')}
+          Back to Applications
+        </Button>
+      </div>
+    );
+  }
+
+  if (!application) {
+    return (
+      <div className="p-6">
+        <h1 className="text-xl font-bold">Not Found</h1>
+        <p>Application not found</p>
+        <Button
+          variant="outline"
+          onClick={() => router.push('/dashboard/applications')}
+          className="mt-4"
+        >
+          Back to Applications
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-6">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-xl font-bold">Application Details</h1>
+        <Button
+          variant="default"
+          onClick={() => router.push('/dashboard/applications')}
+        >
+          Back to List
         </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold">{t.labels('basicInfo')}</h2>
-          <div className="space-y-2">
-            <p><span className="font-semibold">{t.labels('teamName')}:</span> {application.team_name}</p>
-            <p><span className="font-semibold">{t.labels('track')}:</span> {application.track}</p>
-            <p><span className="font-semibold">{t.labels('ideaTitle')}:</span> {application.idea_title}</p>
-            <p><span className="font-semibold">{t.labels('ideaDescription')}:</span> {application.idea_description}</p>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold">{t.labels('teamInfo')}</h2>
-          <div className="space-y-2">
-            <p><span className="font-semibold">{t.labels('leader')}:</span> {application.leader_name_en} ({application.leader_name_ar})</p>
-            <p><span className="font-semibold">{t.labels('members')}:</span> {application.member_count}</p>
-            <p><span className="font-semibold">{t.labels('createdAt')}:</span> {new Date(application.application_created_at).toLocaleString()}</p>
-            <p><span className="font-semibold">{t.labels('status')}:</span> 
-              <span className={`inline-block ml-2 px-2 py-1 rounded-sm text-xs capitalize font-semibold ${application.status === 'approved' ? 'bg-green-200 text-green-800' : application.status === 'rejected' ? 'bg-red-200 text-red-800' : 'bg-yellow-200 text-yellow-800'}`}>
-                {application.status}
-              </span>
-            </p>
-          </div>
-        </div>
+        <p>Team Name: {application.team_name}</p>
+        <p>Track: {application.track}</p>
+        <p>Idea Title: {application.idea_title}</p>
+        <p>Description: {application.idea_description}</p>
+        <p>Leader: {application.leader_name_en} ({application.leader_name_ar})</p>
+        <p>Created: {new Date(application.application_created_at).toLocaleString()}</p>
+        <p>Status: {application.status} </p>
+        <hr className='border-4 col-span-2'/>
+        {application.members?.length > 0 && (
+            <div className='space-y-10'>
+              {application.members.map((member) => (
+                <div key={member.member_id}>
+                  <p>Name: {member.member_name_en} ({member.member_name_ar})</p>
+                  <p>Email: {member.member_email}</p>
+                  <p>Phone: {member.member_phone}</p>
+                  <p>University: {member.university}</p>
+                  <p>Major: {member.major}</p>
+                </div>
+              ))}
+            </div>
+        )}
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ export function DashboardTable<T>({ caption, columns, data }: ReusableTableProps
       case 'button':
             return (
                 <Button 
-                  variant="outline" 
+                  variant="ghost" 
                   className="cursor-pointer"
                   onClick={() => col.onClick?.(value, row)}
                 >
