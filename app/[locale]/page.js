@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import UIControls from "@/components/ui-controls";
 
 export default function Home() {
-  const t = useTranslations('home');
+  const t = useTranslations('shared');
   const [status, setStatus] = useState("");
 
   useEffect(() => {
@@ -15,7 +15,6 @@ export default function Home() {
       try {
         const res = await fetch("/api/health");
         const data = await res.json();
-        console.log("Health Check Response:", data);
         setStatus(data.status); // or whatever your API returns
       } catch (error) {
         setStatus("Failed to fetch health");
@@ -35,7 +34,7 @@ export default function Home() {
           height={150}
           className="mb-8 dark:invert"
         />
-        <h1 className="text-4xl font-bold">{t('title')}</h1>
+        <h1 className="text-4xl font-bold">{t('protothon')}</h1>
         <p className="text-lg text-gray-500">
           Under development... 🛠️
         </p>
@@ -47,7 +46,7 @@ export default function Home() {
             <span className="text-red-600">Error</span>
           )}
         </p>
-        <Link href="/auth" className="text-blue-600 hover:text-blue-800 underline">
+        <Link href="/dashboard" className="text-blue-600 hover:text-blue-800 underline">
           Go to Dashboard
         </Link>
         <UIControls />

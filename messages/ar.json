@@ -1,51 +1,51 @@
 {
-    "shared":{
-        "protothon":"بروتوثون",
-        "loading":"جار التحميل",
-        "refresh": "تحديث"
-    },
-    "DashboardLogin":{
-        "title":"الوصول إلى لوحة التحكم",
-        "description":"قم بتسجيل الدخول إلى لوحة تحكم بروتوثون",
-        "email":"البريد الإلكتروني",
-        "password":"كلمة المرور",
-        "loginPassword":"الدخول بكلمة المرور",
-        "loginEmail":"الدخول برابط البريد",
-        "errInvalidCredentials":"البريد الإلكتروني أو كلمة المرور غير صحيحة",
-        "errEmailNotFound":"البريد الإلكتروني غير موجود",
-        "errPasswordRequired":"كلمة المرور مطلوبة",
-        "errEmailRequired":"البريد الإلكتروني مطلوب",
-        "errInvalidEmail":"البريد الإلكتروني غير صالح",
-        "checkYourEmail":"تحقق من بريدك الإلكتروني للحصول على رابط الدخول"
-    },
-    "dashboardSidebar":{
-        "overview":"نظرة عامة",
-        "applications":"الفرق المتقدمة",
-        "members":"بيانات الأعضاء والقادة"
-    },
-    "labels": {
-        "nameEn": "الاسم (إنجليزي)",
-        "nameAr": "الاسم (عربي)",
-        "gender": "الجنس",
-        "email": "البريد الإلكتروني",
-        "university": "الجامعة",
-        "major": "التخصص",
-        "universityId": "الرقم الجامعي",
-        "teamName": "اسم الفريق",
-        "track": "المسار",
-        "ideaTitle": "عنوان الفكرة",
-        "status": "الحالة",
-        "leader": "القائد",
-        "members": "الأعضاء",
-        "createdAt": "تاريخ الإنشاء",
-        "viewDetails": "عرض التفاصيل"
-    },
-    "headings": {
-        "applicationsList": "قائمة الفرق المتقدمة",
-        "membersList": "قائمة الأعضاء"
-    },
-    "messages": {
-        "noMembersFound": "لم يتم العثور على أعضاء",
-        "noApplicationsFound": "لم يتم العثور على فرق"
-    }
+  "shared": {
+    "protothon": "بروتوثون",
+    "loading": "جار التحميل",
+    "refresh": "تحديث"
+  },
+  "DashboardLogin": {
+    "title": "الوصول إلى لوحة التحكم",
+    "description": "قم بتسجيل الدخول إلى لوحة تحكم بروتوثون",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "loginPassword": "الدخول بكلمة المرور",
+    "loginEmail": "الدخول برابط البريد",
+    "errInvalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "errEmailNotFound": "البريد الإلكتروني غير موجود",
+    "errPasswordRequired": "كلمة المرور مطلوبة",
+    "errEmailRequired": "البريد الإلكتروني مطلوب",
+    "errInvalidEmail": "البريد الإلكتروني غير صالح",
+    "checkYourEmail": "تحقق من بريدك الإلكتروني للحصول على رابط الدخول"
+  },
+  "dashboardSidebar": {
+    "overview": "نظرة عامة",
+    "applications": "الفرق المتقدمة",
+    "members": "بيانات الأعضاء والقادة"
+  },
+  "labels": {
+    "nameEn": "الاسم (إنجليزي)",
+    "nameAr": "الاسم (عربي)",
+    "gender": "الجنس",
+    "email": "البريد الإلكتروني",
+    "university": "الجامعة",
+    "major": "التخصص",
+    "universityId": "الرقم الجامعي",
+    "teamName": "اسم الفريق",
+    "track": "المسار",
+    "ideaTitle": "عنوان الفكرة",
+    "status": "الحالة",
+    "leader": "القائد",
+    "members": "الأعضاء",
+    "createdAt": "تاريخ الإنشاء",
+    "viewDetails": "عرض التفاصيل"
+  },
+  "headings": {
+    "applicationsList": "قائمة الفرق المتقدمة",
+    "membersList": "قائمة الأعضاء"
+  },
+  "messages": {
+    "noMembersFound": "لم يتم العثور على أعضاء",
+    "noApplicationsFound": "لم يتم العثور على فرق"
+  }
 }

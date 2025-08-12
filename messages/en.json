@@ -1,55 +1,51 @@
 {
-    "shared":{
-        "protothon":"Protothon",
-        "loading":"Loading",
-        "refresh": "Refresh"
-    },
-    "DashboardLogin":{
-        "title":"Dashboard Login",
-        "description":"Login to your Protothon Dashboard",
-        "email":"Email",
-        "password":"Password",
-        "loginPassword":"Login with Password",
-        "loginEmail":"Login with Email Link",
-        "errInvalidCredentials":"Invalid email or password",
-        "errEmailNotFound":"Email not found",
-        "errPasswordRequired":"Password is required",
-        "errEmailRequired":"Email is required",
-        "errInvalidEmail":"Invalid email format",
-        "checkYourEmail":"Check your email for the login link"
-    },
-    "dashboardSidebar":{
-        "overview":"Overview",
-        "applications":"Applied Teams",
-        "members":"Members & Leader Overview"
-    },
-    "labels": {
-        "nameEn": "Name (EN)",
-        "nameAr": "Name (AR)",
-        "gender": "Gender",
-        "email": "Email",
-        "university": "University",
-        "major": "Major",
-        "universityId": "University ID",
-        "teamName": "Team Name",
-        "track": "Track",
-        "ideaTitle": "Idea Title",
-        "status": "Status",
-        "leader": "Leader",
-        "members": "Members",
-        "createdAt": "Created At",
-        "viewDetails": "View Details"
-    },
-    "headings": {
-        "applicationsList": "Applications List",
-        "membersList": "Members List"
-    },
-    "messages": {
-        "noMembersFound": "No members found",
-        "noApplicationsFound": "No applications found"
-    },
-    "headings": {
-        "applications": "Applications",
-        "membersList": "Members List"
-    }
+  "shared": {
+    "protothon": "Protothon",
+    "loading": "Loading",
+    "refresh": "Refresh"
+  },
+  "DashboardLogin": {
+    "title": "Dashboard Login",
+    "description": "Login to your Protothon Dashboard",
+    "email": "Email",
+    "password": "Password",
+    "loginPassword": "Login with Password",
+    "loginEmail": "Login with Email Link",
+    "errInvalidCredentials": "Invalid email or password",
+    "errEmailNotFound": "Email not found",
+    "errPasswordRequired": "Password is required",
+    "errEmailRequired": "Email is required",
+    "errInvalidEmail": "Invalid email format",
+    "checkYourEmail": "Check your email for the login link"
+  },
+  "dashboardSidebar": {
+    "overview": "Overview",
+    "applications": "Applied Teams",
+    "members": "Members & Leader Overview"
+  },
+  "labels": {
+    "nameEn": "Name (EN)",
+    "nameAr": "Name (AR)",
+    "gender": "Gender",
+    "email": "Email",
+    "university": "University",
+    "major": "Major",
+    "universityId": "University ID",
+    "teamName": "Team Name",
+    "track": "Track",
+    "ideaTitle": "Idea Title",
+    "status": "Status",
+    "leader": "Leader",
+    "members": "Members",
+    "createdAt": "Created At",
+    "viewDetails": "View Details"
+  },
+  "headings": {
+    "applicationsList": "Applications List",
+    "membersList": "Members List"
+  },
+  "messages": {
+    "noMembersFound": "No members found",
+    "noApplicationsFound": "No applications found"
+  }
 }
