@@ -11,11 +11,6 @@ SELECT
   -- Leader info
   m.id AS leader_id,
   m.name_en AS leader_name_en,
-  m.name_ar AS leader_name_ar,
-  m.email AS leader_email,
-  m.phone AS leader_phone,
-  m.university,
-  m.major,
-  m.university_id
+  m.name_ar AS leader_name_ar
 FROM applications a
 JOIN members m ON m.id = a.leader_id;
