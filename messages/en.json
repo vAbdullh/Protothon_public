@@ -37,7 +37,8 @@
         "status": "Status",
         "leader": "Leader",
         "members": "Members",
-        "createdAt": "Created At"
+        "createdAt": "Created At",
+        "viewDetails": "View Details"
     },
     "headings": {
         "applicationsList": "Applications List",

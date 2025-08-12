@@ -6,7 +6,9 @@ import { supabase } from '@/lib/supabaseClient';
 import { H1 } from '@/components/shadcn/typography-h1';
 import { Button } from '@/components/shadcn/button';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import Loader from '@/components/admin/loader';
+import { EyeIcon } from 'lucide-react';
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -54,6 +56,12 @@ export default function Page() {
     headings: useTranslations('headings')
   };
 
+  const router = useRouter();
+
+  const handleViewDetails = (applicationId) => {
+    router.push(`/dashboard/applications/${applicationId}`);
+  };
+
   const columns = [
     { key: 'team_name', label: t.labels('teamName'), type: 'text' },
     { key: 'track', label: t.labels('track'), type: 'text' },
@@ -62,6 +70,13 @@ export default function Page() {
     { key: 'member_count', label: t.labels('members'), type: 'text' },
     { key: 'created_at', label: t.labels('createdAt'), type: 'date' },
     { key: 'status', label: t.labels('status'), type: 'status' },
+    { 
+      key: 'actions', 
+      type: 'button',
+      onClick: (value, row) => handleViewDetails(row.application_id),
+      value: t.labels('viewDetails'),
+      icon: EyeIcon
+    },
   ];
 
   useEffect(() => {
