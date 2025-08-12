@@ -123,7 +123,7 @@ export function DashboardTable<T>({
       </div>
 
       {/* Mobile Cards */}
-      <div className="md:hidden space-y-4">
+      <div className="xl:hidden space-y-4">
         {data.map((row, idx) => (
           <Card
             key={idx}
