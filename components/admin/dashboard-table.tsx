@@ -14,6 +14,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "../shadcn/badge";
 import { Button } from "../shadcn/button";
 import { Card, CardContent, CardHeader } from "../shadcn/card";
+import StatusBadge from "./status-badge";
 
 type ColumnType = "text" | "gender" | "date" | "badge" | "status" | "button";
 
@@ -58,19 +59,7 @@ export function DashboardTable<T>({
       case "badge":
         return <Badge variant="default">{value as string}</Badge>;
       case "status":
-        return (
-          <span
-            className={`inline-block px-2 py-1 rounded-sm text-xs capitalize font-semibold ${
-              value === "approved"
-                ? "bg-green-200 text-green-900"
-                : value === "rejected"
-                ? "bg-red-200 text-red-900"
-                : "bg-yellow-200 text-yellow-900"
-            }`}
-          >
-            {tShared(value as string)}
-          </span>
-        );
+        return <StatusBadge status={value} />;
       case "button":
         return (
           <Button
