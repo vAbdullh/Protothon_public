@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/shadcn/table";
 import { Mars, Venus } from "lucide-react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "../shadcn/badge";
 import { Button } from "../shadcn/button";
 import { Card, CardContent, CardHeader } from "../shadcn/card";
@@ -39,7 +39,7 @@ export function DashboardTable<T>({
   data,
 }: ReusableTableProps<T>) {
   const locale = useLocale();
-  const isRTL = locale === "ar";
+  const tShared = useTranslations("shared");
 
   const renderCell = (col: TableColumn<T>, value: T[keyof T], row: T) => {
     if (col.render) return col.render(value, row);
@@ -62,13 +62,13 @@ export function DashboardTable<T>({
           <span
             className={`inline-block px-2 py-1 rounded-sm text-xs capitalize font-semibold ${
               value === "approved"
-                ? "bg-green-200 text-green-800"
+                ? "bg-green-200 text-green-900"
                 : value === "rejected"
-                ? "bg-red-200 text-red-800"
-                : "bg-yellow-200 text-yellow-800"
+                ? "bg-red-200 text-red-900"
+                : "bg-yellow-200 text-yellow-900"
             }`}
           >
-            {value as string}
+            {tShared(value as string)}
           </span>
         );
       case "button":

@@ -2,7 +2,10 @@
   "shared": {
     "protothon": "بروتوثون",
     "loading": "جار التحميل",
-    "refresh": "تحديث"
+    "refresh": "تحديث",
+    "approved": "تم القبول",
+    "rejected": "لم يتم الترشيح",
+    "pending": "بانتظار المراجعة"
   },
   "DashboardLogin": {
     "title": "الوصول إلى لوحة التحكم",

@@ -2,7 +2,10 @@
   "shared": {
     "protothon": "Protothon",
     "loading": "Loading",
-    "refresh": "Refresh"
+    "refresh": "Refresh",
+    "approved": "Confirmed",
+    "rejected": "Not Selected",
+    "pending": "Awaiting Review"
   },
   "DashboardLogin": {
     "title": "Dashboard Login",
