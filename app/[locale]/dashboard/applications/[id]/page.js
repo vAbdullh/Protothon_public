@@ -13,11 +13,17 @@ import { Avatar, AvatarFallback } from '@/components/shadcn/avatar';
 import { Separator } from '@/components/shadcn/separator';
 import StatusBadge from '@/components/admin/status-badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/shadcn/tabs';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/shadcn/dialog';
+import { Textarea } from '@/components/shadcn/textarea';
 
 export default function ApplicationDetails() {
   const [application, setApplication] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [note, setNote] = useState(null);
+  const [updating, setUpdating] = useState(false);
+
   const locale = useLocale();
 
   const t = {
@@ -57,6 +63,40 @@ export default function ApplicationDetails() {
       setLoading(false);
     }
   };
+
+  const handleUpdateStatus = async (status) => {
+    setUpdating(true)
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('Not authenticated');
+      }
+      const response = await fetch(`/api/admin/applications/${applicationId}`, {
+        method: 'PATCH',
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          status,
+          action_note: note
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      alert("updated done");
+      setIsEditOpen(false);
+      setNote(null);
+      fetchApplicationDetails();
+    } catch (err) {
+
+    } finally {
+      setUpdating(false)
+    }
+  }
 
   useEffect(() => {
     if (applicationId) {
@@ -104,10 +144,9 @@ export default function ApplicationDetails() {
 
   return (
     <div className='space-y-6 py-6'>
-
       {/* header */}
       <div className='flex gap-3 items-center'>
-        <Button variant='outline' className='aspect-square h-full'>
+        <Button variant='outline' className='aspect-square h-full' onClick={() => router.push('/dashboard/applications')}>
           <Undo2 className='rtl:rotate-y-180' />
         </Button>
         <div className='flex-1'>
@@ -117,7 +156,27 @@ export default function ApplicationDetails() {
           </H3>
           <p className='text-muted-foreground text-sm'>{new Date(application.application_created_at).toLocaleString(locale)}</p>
         </div>
-        <Button>{t.shared('edit')} <Edit2 /> </Button>
+
+        {/* Edit Button with Dialog */}
+        <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
+          <DialogTrigger asChild>
+            <Button onClick={() => setIsEditOpen(true)}>
+              {t.shared('edit')} <Edit2 className="ml-2 h-4 w-4" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className='pt-10'>
+            <DialogHeader>
+              <DialogTitle className="flex justify-between items-center">
+                Update application status
+              </DialogTitle>
+            </DialogHeader>
+            <div>
+              <Textarea placeholder="Type your note here." value={note} onChange={(e) => setNote(e.target.value)} />
+            </div>
+            <Button disabled={updating} onClick={() => handleUpdateStatus('approved')}>Approve</Button>
+            <Button disabled={updating} onClick={() => handleUpdateStatus('rejected')}>reject</Button>
+          </DialogContent>
+        </Dialog>
       </div>
 
       {/* Idea info */}
@@ -134,7 +193,6 @@ export default function ApplicationDetails() {
             <div className="text-xs text-muted-foreground">{application.track}</div>
           </div>
           <StatusBadge status={application.status} />
-
         </CardContent>
         <Separator />
         <CardContent className='xl:grid grid-cols-2 space-y-5 xl:space-y-10'>
@@ -142,17 +200,14 @@ export default function ApplicationDetails() {
             <p className='text-muted-foreground text-xs'>{t.labels('ideaTitle')}</p>
             <p className='text-xl'>{application.idea_title}</p>
           </div>
-
           <div>
             <p className='text-muted-foreground text-xs'>{t.labels('track')}</p>
             <p className='text-xl'>{application.track}</p>
           </div>
-
           <div>
             <p className='text-muted-foreground text-xs'>{t.labels('ideaDescription')}</p>
             <p className='text-xl'>{application.idea_description}</p>
           </div>
-
           <div>
             <p className='text-muted-foreground text-xs'>{t.labels('leader')}</p>
             <p className='text-xl'>{application.leader_name_ar}</p>
@@ -194,6 +249,6 @@ export default function ApplicationDetails() {
         </TabsContent>
         <TabsContent value="attachments" dir={locale === 'ar' ? 'rtl' : 'ltr'}>attachments</TabsContent>
       </Tabs>
-    </div >
+    </div>
   );
 }

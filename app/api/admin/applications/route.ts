@@ -1,6 +1,5 @@
 import { supabaseAdmin } from '@/lib/supabase-admin'
 import { NextResponse } from 'next/server'
-import { headers } from 'next/headers'
 import { verifyAdminUser } from '@/lib/verify-admin-user'
 
 export async function GET() {
