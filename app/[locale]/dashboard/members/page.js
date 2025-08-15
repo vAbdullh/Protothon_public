@@ -15,10 +15,10 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
 
   const t = {
-  labels: useTranslations('labels'),
-  shared: useTranslations('shared'),
-  messages: useTranslations('messages'),
-  headings: useTranslations('headings')
+    labels: useTranslations('labels'),
+    shared: useTranslations('shared'),
+    messages: useTranslations('messages'),
+    headings: useTranslations('headings')
   };
 
   const fetchMembers = async () => {
@@ -74,7 +74,7 @@ export default function Page() {
       {data && data.length > 0 ? (
         <DashboardTable data={data} columns={columns} />
       ) : (
-        Loader ? <Loader /> : <p>{t.messages('noMembersFound')}</p>
+        loading ? <Loader /> : <p>{t.messages('noMembersFound')}</p>
       )}
     </div>
   );
