@@ -194,37 +194,6 @@ export default function ApplicationDetails() {
         </TabsContent>
         <TabsContent value="attachments" dir={locale === 'ar' ? 'rtl' : 'ltr'}>attachments</TabsContent>
       </Tabs>
-
-      {/*  old */}
-      <div className="p-6 hidden">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-xl font-bold">Application Details</h1>
-          <Button
-            variant="default"
-            onClick={() => router.push('/dashboard/applications')}
-          >
-            Back to List
-          </Button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <hr className='border-4 col-span-2' />
-          {application.members?.length > 0 && (
-            <div className='space-y-10'>
-              {application.members.map((member) => (
-                <div key={member.member_id}>
-                  <p>Name: {member.member_name_en} ({member.member_name_ar})</p>
-                  <p>Email: {member.member_email}</p>
-                  <p>Phone: {member.member_phone}</p>
-                  <p>University: {member.university}</p>
-                  <p>Major: {member.major}</p>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
     </div >
   );
 }
