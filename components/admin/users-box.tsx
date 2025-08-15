@@ -21,7 +21,6 @@ export function UserBox() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      console.log("User data:", user?.user_metadata);
       if (user) {
         setUser({
           email: user.email,
