@@ -5,7 +5,9 @@
     "refresh": "تحديث",
     "approved": "تم القبول",
     "rejected": "لم يتم الترشيح",
-    "pending": "بانتظار المراجعة"
+    "pending": "بانتظار المراجعة",
+    "error": "حدث خطأ",
+    "edit": "تعديل"
   },
   "DashboardLogin": {
     "title": "الوصول إلى لوحة التحكم",
@@ -40,8 +42,12 @@
     "status": "الحالة",
     "leader": "القائد",
     "members": "الأعضاء",
+    "attachments": "المرفقات",
     "createdAt": "تاريخ الإنشاء",
-    "viewDetails": "عرض التفاصيل"
+    "viewDetails": "عرض التفاصيل",
+    "backApplicationsList": "العودة الى قائمة الفرق",
+    "ideaDetails": "تفاصيل الفكرة",
+    "ideaDescription": "شرح الفكرة"
   },
   "headings": {
     "applicationsList": "قائمة الفرق المتقدمة",
@@ -50,5 +56,11 @@
   "messages": {
     "noMembersFound": "لم يتم العثور على أعضاء",
     "noApplicationsFound": "لم يتم العثور على فرق"
+  },
+  "errorMessages": {
+    "notFound": "لم يتم إيجاد الفريق",
+    "errorLoadingApplications": "حدث خطأ أثناء تحميل الفريق. يرجى المحاولة لاحقا.",
+    "errorRef": "مرجع الخطأ:",
+    "membersNotFound": "لم يتم ايجاد اعضاء مسجلين"
   }
 }

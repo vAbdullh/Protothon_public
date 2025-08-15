@@ -5,7 +5,9 @@
     "refresh": "Refresh",
     "approved": "Confirmed",
     "rejected": "Not Selected",
-    "pending": "Awaiting Review"
+    "pending": "Awaiting Review",
+    "error": "Error",
+    "edit": "Edit"
   },
   "DashboardLogin": {
     "title": "Dashboard Login",
@@ -40,8 +42,12 @@
     "status": "Status",
     "leader": "Leader",
     "members": "Members",
+    "attachments": "Attachments",
     "createdAt": "Created At",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "backApplicationsList": "Back to Applications List",
+    "ideaDetails": "Idea Details",
+    "ideaDescription": "Idea Description"
   },
   "headings": {
     "applicationsList": "Applications List",
@@ -50,5 +56,11 @@
   "messages": {
     "noMembersFound": "No members found",
     "noApplicationsFound": "No applications found"
+  },
+  "errorMessages": {
+    "notFound": "Application not found!",
+    "errorLoadingApplications": "Error loading applications. Please try again later.",
+    "errorRef": "Error Reference:",
+    "membersNotFound": "No members listed."
   }
 }
