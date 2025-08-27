@@ -26,7 +26,8 @@
   "dashboardSidebar": {
     "overview": "Overview",
     "applications": "Applied Teams",
-    "members": "Members & Leader Overview"
+    "members": "Members & Leader Overview",
+    "newApplication": "New Application"
   },
   "labels": {
     "nameEn": "Name (EN)",
@@ -62,5 +63,31 @@
     "errorLoadingApplications": "Error loading applications. Please try again later.",
     "errorRef": "Error Reference:",
     "membersNotFound": "No members listed."
+  },
+  "applicationForm": {
+    "title": "New Application Form",
+    "applicationDetails": "Application Details",
+    "teamMembers": "Team Members",
+    "attachments": "Attachments",
+    "teamName": "Team Name",
+    "track": "Track",
+    "ideaTitle": "Idea Title",
+    "ideaDescription": "Idea Description (max 250 characters)",
+    "nameAr": "Name (Arabic)",
+    "nameEn": "Name (English)",
+    "gender": "Gender",
+    "phone": "Phone Number",
+    "email": "Email",
+    "university": "University",
+    "major": "Major",
+    "universityId": "University ID (optional)",
+    "fileUrl": "File URL",
+    "addMember": "Add Member",
+    "addAttachment": "Add Attachment",
+    "remove": "Remove",
+    "submit": "Submit Application",
+    "submitting": "Submitting...",
+    "fillDummyData": "Fill with Dummy Data",
+    "member": "Member"
   }
 }

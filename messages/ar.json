@@ -26,7 +26,8 @@
   "dashboardSidebar": {
     "overview": "نظرة عامة",
     "applications": "الفرق المتقدمة",
-    "members": "بيانات الأعضاء والقادة"
+    "members": "بيانات الأعضاء والقادة",
+    "newApplication": "طلب جديد"
   },
   "labels": {
     "nameEn": "الاسم (إنجليزي)",
@@ -62,5 +63,31 @@
     "errorLoadingApplications": "حدث خطأ أثناء تحميل الفريق. يرجى المحاولة لاحقا.",
     "errorRef": "مرجع الخطأ:",
     "membersNotFound": "لم يتم ايجاد اعضاء مسجلين"
+  },
+  "applicationForm": {
+    "title": "نموذج طلب جديد",
+    "applicationDetails": "تفاصيل الطلب",
+    "teamMembers": "أعضاء الفريق",
+    "attachments": "المرفقات",
+    "teamName": "اسم الفريق",
+    "track": "المسار",
+    "ideaTitle": "عنوان الفكرة",
+    "ideaDescription": "شرح الفكرة (حد أقصى 250 حرف)",
+    "nameAr": "الاسم (عربي)",
+    "nameEn": "الاسم (إنجليزي)",
+    "gender": "الجنس",
+    "phone": "رقم الهاتف",
+    "email": "البريد الإلكتروني",
+    "university": "الجامعة",
+    "major": "التخصص",
+    "universityId": "الرقم الجامعي (اختياري)",
+    "fileUrl": "رابط الملف",
+    "addMember": "إضافة عضو",
+    "addAttachment": "إضافة مرفق",
+    "remove": "إزالة",
+    "submit": "تقديم الطلب",
+    "submitting": "جاري التقديم...",
+    "fillDummyData": "ملء ببيانات وهمية",
+    "member": "عضو"
   }
 }
