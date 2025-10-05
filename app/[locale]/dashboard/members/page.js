@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from 'react';
 import { DashboardTable } from '@/components/admin/dashboard-table';
 import { supabase } from '@/lib/supabaseClient';
-import { University } from 'lucide-react';
+import { University, Download } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { H1 } from '@/components/shadcn/typography-h1';
 import { Button } from '@/components/shadcn/button';
 import Loader from '@/components/admin/loader';
+import { exportToCSV } from '@/lib/csv-export';
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -50,6 +51,12 @@ export default function Page() {
     }
   }
 
+  const handleExport = () => {
+    if (data.length === 0) return;
+    const filename = `members-${new Date().toISOString().split('T')[0]}.csv`;
+    const csvContent = exportToCSV(data, columns, filename);
+  };
+
   const columns = [
     { key: 'name_en', label: t.labels('nameEn'), type: 'text' },
     { key: 'name_ar', label: t.labels('nameAr'), type: 'text' },
@@ -67,9 +74,20 @@ export default function Page() {
   return (
     <div className="p-6 flex flex-col space-y-8">
       <H1>{t.headings('membersList')}</H1>
-      <Button disabled={loading} variant='default' className='w-fit self-end' onClick={fetchMembers}>
-        {loading ? t.shared('loading') : t.shared('refresh')}
-      </Button>
+      <div className="flex gap-2 self-end">
+        <Button disabled={loading} variant='default' onClick={fetchMembers}>
+          {loading ? t.shared('loading') : t.shared('refresh')}
+        </Button>
+        <Button
+          disabled={!data || data.length === 0}
+          variant="outline"
+          onClick={handleExport}
+          className="flex items-center gap-2"
+        >
+          <Download size={16} />
+          Export CSV
+        </Button>
+      </div>
       {error && <p className="text-red-500">Error: {error}</p>}
       {data && data.length > 0 ? (
         <DashboardTable data={data} columns={columns} />

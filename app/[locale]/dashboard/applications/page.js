@@ -8,7 +8,8 @@ import { Button } from '@/components/shadcn/button';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import Loader from '@/components/admin/loader';
-import { EyeIcon } from 'lucide-react';
+import { EyeIcon, Download } from 'lucide-react';
+import { exportToCSV } from '@/lib/csv-export';
 
 export default function Page() {
   const [data, setData] = useState([]);
@@ -62,6 +63,12 @@ export default function Page() {
     router.push(`/dashboard/applications/${applicationId}`);
   };
 
+  const handleExport = () => {
+    if (data.length === 0) return;
+    const filename = `applications_${new Date().toISOString().split('T')[0]}.csv`;
+    const csvContent = exportToCSV(data, columns, filename);
+  };
+
   const columns = [
     { key: 'team_name', label: t.labels('teamName'), type: 'text' },
     { key: 'track', label: t.labels('track'), type: 'text' },
@@ -70,8 +77,8 @@ export default function Page() {
     { key: 'member_count', label: t.labels('members'), type: 'text' },
     { key: 'created_at', label: t.labels('createdAt'), type: 'date' },
     { key: 'status', label: t.labels('status'), type: 'status' },
-    { 
-      key: 'actions', 
+    {
+      key: 'actions',
       type: 'button',
       onClick: (value, row) => handleViewDetails(row.application_id),
       value: t.labels('viewDetails'),
@@ -86,14 +93,24 @@ export default function Page() {
   return (
     <div className="p-6 flex flex-col space-y-8">
       <H1>{t.headings('applicationsList')}</H1>
-      <Button
-        disabled={loading}
-        variant="default"
-        className="w-fit self-end"
-        onClick={fetchTeamOverview}
-      >
-        {loading ? t.shared('loading') : t.shared('refresh')}
-      </Button>
+      <div className="flex gap-2 self-end">
+        <Button
+          disabled={loading}
+          variant="default"
+          onClick={fetchTeamOverview}
+        >
+          {loading ? t.shared('loading') : t.shared('refresh')}
+        </Button>
+        <Button
+          disabled={data.length === 0}
+          variant="outline"
+          onClick={handleExport}
+          className="flex items-center gap-2"
+        >
+          <Download size={16} />
+          Export CSV
+        </Button>
+      </div>
       {error && <p className="text-red-500">Error: {error}</p>}
       {data && data.length > 0 ? (
         <DashboardTable data={data} columns={columns} />
