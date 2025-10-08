@@ -7,87 +7,13 @@
     "rejected": "Not Selected",
     "pending": "Awaiting Review",
     "error": "Error",
-    "edit": "Edit"
+    "edit": "Edit",
+    "cta": "Register Now"
   },
-  "DashboardLogin": {
-    "title": "Dashboard Login",
-    "description": "Login to your Protothon Dashboard",
-    "email": "Email",
-    "password": "Password",
-    "loginPassword": "Login with Password",
-    "loginEmail": "Login with Email Link",
-    "errInvalidCredentials": "Invalid email or password",
-    "errEmailNotFound": "Email not found",
-    "errPasswordRequired": "Password is required",
-    "errEmailRequired": "Email is required",
-    "errInvalidEmail": "Invalid email format",
-    "checkYourEmail": "Check your email for the login link"
-  },
-  "dashboardSidebar": {
-    "overview": "Overview",
-    "applications": "Applied Teams",
-    "members": "Members & Leader Overview",
-    "newApplication": "New Application"
-  },
-  "labels": {
-    "nameEn": "Name (EN)",
-    "nameAr": "Name (AR)",
-    "gender": "Gender",
-    "email": "Email",
-    "university": "University",
-    "major": "Major",
-    "universityId": "University ID",
-    "teamName": "Team Name",
-    "track": "Track",
-    "ideaTitle": "Idea Title",
-    "status": "Status",
-    "leader": "Leader",
-    "members": "Members",
-    "attachments": "Attachments",
-    "createdAt": "Created At",
-    "viewDetails": "View Details",
-    "backApplicationsList": "Back to Applications List",
-    "ideaDetails": "Idea Details",
-    "ideaDescription": "Idea Description"
-  },
-  "headings": {
-    "applicationsList": "Applications List",
-    "membersList": "Members List"
-  },
-  "messages": {
-    "noMembersFound": "No members found",
-    "noApplicationsFound": "No applications found"
-  },
-  "errorMessages": {
-    "notFound": "Application not found!",
-    "errorLoadingApplications": "Error loading applications. Please try again later.",
-    "errorRef": "Error Reference:",
-    "membersNotFound": "No members listed."
-  },
-  "applicationForm": {
-    "title": "New Application Form",
-    "applicationDetails": "Application Details",
-    "teamMembers": "Team Members",
-    "attachments": "Attachments",
-    "teamName": "Team Name",
-    "track": "Track",
-    "ideaTitle": "Idea Title",
-    "ideaDescription": "Idea Description (max 250 characters)",
-    "nameAr": "Name (Arabic)",
-    "nameEn": "Name (English)",
-    "gender": "Gender",
-    "phone": "Phone Number",
-    "email": "Email",
-    "university": "University",
-    "major": "Major",
-    "universityId": "University ID (optional)",
-    "fileUrl": "File URL",
-    "addMember": "Add Member",
-    "addAttachment": "Add Attachment",
-    "remove": "Remove",
-    "submit": "Submit Application",
-    "submitting": "Submitting...",
-    "fillDummyData": "Fill with Dummy Data",
-    "member": "Member"
+  "header": {
+    "home": "Home",
+    "tracks": "Tracks",
+    "policies": "Policies",
+    "contact": "Contact Us"
   }
 }

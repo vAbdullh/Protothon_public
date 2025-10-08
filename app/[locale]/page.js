@@ -1,11 +1,10 @@
 'use client'
 import React from 'react'
-import Loader from '@/components/loader'
-
+import Header from '@/components/common/header'
 export default function page() {
   return (
     <div>
-      <Loader />
+      <Header />
     </div>
   )
 }
