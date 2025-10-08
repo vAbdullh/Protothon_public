@@ -15,5 +15,11 @@
     "tracks": "المسارات",
     "policies": "الشروط",
     "contact": "تواصل معنا"
+  },
+  "countdown": {
+    "days": "أيام",
+    "hours": "ساعات",
+    "minutes": "دقائق",
+    "seconds": "ثواني"
   }
 }

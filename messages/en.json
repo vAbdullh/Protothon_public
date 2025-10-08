@@ -15,5 +15,11 @@
     "tracks": "Tracks",
     "policies": "Policies",
     "contact": "Contact Us"
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
   }
 }
