@@ -46,8 +46,8 @@ export default async function RootLayout({
       <body className={`antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale} messages={messages}>

@@ -1,24 +1,19 @@
 "use client"
 
 import { Button } from "@/components/shadcn/button"
-import { useTheme } from "next-themes"
-import { Moon, Sun } from "lucide-react"
+import { Sun } from "lucide-react"
 
 export function ThemeToggleButton() {
-  const { setTheme, theme } = useTheme()
-
+  // Theme is forced to light mode, so this button is disabled
   return (
     <Button
       variant="outline"
       size="icon"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      disabled
+      title="Light theme is enforced"
     >
-      {theme === "light" ? (
-        <Moon className="h-[1.2rem] w-[1.2rem]" />
-      ) : (
-        <Sun className="h-[1.2rem] w-[1.2rem]" />
-      )}
-      <span className="sr-only">Toggle theme</span>
+      <Sun className="h-[1.2rem] w-[1.2rem]" />
+      <span className="sr-only">Light theme (enforced)</span>
     </Button>
   )
 }
