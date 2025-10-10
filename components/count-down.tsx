@@ -57,7 +57,7 @@ export function Countdown({ targetDate, className }: CountdownProps) {
   return (
     <div
       className={cn(
-        "grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 w-full",
+        "grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 w-screen md:w-full max-w-7xl px-3",
         className
       )}
       dir="ltr"
