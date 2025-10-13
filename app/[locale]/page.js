@@ -10,16 +10,11 @@ import Link from 'next/link'
 
 export default function Page() {
   return (
-    <div className='h-[200vh]'>
-      <div className="h-screen flex flex-col">
-        <Header />
-        <Hero />
-        <Countdown
-          targetDate={1767225600000}
-          className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2"
-        />
-      </div>
-    </div>
+    <>
+      <Header />
+      <Hero />
+      <About />
+    </>
   )
 }
 // home page section
@@ -29,7 +24,12 @@ function Hero() {
   const t = useTranslations('shared')
 
   return (
-    <section className="relative flex-1 flex items-center justify-center overflow-hidden">
+    <section className="relative flex-1 h-screen flex items-center justify-center">
+      <Countdown
+        targetDate={1767225600000}
+        className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-50"
+      />
+
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F0723] via-[#3B1C89] to-[#0EA5E9]" />
 
@@ -73,5 +73,12 @@ function Hero() {
         </Link>
       </div>
     </section>
+  )
+}
+function About() {
+  return (
+    <div className='h-screen bg-cyan-400'>
+      new section about
+    </div>
   )
 }
