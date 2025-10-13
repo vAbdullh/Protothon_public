@@ -26,9 +26,8 @@ export default function Page() {
 
 // Hero. Credit ChatGPT
 function Hero() {
-  const t = {
-    shared: useTranslations('shared'),
-  }
+  const t = useTranslations('shared')
+
   return (
     <section className="relative flex-1 flex items-center justify-center overflow-hidden">
       {/* Gradient overlay */}
@@ -44,7 +43,7 @@ function Hero() {
       {/* Foreground content */}
 
       <div className='flex justify-center lg:justify-evenly gap-10 flex-col text-white lg:text-start container mx-auto h-full z-50 px-2'>
-        <h1 className="text-5xl md:text-9xl font-bold">{t.shared('protothon')}</h1>
+        <h1 className="text-5xl md:text-9xl font-bold">{t('protothon')}</h1>
         <div className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 mx-auto lg:gap-14 font-extrabold text-sm lg:text-xl'>
           <div className='flex gap-2 items-center lg:h-11 w-auto'>
             <CalendarRange className='lg:size-11' />
@@ -64,13 +63,13 @@ function Hero() {
           <div className='flex gap-2 items-center lg:h-11 w-auto'>
             <MapPin className='lg:size-11' />
             <div className='flex flex-col gap-2'>
-              <p>{t.shared('university')}</p>
-              <p>{t.shared('venue')}</p>
+              <p>{t('university')}</p>
+              <p>{t('venue')}</p>
             </div>
           </div>
         </div>
         <Link href={'/apply'} className='w-full md:w-fit mx-auto'>
-          <Button variant='default' className='w-full md:w-xl py-9 text-2xl font-extrabold'>{t.shared('cta')}</Button>
+          <Button variant='default' className='w-full md:w-xl py-9 text-2xl font-extrabold'>{t('cta')}</Button>
         </Link>
       </div>
     </section>
