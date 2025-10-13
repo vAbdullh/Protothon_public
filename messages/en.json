@@ -8,8 +8,11 @@
     "pending": "Awaiting Review",
     "error": "Error",
     "edit": "Edit",
-    "cta": "Register Now"
+    "cta": "Register Now",
+    "university": "King Abdulaziz university",
+    "venue": "King Faisal Conference Center"
   },
+  
   "header": {
     "home": "Home",
     "tracks": "Tracks",
