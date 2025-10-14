@@ -14,6 +14,7 @@ export default function Page() {
       <Header />
       <Hero />
       <About />
+      <Community />
     </>
   )
 }
@@ -89,6 +90,30 @@ function About() {
       <div className='container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6'>
         <h3 className='text-5xl lg:text-7xl font-bold text-primary tracking-tight'>{t('heading')}</h3>
         <p className='text-2xl lg:text-5xl'>{t('description')}</p>
+      </div>
+    </div>
+  )
+}
+// join community
+function Community() {
+  const t = useTranslations('home.community')
+  return (
+    <div className='grid grid-cols-3 grid-rows-3 px-2 py-5 container mx-auto place-items-center'>
+      <img src="./images/discord-logo.png" className="col-start-2" loading='lazy' />
+      <img src="./images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-1 rotate-180" loading='lazy' />
+      <p className='row-start-2 col-span-3 md:col-span-1 md:col-start-2 text-3xl text-center font-bold'>{t('description')}</p>
+      <img src="./images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-3 self-center place-self-center" loading='lazy' />
+      <div className="row-start-3 col-span-3 md:col-span-1 md:col-start-2 flex bg-blue-300 w-full justify-center">
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full"
+        >
+          <Button size="lg" className="w-full h-20 text-lg md:text-2xl font-bold">
+            {t('cta')}
+          </Button>
+        </a>
       </div>
     </div>
   )

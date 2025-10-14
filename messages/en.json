@@ -29,6 +29,10 @@
     "about": {
       "heading": "What is Protothon?",
       "description": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi."
+    },
+    "community": {
+      "description": "Don’t have a team but still want to participate? Join our Discord and find your teammates!",
+      "cta": "Join the community"
     }
   }
 }
