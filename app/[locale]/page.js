@@ -37,7 +37,7 @@ function Hero() {
       <img
         src="/images/hero-overlay.jpg"
         className="absolute inset-0 w-full h-full object-cover opacity-25"
-        alt="Hero Background"
+        loading='lazy'
       />
 
       {/* Foreground content */}
@@ -58,7 +58,7 @@ function Hero() {
           </div>
 
           {/* divider */}
-          <div class="h-px w-full bg-gray-300 my-4 lg:my-0 lg:h-full lg:w-1"></div>
+          <div className="h-px w-full bg-gray-300 my-4 lg:my-0 lg:h-full lg:w-1"></div>
 
           <div className='flex gap-2 items-center lg:h-11 w-auto'>
             <MapPin className='lg:size-11' />
@@ -75,10 +75,21 @@ function Hero() {
     </section>
   )
 }
+
+// About
 function About() {
+  const t = useTranslations('home.about');
   return (
-    <div className='h-screen bg-cyan-400'>
-      new section about
+    <div className='h-screen relative flex justify-start items-center'>
+      <img
+        src="/images/filament-about.png"
+        className="absolute bottom-0 left-0 object-cover object-top-right h-auto w-auto aspect-auto max-w-1/2"
+        loading="lazy"
+      />
+      <div className='container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6'>
+        <h3 className='text-5xl lg:text-7xl font-bold text-primary tracking-tight'>{t('heading')}</h3>
+        <p className='text-2xl lg:text-5xl'>{t('description')}</p>
+      </div>
     </div>
   )
 }

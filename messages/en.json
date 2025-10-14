@@ -12,7 +12,7 @@
     "university": "King Abdulaziz university",
     "venue": "King Faisal Conference Center"
   },
-  
+
   "header": {
     "home": "Home",
     "tracks": "Tracks",
@@ -24,5 +24,11 @@
     "hours": "Hours",
     "minutes": "Minutes",
     "seconds": "Seconds"
+  },
+  "home": {
+    "about": {
+      "heading": "What is Protothon?",
+      "description": " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi."
+    }
   }
 }
