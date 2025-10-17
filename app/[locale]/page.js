@@ -147,8 +147,8 @@ function PrizesAndRules() {
           >
             <CardContent className='text-white font-semibold'>
               <ol className='flex flex-col gap-5 list-decimal text-2xl font-semibold'>
-                {t.rules.raw('rules_list').map((rule, key) =>
-                  <li>{rule}</li>
+                {t.rules.raw('rules_list').map((rule, index) =>
+                  <li key={index}>{rule}</li>
                 )}
               </ol>
             </CardContent>
