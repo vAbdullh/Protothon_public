@@ -105,7 +105,7 @@ function PrizesAndRules() {
   }
   return (
     <>
-      <div className='container mx-auto px-2 h-screen mb-[50vh] flex flex-col items-center justify-center gap-20 md:gap-0 md:justify-evenly'>
+      <div className='container mx-auto px-2 h-screen mb-[50lvh] flex flex-col items-center justify-center gap-20 md:gap-0 md:justify-evenly'>
         <h3 className='text-7xl lg:text-9xl font-bold text-primary tracking-tight capitalize text-center'>
           {t.prizes('title')}
         </h3>
@@ -137,8 +137,8 @@ function PrizesAndRules() {
         </div>
       </div>
       <div className='grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative'>
-        <img src="./images/prizes_illustration.svg" className='absolute -top-1/2 -left-0 h-screen' />
-        <div className='flex flex-col gap-4'>
+        <img src="./images/prizes_illustration.svg" className='absolute -top-[50lvh] -left-0 h-screen z-10' />
+        <div className='flex flex-col gap-4 z-20 mt-[50lvh]'>
           <h3 className='text-7xl lg:text-9xl font-bold  text-white tracking-tight capitalize text-center'>
             {t.rules('title')}
           </h3>
