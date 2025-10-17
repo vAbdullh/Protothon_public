@@ -47,6 +47,11 @@
     "community": {
       "description": "Don’t have a team but still want to participate? Join our Discord and find your teammates!",
       "cta": "Join the community"
+    },
+    "sponsors": {
+      "title": "Sponsors",
+      "gold": "Gold Sponsors",
+      "silver": "Silver Sponsors"
     }
   }
 }

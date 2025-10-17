@@ -1,13 +1,15 @@
 'use client'
 
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Header from '@/components/common/header'
 import { Countdown } from '@/components/count-down'
 import { useTranslations } from 'next-intl'
-import { CalendarRange, MapPin, SaudiRiyal } from 'lucide-react'
+import { CalendarRange, ChevronLeft, ChevronRight, MapPin, SaudiRiyal } from 'lucide-react'
 import { Button } from '@/components/shadcn/button'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 
 export default function Page() {
   return (
@@ -17,6 +19,7 @@ export default function Page() {
       <About />
       <PrizesAndRules />
       <Community />
+      <Sponsors />
     </>
   )
 }
@@ -181,4 +184,116 @@ function Community() {
       </div>
     </div>
   )
+}
+
+// Sponsors, Credits for SponsorsCarousel: chatGPT and ClaudeAI
+function Sponsors() {
+  const t = useTranslations('home.sponsors');
+  const goldPartners = [
+    { id: 1, logo: "/images/partner-kau.png", name: "KAU" },
+    { id: 2, logo: "/images/partner-kau.png", name: "kau" },
+  ];
+  const silverPartners = [
+    { id: 1, logo: "/images/partner-abaad.png", name: "KAU" },
+    { id: 2, logo: "/images/partner-abaad.png", name: "kau" },
+  ];
+  return (
+    <div className='flex flex-col gap-5 justify-center items-center h-screen py-5'>
+      <h3 className='text-7xl lg:text-9xl font-bold text-primary tracking-tight capitalize text-center'>
+        {t("title")}
+      </h3>
+      <p className='font-semibold text-2xl text-cyan-primary'>{t("gold")}</p>
+      <SponsorsCarousel partners={goldPartners} />
+      <p className='font-semibold text-2xl text-cyan-primary'>{t("silver")}</p>
+      <SponsorsCarousel partners={silverPartners} />
+    </div>
+  );
+
+}
+function SponsorsCarousel({ partners = [] }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 3000, stopOnInteraction: false }),
+  ]);
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const scrollTo = useCallback(
+    (index) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  );
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onSelect]);
+
+  return (
+    <div className="relative w-full container mx-auto" dir='ltr'>
+      {/* Carousel container */}
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {partners.map((partner) => (
+            <div
+              key={partner.id}
+              className="flex-[0_0_100%] flex items-center justify-center p-8"
+            >
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="w-1/2 object-contain text-center grid place-items-center font-semibold"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation buttons */}
+      <button
+        type="button"
+        onClick={scrollPrev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 text-shadow-cyan-primary"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="size-10 text-cyan-primary" />
+      </button>
+
+      <button
+        type="button"
+        onClick={scrollNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 text-shadow-cyan-primary"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="size-10 text-cyan-primary" />
+      </button>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {partners.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => scrollTo(index)}
+            className={`w-2 h-2 rounded-full transition-all ${index === selectedIndex
+              ? "bg-primary w-6"
+              : "bg-gray-300 hover:bg-gray-400"
+              }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
