@@ -4,9 +4,10 @@ import React from 'react'
 import Header from '@/components/common/header'
 import { Countdown } from '@/components/count-down'
 import { useTranslations } from 'next-intl'
-import { CalendarRange, MapPin } from 'lucide-react'
+import { CalendarRange, MapPin, SaudiRiyal } from 'lucide-react'
 import { Button } from '@/components/shadcn/button'
 import Link from 'next/link'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card'
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <Header />
       <Hero />
       <About />
+      <PrizesAndRules />
       <Community />
     </>
   )
@@ -88,11 +90,73 @@ function About() {
         loading="lazy"
       />
       <div className='container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6'>
-        <h3 className='text-5xl lg:text-7xl font-bold text-primary tracking-tight'>{t('heading')}</h3>
+        <h3 className='text-5xl lg:text-7xl font-bold text-primary tracking-tight'>{t('title')}</h3>
         <p className='text-2xl lg:text-5xl'>{t('description')}</p>
       </div>
     </div>
   )
+}
+
+// Prizes & Rules
+function PrizesAndRules() {
+  const t = {
+    prizes: useTranslations('home.prizes'),
+    rules: useTranslations('home.rules')
+  }
+  return (
+    <>
+      <div className='container mx-auto px-2 h-screen mb-[50vh] flex flex-col items-center justify-center gap-20 md:gap-0 md:justify-evenly'>
+        <h3 className='text-7xl lg:text-9xl font-bold text-primary tracking-tight capitalize text-center'>
+          {t.prizes('title')}
+        </h3>
+        <div className='flex flex-col gap-5 items-center justify-center font-bold text-[#ABB8C2]'>
+          <p className='text-center text-4xl'>{t.prizes('up_to')}</p>
+
+          <div className='flex gap-4 items-center rtl:flex-row-reverse'>
+            <SaudiRiyal className='size-full' />
+            <p className='text-6xl lg:text-9xl text-cyan-primary font-bold'>999,999</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 grid-rows-2 gap-2 absolute h-screen w-screen p-10 -z-50">
+          <div className="relative">
+            <img src="./images/puzzle_2.png" className="absolute top-0 start-0 m-2" />
+          </div>
+
+          <div className="relative">
+            <img src="./images/puzzle_1.png" className="absolute top-0 end-0 m-2 hidden md:block" />
+          </div>
+
+          <div className="relative">
+            <img src="./images/puzzle_4.png" className="absolute bottom-0 start-0 m-2 hidden md:block" />
+          </div>
+
+          <div className="relative">
+            <img src="./images/puzzle_3.png" className="absolute bottom-0 end-0 m-2" />
+          </div>
+        </div>
+      </div>
+      <div className='grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative'>
+        <img src="./images/prizes_illustration.svg" className='absolute -top-1/2 -left-0 h-screen' />
+        <div className='flex flex-col gap-4'>
+          <h3 className='text-7xl lg:text-9xl font-bold  text-white tracking-tight capitalize text-center'>
+            {t.rules('title')}
+          </h3>
+          <Card
+            className="text-white bg-gradient-to-b from-[#0F0723] to-[#251256] border-white/20 shadow-lg container mx-auto lg:w-4xl p-5"
+          >
+            <CardContent className='text-white font-semibold'>
+              <ol className='flex flex-col gap-5 list-decimal text-2xl font-semibold'>
+                {t.rules.raw('rules_list').map((rule, key) =>
+                  <li>{rule}</li>
+                )}
+              </ol>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </>
+  );
 }
 // join community
 function Community() {
