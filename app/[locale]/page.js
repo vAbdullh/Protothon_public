@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 import { CalendarRange, ChevronLeft, ChevronRight, MapPin, SaudiRiyal } from 'lucide-react'
 import { Button } from '@/components/shadcn/button'
 import Link from 'next/link'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card'
+import { Card, CardContent } from '@/components/shadcn/card'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 
