@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from 'react'
 import Header from '@/components/common/header'
+import Footer from '@/components/common/footer'
 import { Countdown } from '@/components/count-down'
 import { useTranslations } from 'next-intl'
 import { CalendarRange, ChevronLeft, ChevronRight, MapPin, SaudiRiyal } from 'lucide-react'
@@ -20,6 +21,7 @@ export default function Page() {
       <PrizesAndRules />
       <Community />
       <Sponsors />
+      <Footer />
     </>
   )
 }

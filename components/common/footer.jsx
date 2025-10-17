@@ -1,0 +1,70 @@
+import React from 'react'
+import { useTranslations } from 'use-intl'
+import { H3 } from '../shadcn/typography-h3';
+import { Linkedin } from 'lucide-react';
+import Image from 'next/image';
+
+export default function footer() {
+    const t = {
+        shared: useTranslations('shared'),
+        footer: useTranslations('footer')
+    };
+    const footerLinks = [
+        { key: "about_hackathon", href: "#" },
+        { key: "about_club", href: "#" },
+        { key: "faq", href: "#" },
+        { key: "team", href: "#" },
+        { key: "contact_us", href: "#" },
+    ];
+    return (
+        <div className='flex flex-col gap-5 bg-gradient-to-b from-[#0F0723] to-[#3B1C89] py-5 px-3 mx-auto text-white'>
+            <H3>{t.shared("protothon")}</H3>
+            <ul className="flex flex-col font-semibold gap-2">
+                {footerLinks.map((link) => (
+                    <li key={link.key}>
+                        <a href={link.href} className="hover:underline">
+                            {t.footer(link.key)}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+            <div className='flex flex-col justify-between items-center md:flex-row'>
+                <div className='flex gap-3'>
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        className="bg-white rounded-sm p-1 hover:bg-gray-200"
+                    >
+                        <Linkedin className="text-primary w-5 h-5" />
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        className="bg-white rounded-sm p-1 hover:bg-gray-200"
+                    >
+                        <Linkedin className="text-primary w-5 h-5" />
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        className="bg-white rounded-sm p-1 hover:bg-gray-200"
+                    >
+                        <Linkedin className="text-primary w-5 h-5" />
+                    </a>
+                </div>
+                <div className='flex gap-4 items-center space-x-2'>
+                    <Image
+                        src="/protothon-logo-purple.png"
+                        alt="protothon logo purple"
+                        width={150}
+                        height={0}
+                        className="w-16 lg:w-[150px] h-auto bg-white"
+                        priority
+                    />
+                    <Image
+                        src="/manufacturing-community-logo.png"
+                        alt="Manufacturing Community logo"
+                        width={150}
+                        height={0}
+                        className="w-22 lg:w-[190px] h-auto bg-white"
+                        priority
+                    />
+                </div>
+            </div>
+        </div >
+    )
+}

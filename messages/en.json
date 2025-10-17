@@ -19,6 +19,13 @@
     "policies": "Policies",
     "contact": "Contact Us"
   },
+  "footer": {
+    "about_hackathon": "About the Hackathon",
+    "about_club": "About the Manufacturing Club",
+    "faq": "Frequently Asked Questions",
+    "team": "Team",
+    "contact_us": "Contact Us"
+  },
   "countdown": {
     "days": "Days",
     "hours": "Hours",
