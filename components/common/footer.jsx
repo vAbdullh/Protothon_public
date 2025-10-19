@@ -17,9 +17,9 @@ export default function footer() {
         { key: "contact_us", href: "#" },
     ];
     return (
-        <div className='flex flex-col gap-5 bg-gradient-to-b from-[#0F0723] to-[#3B1C89] py-5 px-3 mx-auto text-white'>
+        <div className='flex flex-col gap-6 bg-gradient-to-b from-[#0F0723] to-[#3B1C89] py-8 px-3 mx-auto text-white'>
             <H3>{t.shared("protothon")}</H3>
-            <ul className="flex flex-col font-semibold gap-2">
+            <ul className="flex flex-col gap-2 font-normal">
                 {footerLinks.map((link) => (
                     <li key={link.key}>
                         <a href={link.href} className="hover:underline">
@@ -28,7 +28,7 @@ export default function footer() {
                     </li>
                 ))}
             </ul>
-            <div className='flex flex-col justify-between items-center md:flex-row'>
+            <div className='flex flex-col justify-between items-center md:flex-row gap-2'>
                 <div className='flex gap-3'>
                     <a href="#" target="_blank" rel="noopener noreferrer"
                         className="bg-white rounded-sm p-1 hover:bg-gray-200"

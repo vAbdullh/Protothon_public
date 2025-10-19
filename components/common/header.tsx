@@ -59,7 +59,7 @@ export default function Header() {
               href={link.href}
               className={`font-medium transition-colors ${
                 isActive
-                  ? "text-purple-600 font-semibold"
+                  ? "text-purple-600"
                   : "text-gray-700 hover:text-purple-600"
               }`}
             >
@@ -94,7 +94,7 @@ export default function Header() {
                     href={link.href}
                     className={`font-medium transition-colors ${
                       isActive
-                        ? "text-purple-600 font-semibold"
+                        ? "text-purple-600"
                         : "text-gray-700 hover:text-purple-600"
                     }`}
                   >

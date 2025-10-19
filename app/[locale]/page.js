@@ -53,7 +53,7 @@ function Hero() {
       <div className='flex justify-center lg:justify-evenly gap-10 flex-col text-white lg:text-start container mx-auto h-full z-50 px-2'>
         <h1 className="text-5xl md:text-9xl font-bold">{t('protothon')}</h1>
         <div className='flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 mx-auto lg:gap-14 font-extrabold text-sm lg:text-xl'>
-          <div className='flex gap-2 items-center lg:h-11 w-auto'>
+          <div className='flex gap-2 items-center lg:justify-end lg:h-11 lg:w-96'>
             <CalendarRange className='lg:size-11' />
             <div className='flex flex-col gap-2'>
               <p>
@@ -68,7 +68,7 @@ function Hero() {
           {/* divider */}
           <div className="h-px w-full bg-gray-300 my-4 lg:my-0 lg:h-full lg:w-1"></div>
 
-          <div className='flex gap-2 items-center lg:h-11 w-auto'>
+          <div className='flex gap-2 items-center lg:h-11 lg:w-96'>
             <MapPin className='lg:size-11' />
             <div className='flex flex-col gap-2'>
               <p>{t('university')}</p>
@@ -88,13 +88,13 @@ function Hero() {
 function About() {
   const t = useTranslations('home.about');
   return (
-    <div className='h-screen relative flex justify-start items-center'>
+    <div className='min-h-screen relative flex justify-start items-center'>
       <img
         src="/images/filament-about.png"
-        className="absolute bottom-0 left-0 object-cover object-top-right h-auto w-auto aspect-auto max-w-1/2"
+        className="absolute bottom-0 left-0 object-cover object-top-right h-auto w-auto aspect-auto max-h-1/3 -z-50"
         loading="lazy"
       />
-      <div className='container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6'>
+      <div className='container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6 mb-[25vh]'>
         <h3 className='text-5xl lg:text-7xl font-bold text-primary tracking-tight'>{t('title')}</h3>
         <p className='text-2xl lg:text-5xl'>{t('description')}</p>
       </div>
@@ -150,8 +150,8 @@ function PrizesAndRules() {
           <Card
             className="text-white bg-gradient-to-b from-[#0F0723] to-[#251256] border-white/20 shadow-lg container mx-auto lg:w-4xl p-5"
           >
-            <CardContent className='text-white font-semibold'>
-              <ol className='flex flex-col gap-5 list-decimal text-2xl font-semibold'>
+            <CardContent className='text-white'>
+              <ol className='flex flex-col gap-5 list-decimal text-sm md:text-2xl'>
                 {t.rules.raw('rules_list').map((rule, index) =>
                   <li key={index}>{rule}</li>
                 )}
@@ -172,7 +172,7 @@ function Community() {
       <img src="./images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-1 rotate-180" loading='lazy' />
       <p className='row-start-2 col-span-3 md:col-span-1 md:col-start-2 text-3xl text-center font-bold'>{t('description')}</p>
       <img src="./images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-3 self-center place-self-center" loading='lazy' />
-      <div className="row-start-3 col-span-3 md:col-span-1 md:col-start-2 flex bg-blue-300 w-full justify-center">
+      <div className="row-start-3 col-span-3 md:col-span-1 md:col-start-2 flex w-full justify-center">
         <a
           href="#"
           target="_blank"
@@ -204,9 +204,9 @@ function Sponsors() {
       <h3 className='text-7xl lg:text-9xl font-bold text-primary tracking-tight capitalize text-center'>
         {t("title")}
       </h3>
-      <p className='font-semibold text-2xl text-cyan-primary'>{t("gold")}</p>
+      <p className='text-2xl text-cyan-primary'>{t("gold")}</p>
       <SponsorsCarousel partners={goldPartners} />
-      <p className='font-semibold text-2xl text-cyan-primary'>{t("silver")}</p>
+      <p className='text-2xl text-cyan-primary'>{t("silver")}</p>
       <SponsorsCarousel partners={silverPartners} />
     </div>
   );
@@ -256,7 +256,7 @@ function SponsorsCarousel({ partners = [] }) {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="w-1/2 object-contain text-center grid place-items-center font-semibold"
+                className="w-1/2 object-contain text-center grid place-items-center"
               />
             </div>
           ))}

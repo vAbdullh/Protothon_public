@@ -114,6 +114,7 @@
 
 body {
   font-family: "Rajdhani", "Almarai", sans-serif;
+  @apply font-semibold;
 }
 
 @layer base {
