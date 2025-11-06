@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { Card, CardContent } from '@/components/shadcn/card'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
+import Image from 'next/image'
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
       <Header />
       <Hero />
       <About />
+      <Tracks />
       <Stages />
       <PrizesAndRules />
       <Community />
@@ -102,7 +104,38 @@ function About() {
     </div>
   )
 }
-
+const TrackBox = ({ from, to, title, description }) => {
+  return (
+    <div className={`bg-gradient-to-l from-[${from}] to-[${to}] w-full p-5 grid place-items-center gap-5`}>
+      <h4 className='text-4xl font-bold'>{title}</h4>
+      <p>{description}</p>
+    </div>
+  )
+}
+const TrackIllustration = ({ illustration }) => {
+  return (
+    <div className='relative'>
+      <img src={illustration} className='w-full absolute top-5 start-2 -z-30 grayscale opacity-10' />
+      <img src={illustration} className='w-full' />
+    </div>
+  )
+}
+function Tracks() {
+  return (
+    <div className='min-h-screen relative py-10 flex flex-col items-center justify-center gap-20 text-white w-screen'>
+      <div className='absolute -z-50 w-full h-full max-w-7xl mx-auto bg-gradient-to-b from-[#0F0723] to-[#3B1C89]' />
+      <h3 className='text-7xl lg:text-9xl font-bold tracking-tight capitalize text-center'>Tracks</h3>
+      <div className='grid max-lg:grid-rows-2 lg:grid-cols-2 w-screen overflow-hidden text-center gap-0'>
+        <TrackBox title={'placeholder'} description={'example text here this is an example text placeholder, example text here this is an example text placeholder, example text here this is an example text placeholder.'} from={'#3B1C89'} to={'#5D2F93'} />
+        <TrackIllustration illustration={'/images/health-track-illustration.svg'} />
+      </div>
+      <div className='grid grid-rows-2 lg:grid-cols-2 w-screen overflow-hidden text-center'>
+        <TrackBox title={'placeholder'} description={'example text here this is an example text placeholder, example text here this is an example text placeholder, example text here this is an example text placeholder.'} from={'#3B1C89'} to={'#5D2F93'} />
+        <TrackIllustration illustration={'/images/health-track-illustration.svg'} />
+      </div>
+    </div>
+  )
+}
 function DiamondShape({ cn }) {
   return (
     <div className={`w-8 h-8 lg:w-14 lg:h-14 bg-primary rotate-45 flex items-center justify-center z-50 ${cn}`}>
