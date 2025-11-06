@@ -105,46 +105,43 @@ function About() {
 
 function DiamondShape({ cn }) {
   return (
-    <div class={`w-8 h-8 lg:w-14 lg:h-14 bg-primary rotate-45 flex items-center justify-center z-50 ${cn}`}>
-      <div class="w-4 h-4 lg:w-7 lg:h-7 bg-white flex items-center justify-center">
-        <div class="w-2 h-2 lg:w-3 lg:h-3 bg-primary"></div>
+    <div className={`w-8 h-8 lg:w-14 lg:h-14 bg-primary rotate-45 flex items-center justify-center z-50 ${cn}`}>
+      <div className="w-4 h-4 lg:w-7 lg:h-7 bg-white flex items-center justify-center">
+        <div className="w-2 h-2 lg:w-3 lg:h-3 bg-primary"></div>
       </div>
     </div>
   )
 }
-function CardStage({ index }) {
+function CardStage({ index, details }) {
+  const { title, description, date } = details || {};
+
   const position = index % 2 === 0 ? 'start' : 'end';
   return (
-    <div className='flex flex-col gap-2 relative lg:w-[896px]'>
-      <DiamondShape cn="absolute -inset-x-4 lg:inset-x-1/2 lg:-left-1/2 lg:translate-x-1/2" />
-      <div className={`mt-4 lg:mt-7 justify-self-start p-5 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg w-md rounded-3xl lg:self-${position}`}>
-        <h4 className='text-2xl font-bold mb-2'>Stage {index + 1}</h4>
-        <p className=''>This is a description of stage {index + 1} in the Protothon event. More details will be provided later.</p>
+    <div className='flex flex-col relative lg:w-[896px]'>
+      <DiamondShape cn="absolute -inset-x-4 lg:inset-x-1/2 lg:-start-1/2 rtl:lg:translate-x-1/2 ltr:lg:-translate-x-1/2" />
+      <div className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg w-md rounded-3xl ${index % 2 === 0 ? 'lg:self-start' : 'lg:self-end'}`}>
+        <h4 className='text-2xl font-bold mb-2'>{title}</h4>
+        <p>{description}</p>
+        <p>{date}</p>
       </div>
-    </div>
+    </div >
   );
 }
 function Stages() {
-  // must finalize the stages data later in messages
-
+  const t = useTranslations('home.stages');
+  const stages = t.raw('timeline');
   return (
     <div className='container w-fit max-w-7xl mx-auto p-6 flex flex-col gap-10'>
-      <h3 className='text-5xl lg:text-7xl font-bold text-primary tracking-tight text-center capitalize'>timeline of stages </h3>
+      <h3 className='text-5xl lg:text-7xl font-bold text-primary tracking-tight text-center capitalize'>{t('title')}</h3>
       <div className='relative'>
-        <div class="absolute lg:left-1/2 transform lg:-translate-x-1/2 border-l-4 border-primary h-full z-40" />
-        {/* timeline vertical line */}
+        <div className="absolute lg:left-1/2 transform lg:-translate-x-1/2 border-l-4 border-primary h-full z-40" />
         <div className='flex flex-col h-full justify-center relative w-fit'>
-          {/* render 10 DiamondShape components */}
-          {[...Array(10)].map((_, index) => (
-            <div key={index} className='flex flex-col items-center justify-center '>
-              {/* <DiamondShape /> */}
-              {/* test card */}
-              <CardStage index={index} />
-            </div>
+          {stages.map((stage, index) => (
+            <CardStage index={index} details={stage} key={index} />
           ))}
 
         </div>
-        <DiamondShape cn="absolute -inset-x-4 lg:inset-x-1/2 lg:translate-x-1/2" />
+        <DiamondShape cn="absolute -inset-x-4 lg:inset-x-1/2 lg:-start-1/2 rtl:lg:translate-x-1/2 ltr:lg:-translate-x-1/2" />
       </div>
     </div>
   )

@@ -37,6 +37,15 @@
       "title": "What is Protothon?",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi."
     },
+    "stages": {
+      "title": "Hackathon Stages",
+      "timeline": [
+        {"title": "Registration", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"},
+        {"title": "Acceptance", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"},
+        {"title": "Hackathon Days", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"},
+        {"title": "Final day and prizes", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"}
+      ]
+    },
     "prizes": {
       "title": "Prizes",
       "up_to": "Up to"
