@@ -37,13 +37,62 @@
       "title": "What is Protothon?",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi."
     },
+    "tracks": {
+      "title": "Hackathon Tracks",
+      "tracks": [
+        {
+          "title": "Health Track",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "illustration": "/images/health-track-illustration.svg",
+          "from": "#3B1C89",
+          "to": "#5D2F93"
+        },
+        {
+          "title": "Security Track",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "illustration": "/images/security-track-illustration.svg",
+          "from": "#0EA5E9",
+          "to": "#083B83"
+        },
+        {
+          "title": "Innovation Track",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "illustration": "/images/innovation-track-illustration.svg",
+          "from": "#99E9F3",
+          "to": "#0EA59D"
+        },
+        {
+          "title": "Creative & Artistic Track",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "illustration": "/images/creative-track-illustration.svg",
+          "from": "#ABB8C2",
+          "to": "#E9F6FE"
+        }
+      ]
+    },
     "stages": {
       "title": "Hackathon Stages",
       "timeline": [
-        {"title": "Registration", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"},
-        {"title": "Acceptance", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"},
-        {"title": "Hackathon Days", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"},
-        {"title": "Final day and prizes", "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.", "date": "01 June - 25 June"}
+        {
+          "title": "Registration",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "date": "01 June - 25 June"
+        },
+        {
+          "title": "Acceptance",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "date": "01 June - 25 June"
+        },
+        {
+          "title": "Hackathon Days",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "date": "01 June - 25 June"
+        },
+        {
+          "title": "Final day and prizes",
+          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "date": "01 June - 25 June"
+        }
       ]
     },
     "prizes": {

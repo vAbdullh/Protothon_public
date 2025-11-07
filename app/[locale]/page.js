@@ -104,35 +104,46 @@ function About() {
     </div>
   )
 }
-const TrackBox = ({ from, to, title, description }) => {
+
+const TrackContainer = ({ from, to, title, description, illustration, reverse }) => {
   return (
-    <div className={`bg-gradient-to-l from-[${from}] to-[${to}] w-full p-5 grid place-items-center gap-5`}>
-      <h4 className='text-4xl font-bold'>{title}</h4>
-      <p>{description}</p>
-    </div>
-  )
-}
-const TrackIllustration = ({ illustration }) => {
-  return (
-    <div className='relative'>
-      <img src={illustration} className='w-full absolute top-5 start-2 -z-30 grayscale opacity-10' />
-      <img src={illustration} className='w-full' />
-    </div>
-  )
-}
+    <div className='grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 w-screen text-center'>
+      <div
+        className={`w-full p-5 grid place-items-center gap-5 ${reverse ? "lg:order-2" : ""}`}
+        style={{
+          background: `linear-gradient(to left, ${from}, ${to})`,
+          // order: reverse ? 2 : 0
+        }}
+      >
+        <h4 className="text-4xl font-bold">{title}</h4>
+        <p>{description}</p>
+      </div>
+      <div className='relative order-1 lg:order-0'>
+        <img src={illustration} className='w-full absolute top-5 -start-2 -z-30 grayscale opacity-40' />
+        <img src={illustration} className='w-full' />
+      </div>
+    </div >
+  );
+};
+
 function Tracks() {
+  const t = useTranslations('home.tracks');
+  const tracks = t.raw('tracks');
   return (
     <div className='min-h-screen relative py-10 flex flex-col items-center justify-center gap-20 text-white w-screen'>
       <div className='absolute -z-50 w-full h-full max-w-7xl mx-auto bg-gradient-to-b from-[#0F0723] to-[#3B1C89]' />
       <h3 className='text-7xl lg:text-9xl font-bold tracking-tight capitalize text-center'>Tracks</h3>
-      <div className='grid max-lg:grid-rows-2 lg:grid-cols-2 w-screen overflow-hidden text-center gap-0'>
-        <TrackBox title={'placeholder'} description={'example text here this is an example text placeholder, example text here this is an example text placeholder, example text here this is an example text placeholder.'} from={'#3B1C89'} to={'#5D2F93'} />
-        <TrackIllustration illustration={'/images/health-track-illustration.svg'} />
-      </div>
-      <div className='grid grid-rows-2 lg:grid-cols-2 w-screen overflow-hidden text-center'>
-        <TrackBox title={'placeholder'} description={'example text here this is an example text placeholder, example text here this is an example text placeholder, example text here this is an example text placeholder.'} from={'#3B1C89'} to={'#5D2F93'} />
-        <TrackIllustration illustration={'/images/health-track-illustration.svg'} />
-      </div>
+      {tracks.map((track, index) => (
+        <TrackContainer
+          key={index}
+          reverse={index % 2 !== 0}
+          title={track.title}
+          description={track.description}
+          illustration={track.illustration}
+          from={track.from}
+          to={track.to}
+        />
+      ))}
     </div>
   )
 }
