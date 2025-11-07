@@ -69,7 +69,9 @@ export default function Header() {
         })}
       </nav>
       <div className="hidden lg:flex items-center space-x-4">
-        <Button size="lg">{t.shared("cta")}</Button>
+        <Link href="/apply">
+          <Button size="lg">{t.shared("cta")}</Button>
+        </Link>
         <LanguageSwitcher />
       </div>
 
@@ -104,7 +106,9 @@ export default function Header() {
               })}
             </nav>
             <div className="mt-6 flex flex-col space-y-3">
-              <Button size="lg">{t.shared("cta")}</Button>
+              <Link href="/apply">
+                <Button size="lg">{t.shared("cta")}</Button>
+              </Link>
               <LanguageSwitcher />
             </div>
           </SheetContent>

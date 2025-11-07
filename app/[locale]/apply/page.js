@@ -1,400 +1,323 @@
-'use client';
+'use client'
+import React from 'react'
+import { useForm, useFieldArray } from 'react-hook-form'
+import { Input } from '@/components/shadcn/input'
+import { Textarea } from '@/components/shadcn/textarea'
+import { Button } from '@/components/shadcn/button'
+import { Label } from '@/components/shadcn/label'
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from '@/components/shadcn/select'
 
-import React, { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { Button } from '@/components/shadcn/button';
-import { Input } from '@/components/shadcn/input';
-import { Textarea } from '@/components/shadcn/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/shadcn/card';
-import { H3 } from '@/components/shadcn/typography-h3';
+/* ========================== CONFIG DATA ========================== */
 
-export default function PublicApplicationForm() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const t = useTranslations('applicationForm');
+const TRACK_OPTIONS = [
+  { value: 'ai', label: 'AI' },
+  { value: 'health', label: 'Health' },
+  { value: 'env', label: 'Environment' },
+]
 
-  // Form state
-  const [application, setApplication] = useState({
-    team_name: '',
-    track: '',
-    idea_title: '',
-    idea_description: '',
-    status: 'pending'
-  });
+const MEMBER_FIELDS = [
+  { name: 'nameAr', label: 'Arabic Name', placeholder: 'الاسم بالعربية', required: true },
+  { name: 'nameEn', label: 'English Name', placeholder: 'Name in English', required: true },
+  { name: 'phone', label: 'Phone Number', placeholder: '+966...', required: true },
+  { name: 'email', label: 'Email', placeholder: 'email@example.com', required: true },
+  { name: 'university', label: 'University', placeholder: 'KAU / Others', required: true },
+  { name: 'uniId', label: 'University ID', placeholder: 'If applicable', required: false },
+  { name: 'major', label: 'Major', placeholder: 'Computer Science', required: true },
+]
 
-  const [members, setMembers] = useState([
-    {
-      name_ar: '',
-      name_en: '',
-      gender: '',
-      phone: '',
-      email: '',
-      university: '',
-      major: '',
-      university_id: '',
-      is_leader: true
-    }
-  ]);
+/* ========================== MAIN COMPONENT ========================== */
 
-  const [attachments, setAttachments] = useState([{ file_url: '' }]);
-
-  // Track options
-  const trackOptions = [
-    'track1',
-    'track2',
-    'track3'
-  ];
-
-  // Gender options
-  const genderOptions = ['male', 'female'];
-
-  // Handle application field changes
-  const handleApplicationChange = (e) => {
-    const { name, value } = e.target;
-    setApplication(prev => ({ ...prev, [name]: value }));
-  };
-
-  // Handle member field changes
-  const handleMemberChange = (index, e) => {
-    const { name, value } = e.target;
-    const updatedMembers = [...members];
-    updatedMembers[index] = { ...updatedMembers[index], [name]: value };
-    setMembers(updatedMembers);
-  };
-
-  // Handle attachment field changes
-  const handleAttachmentChange = (index, e) => {
-    const { value } = e.target;
-    const updatedAttachments = [...attachments];
-    updatedAttachments[index] = { file_url: value };
-    setAttachments(updatedAttachments);
-  };
-
-  // Add new member
-  const addMember = () => {
-    setMembers([...members, {
-      name_ar: '',
-      name_en: '',
-      gender: '',
-      phone: '',
-      email: '',
-      university: '',
-      major: '',
-      university_id: '',
-      is_leader: false
-    }]);
-  };
-
-  // Add new attachment
-  const addAttachment = () => {
-    setAttachments([...attachments, { file_url: '' }]);
-  };
-
-  // Remove member
-  const removeMember = (index) => {
-    if (members.length > 1) {
-      const updatedMembers = members.filter((_, i) => i !== index);
-      setMembers(updatedMembers);
-    }
-  };
-
-  // Remove attachment
-  const removeAttachment = (index) => {
-    if (attachments.length > 1) {
-      const updatedAttachments = attachments.filter((_, i) => i !== index);
-      setAttachments(updatedAttachments);
-    }
-  };
-
-  // Fill with dummy data for testing
-  const fillDummyData = () => {
-    setApplication({
-      team_name: 'Innovation Squad',
-      track: 'Technology',
-      idea_title: 'Smart Campus Solution',
-      idea_description: 'A comprehensive platform to enhance campus life through IoT and mobile integration.',
-      status: 'pending'
-    });
-
-    setMembers([
-      {
-        name_ar: 'محمد أحمد',
-        name_en: 'Mohammed Ahmed',
-        gender: 'male',
-        phone: '+966500123456',
-        email: 'mohammed@example.com',
-        university: 'King Saud University',
-        major: 'Computer Engineering',
-        university_id: '202010001',
-        is_leader: true
-      },
-      {
-        name_ar: 'فاطمة علي',
-        name_en: 'Fatima Ali',
-        gender: 'female',
-        phone: '+966511223344',
-        email: 'fatima@example.com',
-        university: 'Princess Nourah University',
-        major: 'Information Technology',
-        university_id: '202020002',
-        is_leader: false
-      }
-    ]);
-
-    setAttachments([
-      { file_url: 'https://example.com/project-proposal.pdf' },
-      { file_url: 'https://example.com/team-cv.pdf' }
-    ]);
-  };
-
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-    setSuccess('');
-
-    try {
-      const response = await fetch('/api/applications/public-submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+export default function ApplyPage() {
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    watch,
+    formState: { errors, dirtyFields },
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      teamName: '',
+      track: '',
+      ideaTitle: '',
+      ideaDescription: '',
+      attachment: null,
+      members: [
+        {
+          nameAr: '',
+          nameEn: '',
+          gender: '',
+          phone: '',
+          email: '',
+          university: '',
+          uniId: '',
+          major: '',
         },
-        body: JSON.stringify({
-          application,
-          members,
-          attachments
-        })
-      });
+      ],
+    },
+  })
 
-      const result = await response.json();
+  const { fields, append, remove } = useFieldArray({ control, name: 'members' })
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit application');
-      }
+  const watchTrack = watch('track')
+  const watchAttachment = watch('attachment')
+  const watchMembers = watch('members')
 
-      setSuccess('Application submitted successfully!');
-      // Reset form after successful submission
-      setApplication({
-        team_name: '',
-        track: '',
-        idea_title: '',
-        idea_description: '',
-        status: 'pending'
-      });
-      setMembers([{
-        name_ar: '',
-        name_en: '',
-        gender: '',
-        phone: '',
-        email: '',
-        university: '',
-        major: '',
-        university_id: '',
-        is_leader: true
-      }]);
-      setAttachments([{ file_url: '' }]);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+  const onSubmit = (data) => {
+    console.log('✅ Form Submitted:', data)
+    alert('🎉 Your application has been submitted successfully!')
+  }
+
+  /** ✅ Deeply check nested field validity (works for members array) */
+  const getBorderClass = (path) => {
+    const parts = path.split('.')
+    let error = errors
+    let dirty = dirtyFields
+
+    // safely drill down nested object
+    for (const part of parts) {
+      error = error?.[part]
+      dirty = dirty?.[part]
     }
-  };
+
+    if (error) return 'border-red-500'
+    if (dirty) return 'border-green-500'
+    return ''
+  }
+
+  const ErrorMessage = ({ message }) => (
+    <div className='min-h-[1.25rem]'>
+      {message && <p className='text-red-500 text-sm mt-1'>{message}</p>}
+    </div>
+  )
 
   return (
-    <div className="p-6 space-y-6 max-w-4xl mx-auto">
-      <div className="flex justify-between items-center">
-        <H3>{t('title')}</H3>
-        <Button
-          type="button"
-          variant="outline"
-          onClick={fillDummyData}
-          className="bg-yellow-100 hover:bg-yellow-200"
-        >
-          {t('fillDummyData')}
-        </Button>
-      </div>
+    <div className='flex flex-col gap-10 bg-gradient-to-b from-[#0F0723] via-[#3B1C89] to-[#0EA5E9] min-h-screen'>
+      <div className='container w-full max-w-5xl p-10 mx-auto flex flex-col gap-10'>
+        <h1 className='text-5xl md:text-7xl font-bold text-white text-center'>
+          Apply Page
+        </h1>
 
-      {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">{error}</div>}
-      {success && <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">{success}</div>}
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-10'>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Application Details Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>{t('applicationDetails')}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Input
-              name="team_name"
-              placeholder={t('teamName')}
-              value={application.team_name}
-              onChange={handleApplicationChange}
-              required
-            />
-            <select
-              name="track"
-              value={application.track}
-              onChange={handleApplicationChange}
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              required
-            >
-              <option value="">{t('track')}</option>
-              {trackOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            <Input
-              name="idea_title"
-              placeholder={t('ideaTitle')}
-              value={application.idea_title}
-              onChange={handleApplicationChange}
-              required
-            />
-            <Textarea
-              name="idea_description"
-              placeholder={t('ideaDescription')}
-              value={application.idea_description}
-              onChange={handleApplicationChange}
-              maxLength={250}
-              required
-            />
-            <small className="text-gray-500">{application.idea_description.length}/250</small>
-          </CardContent>
-        </Card>
+          {/* ===================== Hackathon Info ===================== */}
+          <div className='bg-white rounded-3xl p-6 shadow-[0_0_20px_rgba(255,255,255,0.5)]'>
+            <h2 className='text-3xl font-semibold text-primary mb-5'>
+              Hackathon Information
+            </h2>
 
-        {/* Members Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>{t('teamMembers')}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {members.map((member, index) => (
-              <div key={index} className="border p-4 rounded space-y-3">
-                <div className="flex justify-between items-center">
-                  <h4 className="font-medium">{t('member')} {index + 1}</h4>
-                  {index > 0 && (
-                    <Button
-                      type="button"
-                      variant="destructive"
-                      size="sm"
-                      onClick={() => removeMember(index)}
-                    >
-                      {t('remove')}
-                    </Button>
-                  )}
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <Input
-                    name="name_ar"
-                    placeholder={t('nameAr')}
-                    value={member.name_ar}
-                    onChange={(e) => handleMemberChange(index, e)}
-                    required
-                  />
-                  <Input
-                    name="name_en"
-                    placeholder={t('nameEn')}
-                    value={member.name_en}
-                    onChange={(e) => handleMemberChange(index, e)}
-                    required
-                  />
-                  <select
-                    name="gender"
-                    value={member.gender}
-                    onChange={(e) => handleMemberChange(index, e)}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    required
-                  >
-                    <option value="">{t('gender')}</option>
-                    {genderOptions.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
-                  <Input
-                    name="phone"
-                    placeholder={t('phone')}
-                    value={member.phone}
-                    onChange={(e) => handleMemberChange(index, e)}
-                    required
-                  />
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder={t('email')}
-                    value={member.email}
-                    onChange={(e) => handleMemberChange(index, e)}
-                    required
-                  />
-                  <Input
-                    name="university"
-                    placeholder={t('university')}
-                    value={member.university}
-                    onChange={(e) => handleMemberChange(index, e)}
-                    required
-                  />
-                  <Input
-                    name="major"
-                    placeholder={t('major')}
-                    value={member.major}
-                    onChange={(e) => handleMemberChange(index, e)}
-                    required
-                  />
-                  <Input
-                    name="university_id"
-                    placeholder={t('universityId')}
-                    value={member.university_id}
-                    onChange={(e) => handleMemberChange(index, e)}
-                  />
-                </div>
-              </div>
-            ))}
-            <Button type="button" variant="outline" onClick={addMember}>
-              {t('addMember')}
-            </Button>
-          </CardContent>
-        </Card>
-
-        {/* Attachments Section */}
-        <Card>
-          <CardHeader>
-            <CardTitle>{t('attachments')}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {attachments.map((attachment, index) => (
-              <div key={index} className="flex items-center space-x-2">
+            <div className='grid gap-5 md:grid-cols-2'>
+              {/* Team Name */}
+              <div>
+                <Label>Team Name</Label>
                 <Input
-                  placeholder={t('fileUrl')}
-                  value={attachment.file_url}
-                  onChange={(e) => handleAttachmentChange(index, e)}
+                  className={getBorderClass('teamName')}
+                  {...register('teamName', { required: 'Team name is required' })}
+                  placeholder='Your team name'
                 />
-                {index > 0 && (
-                  <Button
-                    type="button"
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => removeAttachment(index)}
+                <ErrorMessage message={errors.teamName?.message} />
+              </div>
+
+              {/* Track */}
+              <div>
+                <Label>Track</Label>
+                <Select
+                  onValueChange={(value) =>
+                    setValue('track', value, { shouldDirty: true })
+                  }
+                >
+                  <SelectTrigger
+                    className={`w-full ${
+                      errors.track
+                        ? 'border-red-500'
+                        : watchTrack
+                        ? 'border-green-500'
+                        : ''
+                    }`}
                   >
-                    {t('remove')}
+                    <SelectValue placeholder='Select track' />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {TRACK_OPTIONS.map((track) => (
+                      <SelectItem key={track.value} value={track.value}>
+                        {track.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <ErrorMessage message={errors.track?.message} />
+              </div>
+            </div>
+
+            {/* Idea Section */}
+            <div className='grid gap-5'>
+              <div>
+                <Label>Idea Title</Label>
+                <Input
+                  className={getBorderClass('ideaTitle')}
+                  {...register('ideaTitle', { required: 'Idea title is required' })}
+                  placeholder='Project idea title'
+                />
+                <ErrorMessage message={errors.ideaTitle?.message} />
+              </div>
+
+              <div>
+                <Label>Idea Description</Label>
+                <Textarea
+                  className={getBorderClass('ideaDescription')}
+                  {...register('ideaDescription', {
+                    required: 'Please describe your idea',
+                    minLength: {
+                      value: 20,
+                      message: 'Description must be at least 20 characters',
+                    },
+                  })}
+                  placeholder='Describe your idea'
+                  rows={5}
+                />
+                <ErrorMessage message={errors.ideaDescription?.message} />
+              </div>
+
+              {/* Attachment */}
+              <div>
+                <Label>Attachment (PDF)</Label>
+                <Input
+                  type='file'
+                  accept='.pdf'
+                  className={`${
+                    errors.attachment
+                      ? 'border-red-500'
+                      : watchAttachment?.length
+                      ? 'border-green-500'
+                      : ''
+                  }`}
+                  {...register('attachment', {
+                    validate: (value) =>
+                      !value?.length ||
+                      value[0]?.type === 'application/pdf' ||
+                      'Only PDF files are allowed',
+                  })}
+                />
+                <ErrorMessage message={errors.attachment?.message} />
+              </div>
+            </div>
+          </div>
+
+          {/* ===================== Team Information ===================== */}
+          <div className='bg-white rounded-3xl p-6 shadow-[0_0_20px_rgba(255,255,255,0.5)]'>
+            <h2 className='text-3xl font-semibold text-primary mb-5'>
+              Team Information
+            </h2>
+
+            {fields.map((field, index) => (
+              <div
+                key={field.id}
+                className='border border-gray-200 rounded-xl p-4 mb-5'
+              >
+                <h3 className='font-bold text-lg mb-4 text-primary'>
+                  Member {index + 1}
+                </h3>
+
+                <div className='grid md:grid-cols-2 gap-4'>
+                  {MEMBER_FIELDS.map(({ name, label, placeholder, required }) => (
+                    <div key={name}>
+                      <Label>{label}</Label>
+                      <Input
+                        className={getBorderClass(`members.${index}.${name}`)}
+                        {...register(`members.${index}.${name}`, {
+                          required: required ? `${label} is required` : false,
+                        })}
+                        placeholder={placeholder}
+                      />
+                      <ErrorMessage
+                        message={errors.members?.[index]?.[name]?.message}
+                      />
+                    </div>
+                  ))}
+
+                  {/* Gender */}
+                  <div>
+                    <Label>Gender</Label>
+                    <Select
+                      onValueChange={(value) =>
+                        setValue(`members.${index}.gender`, value, {
+                          shouldDirty: true,
+                        })
+                      }
+                    >
+                      <SelectTrigger
+                        className={`w-full ${
+                          errors.members?.[index]?.gender
+                            ? 'border-red-500'
+                            : watchMembers?.[index]?.gender
+                            ? 'border-green-500'
+                            : ''
+                        }`}
+                      >
+                        <SelectValue placeholder='Select gender' />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value='male'>Male</SelectItem>
+                        <SelectItem value='female'>Female</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <ErrorMessage
+                      message={errors.members?.[index]?.gender?.message}
+                    />
+                  </div>
+                </div>
+
+                {fields.length > 1 && (
+                  <Button
+                    type='button'
+                    onClick={() => remove(index)}
+                    variant='destructive'
+                    className='mt-4'
+                  >
+                    Remove Member
                   </Button>
                 )}
               </div>
             ))}
-            <Button type="button" variant="outline" onClick={addAttachment}>
-              {t('addAttachment')}
-            </Button>
-          </CardContent>
-        </Card>
 
-        <Button type="submit" disabled={loading} className="w-full">
-          {loading ? t('submitting') : t('submit')}
-        </Button>
-      </form>
+            {fields.length < 5 && (
+              <Button
+                type='button'
+                onClick={() =>
+                  append({
+                    nameAr: '',
+                    nameEn: '',
+                    gender: '',
+                    phone: '',
+                    email: '',
+                    university: '',
+                    uniId: '',
+                    major: '',
+                  })
+                }
+                variant='outline'
+              >
+                + Add Member
+              </Button>
+            )}
+          </div>
+
+          <Button
+            type='submit'
+            size='lg'
+            className='self-center bg-black text-white w-full text-2xl font-bold hover:scale-95 transition-transform max-w-md'
+          >
+            Submit Application
+          </Button>
+        </form>
+      </div>
     </div>
-  );
+  )
 }

@@ -208,24 +208,24 @@ function PrizesAndRules() {
 
         <div className="grid grid-cols-2 grid-rows-2 gap-2 absolute h-screen w-screen p-10 -z-50">
           <div className="relative">
-            <img src="./images/puzzle_2.png" className="absolute top-0 start-0 m-2" />
+            <img src="/images/puzzle_2.png" className="absolute top-0 start-0 m-2" />
           </div>
 
           <div className="relative">
-            <img src="./images/puzzle_1.png" className="absolute top-0 end-0 m-2 hidden md:block" />
+            <img src="/images/puzzle_1.png" className="absolute top-0 end-0 m-2 hidden md:block" />
           </div>
 
           <div className="relative">
-            <img src="./images/puzzle_4.png" className="absolute bottom-0 start-0 m-2 hidden md:block" />
+            <img src="/images/puzzle_4.png" className="absolute bottom-0 start-0 m-2 hidden md:block" />
           </div>
 
           <div className="relative">
-            <img src="./images/puzzle_3.png" className="absolute bottom-0 end-0 m-2" />
+            <img src="/images/puzzle_3.png" className="absolute bottom-0 end-0 m-2" />
           </div>
         </div>
       </div>
       <div className='grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative'>
-        <img src="./images/prizes_illustration.svg" className='absolute -top-[50lvh] -left-0 h-screen z-10' />
+        <img src="/images/prizes_illustration.svg" className='absolute -top-[50lvh] -left-0 h-screen z-10' />
         <div className='flex flex-col gap-4 z-20 mt-[50lvh]'>
           <h3 className='text-7xl lg:text-9xl font-bold  text-white tracking-tight capitalize text-center'>
             {t.rules('title')}
@@ -251,10 +251,10 @@ function Community() {
   const t = useTranslations('home.community')
   return (
     <div className='grid grid-cols-3 grid-rows-3 px-2 py-5 container mx-auto place-items-center'>
-      <img src="./images/discord-logo.png" className="col-start-2" loading='lazy' />
-      <img src="./images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-1 rotate-180" loading='lazy' />
+      <img src="/images/discord-logo.png" className="col-start-2" loading='lazy' />
+      <img src="/images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-1 rotate-180" loading='lazy' />
       <p className='row-start-2 col-span-3 md:col-span-1 md:col-start-2 text-3xl text-center font-bold'>{t('description')}</p>
-      <img src="./images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-3 self-center place-self-center" loading='lazy' />
+      <img src="/images/quote-icon-3d.png" className="hidden md:block row-start-2 col-start-3 self-center place-self-center" loading='lazy' />
       <div className="row-start-3 col-span-3 md:col-span-1 md:col-start-2 flex w-full justify-center">
         <a
           href="#"
