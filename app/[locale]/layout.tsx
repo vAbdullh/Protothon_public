@@ -4,6 +4,8 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
+import Header from "@/components/common/header";
+import Footer from "@/components/common/footer";
 
 export const metadata = {
   title: "Protothon Admin",
@@ -51,10 +53,9 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {" "}
-            {/* ✅ FIX */}
-            <div style={{ position: "absolute", top: 20, right: 20 }}></div>
+            <Header />
             {children}
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

@@ -1,8 +1,6 @@
 'use client'
 
 import React, { useCallback, useEffect, useState } from 'react'
-import Header from '@/components/common/header'
-import Footer from '@/components/common/footer'
 import { Countdown } from '@/components/count-down'
 import { useTranslations } from 'next-intl'
 import { CalendarRange, ChevronLeft, ChevronRight, MapPin, SaudiRiyal } from 'lucide-react'
@@ -11,12 +9,10 @@ import Link from 'next/link'
 import { Card, CardContent } from '@/components/shadcn/card'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import Image from 'next/image'
 
 export default function Page() {
   return (
     <>
-      <Header />
       <Hero />
       <About />
       <Tracks />
@@ -24,7 +20,6 @@ export default function Page() {
       <PrizesAndRules />
       <Community />
       <Sponsors />
-      <Footer />
     </>
   )
 }

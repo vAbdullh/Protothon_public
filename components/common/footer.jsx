@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import { useTranslations } from 'use-intl'
 import { H3 } from '../shadcn/typography-h3';
