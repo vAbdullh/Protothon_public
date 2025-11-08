@@ -117,5 +117,55 @@
       "gold": "الرعاه الذهبيين",
       "silver": "الرعاه الفضيين"
     }
+  },
+  "form": {
+    "title": "صفحة التقديم",
+    "ideaTitle": "عنوان الفكرة",
+    "hackathonInfo": "معلومات الهاكاثون",
+    "teamInfo": "معلومات الفريق",
+    "teamName": "اسم الفريق",
+    "track": "المسار",
+    "ideaDescription": "وصف الفكرة",
+    "attachment": "المرفق (ملف PDF)",
+    "member": "العضو",
+    "nameAr": "الاسم بالعربية",
+    "nameEn": "الاسم بالإنجليزية",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم الجوال",
+    "university": "الجامعة",
+    "uniId": "الرقم الجامعي",
+    "major": "التخصص",
+    "gender": "الجنس",
+    "otherUniversity": "اسم الجامعة",
+    "teamLeader": "قائد الفريق",
+    "addMember": "إضافة عضو",
+    "removeMember": "إزالة العضو",
+    "submit": "إرسال الطلب",
+    "submitting": "جاري الإرسال...",
+    "submitSuccess": "🎉 تم إرسال طلبك بنجاح!",
+    "placeholders": {
+      "teamName": "أدخل اسم الفريق",
+      "ideaTitle": "أدخل عنوان الفكرة",
+      "track": "اختر المسار",
+      "ideaDescription": "صف فكرتك بإيجاز",
+      "nameAr": "الاسم الكامل بالعربية",
+      "nameEn": "الاسم الكامل بالإنجليزية",
+      "email": "email@example.com",
+      "phone": "9665XXXXXXXX",
+      "major": "أدخل التخصص",
+      "university": "اختر الجامعة",
+      "otherUniversity": "أدخل اسم الجامعة"
+    },
+    "errors": {
+      "required": "هذا الحقل مطلوب",
+      "email": "صيغة البريد الإلكتروني غير صحيحة",
+      "phoneFormat": "يجب أن يبدأ رقم الجوال بـ 9665 ويليه 8 أرقام (مثال: 966501234567)",
+      "pdfOnly": "يُسمح فقط بتحميل ملفات PDF",
+      "pdfSize": "يجب ألا يتجاوز حجم الملف 100 ميجابايت",
+      "numericOnly": "يُسمح بالأرقام فقط",
+      "minLength": "يجب ألا يقل الوصف عن 20 حرفًا",
+      "oneLeaderRequired": "يرجى اختيار قائد فريق واحد بالضبط",
+      "submissionFailed": "فشل في إرسال الطلب. يرجى المحاولة مرة أخرى."
+    }
   }
 }

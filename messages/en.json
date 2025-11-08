@@ -118,5 +118,55 @@
       "gold": "Gold Sponsors",
       "silver": "Silver Sponsors"
     }
+  },
+  "form": {
+    "title": "Apply Page",
+    "ideaTitle": "Idea Title",
+    "hackathonInfo": "Hackathon Information",
+    "teamInfo": "Team Information",
+    "teamName": "Team Name",
+    "track": "Track",
+    "ideaDescription": "Idea Description",
+    "attachment": "Attachment (PDF)",
+    "member": "Member",
+    "nameAr": "Arabic Name",
+    "nameEn": "English Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "university": "University",
+    "uniId": "University ID",
+    "major": "Major",
+    "gender": "Gender",
+    "otherUniversity": "University Name",
+    "teamLeader": "Team Leader",
+    "addMember": "Add Member",
+    "removeMember": "Remove Member",
+    "submit": "Submit Application",
+    "submitting": "Submitting...",
+    "submitSuccess": "Your application has been submitted successfully!",
+    "placeholders": {
+      "teamName": "Enter your team name",
+      "ideaTitle": "Enter your idea title",
+      "track": "Select track",
+      "ideaDescription": "Describe your idea",
+      "nameAr": "Name in Arabic",
+      "nameEn": "Name in English",
+      "email": "email@example.com",
+      "phone": "9665XXXXXXXX",
+      "major": "Enter your major",
+      "university": "Select university",
+      "otherUniversity": "Enter university name"
+    },
+    "errors": {
+      "required": "This field is required",
+      "email": "Invalid email format",
+      "phoneFormat": "Phone must be in format 9665XXXXXXXX",
+      "pdfOnly": "Only PDF files are allowed",
+      "pdfSize": "File must not exceed 100MB",
+      "numericOnly": "Numbers only",
+      "minLength": "Description must be at least 20 characters",
+      "oneLeaderRequired": "Please select exactly one team leader",
+      "submissionFailed": "Failed to submit application. Please try again."
+    }
   }
 }
