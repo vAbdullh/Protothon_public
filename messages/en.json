@@ -166,7 +166,10 @@
       "numericOnly": "Numbers only",
       "minLength": "Description must be at least 20 characters",
       "oneLeaderRequired": "Please select exactly one team leader",
-      "submissionFailed": "Failed to submit application. Please try again."
-    }
+      "submissionFailed": "Failed to submit application. Please try again.",
+      "teamSizeTitle": "Team Size Requirement",
+      "teamSizeRequirement": "Your team must have at least 3 members including the team leader."
+    },
+    "memberCount": "{current} / 3 members minimum"
   }
 }

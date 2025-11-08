@@ -415,9 +415,14 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
 function TeamInfoSection({ t, form, fields, append, remove, helpers }) {
   return (
     <div className='bg-white rounded-3xl p-6 shadow-[0_0_20px_rgba(255,255,255,0.5)]'>
-      <h2 className='text-3xl font-semibold text-primary mb-5'>
-        {t('teamInfo')}
-      </h2>
+      <div className="flex justify-between items-center mb-5">
+        <h2 className='text-3xl font-semibold text-primary'>
+          {t('teamInfo')}
+        </h2>
+        <div className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full">
+          {t('memberCount', { current: fields.length })}
+        </div>
+      </div>
 
       {fields.map((field, index) => (
         <MemberFormSection
@@ -475,6 +480,18 @@ function ApplyPageContent() {
         addToast({
           title: 'Team Leader Required',
           description: t('errors.oneLeaderRequired'),
+          variant: 'warning',
+          duration: 5000
+        })
+        setIsSubmitting(false)
+        return
+      }
+
+      // Validate minimum 3 members (including leader)
+      if (formData.members.length < 3) {
+        addToast({
+          title: t('errors.teamSizeTitle'),
+          description: t('errors.teamSizeRequirement'),
           variant: 'warning',
           duration: 5000
         })
