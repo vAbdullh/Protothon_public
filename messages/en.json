@@ -127,7 +127,7 @@
     "teamName": "Team Name",
     "track": "Track",
     "ideaDescription": "Idea Description",
-    "attachment": "Attachment (PDF)",
+    "attachment": "Attachment (PDF Max size 50MB)",
     "member": "Member",
     "nameAr": "Arabic Name",
     "nameEn": "English Name",

@@ -126,7 +126,7 @@
     "teamName": "اسم الفريق",
     "track": "المسار",
     "ideaDescription": "وصف الفكرة",
-    "attachment": "المرفق (ملف PDF)",
+    "attachment": "المرفق (ملف PDF بحد اقصى 50MB)",
     "member": "العضو",
     "nameAr": "الاسم بالعربية",
     "nameEn": "الاسم بالإنجليزية",
