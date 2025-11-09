@@ -187,7 +187,7 @@ function CardStage({ index, details }) {
     <div className="flex flex-col relative lg:w-[896px]">
       <DiamondShape cn="absolute -inset-x-4 lg:inset-x-1/2 lg:-start-1/2 rtl:lg:translate-x-1/2 ltr:lg:-translate-x-1/2" />
       <div
-        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg w-md rounded-3xl ${
+        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl ${
           index % 2 === 0 ? "lg:self-start" : "lg:self-end"
         }`}
       >
