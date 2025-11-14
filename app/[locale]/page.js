@@ -15,6 +15,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/shadcn/card";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -46,10 +47,10 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F0723] via-[#3B1C89] to-[#0EA5E9]" />
 
       {/* Background overlay */}
-      <img
+      <Image
         src="/images/hero-overlay.jpg"
+        fill
         className="absolute inset-0 w-full h-full object-cover opacity-25"
-        loading="lazy"
         alt=""
       />
 
@@ -95,10 +96,10 @@ function About() {
   const t = useTranslations("home.about");
   return (
     <div className="min-h-screen relative flex justify-start items-center">
-      <img
+      <Image
         src="/images/filament-about.png"
+        fill
         className="absolute bottom-0 left-0 object-cover object-top-right h-auto w-auto aspect-auto max-h-1/3 -z-50"
-        loading="lazy"
         alt=""
       />
       <div className="container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6 mb-[25vh]">
@@ -134,12 +135,19 @@ const TrackContainer = ({
         <p>{description}</p>
       </div>
       <div className="relative order-1 lg:order-0">
-        <img
+        <Image
           src={illustration}
           alt=""
+          fill
           className="w-full absolute top-5 -start-2 -z-30 grayscale opacity-40"
         />
-        <img src={illustration} alt="" className="w-full" />
+        <Image
+          src={illustration}
+          alt=""
+          width={800}
+          height={600}
+          className="w-full"
+        />
       </div>
     </div>
   );
@@ -243,42 +251,51 @@ function PrizesAndRules() {
 
         <div className="grid grid-cols-2 grid-rows-2 gap-2 absolute h-screen w-screen p-10 -z-50">
           <div className="relative">
-            <img
+            <Image
               src="/images/puzzle_2.png"
               alt=""
+              width={100}
+              height={100}
               className="absolute top-0 start-0 m-2"
             />
           </div>
 
           <div className="relative">
-            <img
+            <Image
               src="/images/puzzle_1.png"
               alt=""
+              width={100}
+              height={100}
               className="absolute top-0 end-0 m-2 hidden md:block"
             />
           </div>
 
           <div className="relative">
-            <img
+            <Image
               src="/images/puzzle_4.png"
               alt=""
+              width={100}
+              height={100}
               className="absolute bottom-0 start-0 m-2 hidden md:block"
             />
           </div>
 
           <div className="relative">
-            <img
+            <Image
               src="/images/puzzle_3.png"
               alt=""
+              width={100}
+              height={100}
               className="absolute bottom-0 end-0 m-2"
             />
           </div>
         </div>
       </div>
       <div className="grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative">
-        <img
+        <Image
           src="/images/prizes_illustration.svg"
           alt=""
+          fill
           className="absolute -top-[50lvh] -left-0 h-screen z-10"
         />
         <div className="flex flex-col gap-4 z-20 mt-[50lvh]">
@@ -304,26 +321,29 @@ function Community() {
   const t = useTranslations("home.community");
   return (
     <div className="grid grid-cols-3 grid-rows-3 px-2 py-5 container mx-auto place-items-center">
-      <img
+      <Image
         src="/images/discord-logo.png"
         alt=""
+        width={100}
+        height={100}
         className="col-start-2"
-        loading="lazy"
       />
-      <img
+      <Image
         src="/images/quote-icon-3d.png"
         alt=""
+        width={80}
+        height={80}
         className="hidden md:block row-start-2 col-start-1 rotate-180"
-        loading="lazy"
       />
       <p className="row-start-2 col-span-3 md:col-span-1 md:col-start-2 text-3xl text-center font-bold">
         {t("description")}
       </p>
-      <img
+      <Image
         src="/images/quote-icon-3d.png"
         alt=""
+        width={80}
+        height={80}
         className="hidden md:block row-start-2 col-start-3 self-center place-self-center"
-        loading="lazy"
       />
       <div className="row-start-3 col-span-3 md:col-span-1 md:col-start-2 flex w-full justify-center">
         <a
@@ -408,9 +428,11 @@ function SponsorsCarousel({ partners = [] }) {
               key={partner.id}
               className="flex-[0_0_100%] flex items-center justify-center p-8"
             >
-              <img
+              <Image
                 src={partner.logo}
                 alt={partner.name}
+                width={300}
+                height={150}
                 className="w-1/2 object-contain text-center grid place-items-center"
               />
             </div>
