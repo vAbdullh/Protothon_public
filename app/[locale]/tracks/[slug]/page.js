@@ -8,6 +8,7 @@ import { H1 } from "@/components/shadcn/typography-h1";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
 // Valid track slugs
 const validSlugs = ["health", "security", "innovation", "creative"];
@@ -70,19 +71,21 @@ function Overview({ title, description, icon, puzzle, color }) {
       className={`relative bg-gradient-to-r rtl:bg-gradient-to-l to-white px-2 py-8 text-white h-56`}
       style={{ "--tw-gradient-from": color, "--tw-gradient-to": "white" }}
     >
-      <img
+      <Image
         src={puzzle}
+        width={224}
+        height={224}
         className="aspect-square h-full absolute inset-y-1/2 end-0 ltr:scale-x-[-1]"
+        alt=""
       />
       <div className="relative w-full max-w-7xl mx-auto flex flex-col gap-3 justify-evenly h-full">
         <H1>{title}</H1>
         <p className="bg-gradient-to-r rtl:bg-gradient-to-l from-white/20 to-transparent p-2">
           {description}
         </p>
-        <img
-          src={icon}
-          className="aspect-square h-full absolute inset-0 py-2"
-        />
+        <div className="size-44 absolute inset-0 py-2">
+          <Image src={icon} alt="" fill className="object-contain p-2" />
+        </div>
       </div>
     </section>
   );
@@ -160,10 +163,13 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
         })}
 
         {/* Center image */}
-        <img
+        <Image
           src={puzzles}
+          width={192}
+          height={192}
           style={{ gridColumn: "2 / 3", gridRow: "2 / 3" }}
           className="w-48"
+          alt=""
         />
       </ul>
     </section>
@@ -224,9 +230,11 @@ function SponsorsCarousel({ sponsors = [] }) {
               key={sponsor.id}
               className="flex-[0_0_100%] flex items-center justify-center p-8"
             >
-              <img
+              <Image
                 src={sponsor.logo}
                 alt={sponsor.name}
+                width={300}
+                height={150}
                 className="w-1/2 object-contain text-center grid place-items-center"
               />
             </div>
