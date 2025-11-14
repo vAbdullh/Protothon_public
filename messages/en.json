@@ -119,6 +119,155 @@
       "silver": "Silver Sponsors"
     }
   },
+  "tracks": {
+    "goalsTitle": "Goals",
+    "goal": "Goal",
+    "challenges": "Challenges",
+    "aChallenge": "Challenge",
+    "sponsors": {
+      "title": "Track Sponsors",
+      "sponsors": [
+        {
+          "id": 1,
+          "logo": "/images/partner-kau.png",
+          "name": "KAU"
+        },
+        {
+          "id": 2,
+          "logo": "/images/partner-abaad.png",
+          "name": "Abaad"
+        }
+      ]
+    },
+    "health": {
+      "title": "Health Track",
+      "description": "Innovative healthcare solutions and medical technology",
+      "icon": "/images/health-track-icon.png",
+      "puzzle": "/images/health-track-puzzle.svg",
+      "puzzles": "/images/health-track-puzzles.png",
+      "color": "#0ABEED",
+      "goals": [
+        {
+          "goal": "Improve patient care and diagnostics",
+          "background": "#0ABEED"
+        },
+        {
+          "goal": "Enhance healthcare accessibility",
+          "background": "#0EA5E9"
+        },
+        {
+          "goal": "Develop medical monitoring systems",
+          "background": "#08769E"
+        },
+        {
+          "goal": "Create telemedicine solutions",
+          "background": "#083B83"
+        }
+      ],
+      "challenges": [
+        "Medical device prototyping",
+        "Health data security",
+        "Remote patient monitoring",
+        "Healthcare system integration"
+      ]
+    },
+    "security": {
+      "title": "Security Track",
+      "description": "Safety, protection, and emergency response solutions",
+      "icon": "/images/security-track-icon.png",
+      "puzzle": "/images/security-track-puzzle.svg",
+      "puzzles": "/images/security-track-puzzles.png",
+      "color": "#084059",
+      "goals": [
+        {
+          "goal": "Enhance cybersecurity measures",
+          "background": "#3D96B7"
+        },
+        {
+          "goal": "Improve physical security systems",
+          "background": "#08769E"
+        },
+        {
+          "goal": "Develop emergency response tools",
+          "background": "#085D83"
+        },
+        {
+          "goal": "Create public safety applications",
+          "background": "#084059"
+        }
+      ],
+      "challenges": [
+        "Threat detection systems",
+        "Secure communication protocols",
+        "Disaster response coordination",
+        "Safety monitoring solutions"
+      ]
+    },
+    "innovation": {
+      "title": "Innovation Track",
+      "description": "Groundbreaking solutions across various domains",
+      "icon": "/images/innovation-track-icon.png",
+      "puzzle": "/images/innovation-track-puzzle.svg",
+      "puzzles": "/images/innovation-track-puzzles.png",
+      "color": "#4C4BC4",
+      "goals": [
+        {
+          "goal": "Develop disruptive technologies",
+          "background": "#4E4DC4"
+        },
+        {
+          "goal": "Create novel applications",
+          "background": "#74399C"
+        },
+        {
+          "goal": "Solve complex problems creatively",
+          "background": "#5D2F93"
+        },
+        {
+          "goal": "Demonstrate technical excellence",
+          "background": "#351852"
+        }
+      ],
+      "challenges": [
+        "Smart city infrastructure",
+        "Sustainable technology development",
+        "Educational tool innovation",
+        "Cross-domain problem solving"
+      ]
+    },
+    "creative": {
+      "title": "Creative & Artistic Track",
+      "description": "Technology and creativity intersection",
+      "icon": "/images/creative-track-icon.png",
+      "puzzle": "/images/creative-track-puzzle.svg",
+      "puzzles": "/images/creative-track-puzzles.png",
+      "color": "#EC6638",
+      "goals": [
+        {
+          "goal": "Blend art with technology",
+          "background": "#EC6638"
+        },
+        {
+          "goal": "Create interactive experiences",
+          "background": "#BE4848"
+        },
+        {
+          "goal": "Develop digital art tools",
+          "background": "#8C3253"
+        },
+        {
+          "goal": "Explore multimedia applications",
+          "background": "#441A1A"
+        }
+      ],
+      "challenges": [
+        "Interactive installation design",
+        "Creative coding applications",
+        "Digital art tool development",
+        "Multimedia experience creation"
+      ]
+    }
+  },
   "form": {
     "title": "Apply Page",
     "ideaTitle": "Idea Title",

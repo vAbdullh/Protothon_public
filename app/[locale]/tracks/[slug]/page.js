@@ -70,6 +70,10 @@ function Overview({ title, description, icon, puzzle, color }) {
       className={`relative bg-gradient-to-r rtl:bg-gradient-to-l to-white px-2 py-8 text-white h-56`}
       style={{ "--tw-gradient-from": color, "--tw-gradient-to": "white" }}
     >
+      <img
+        src={puzzle}
+        className="aspect-square h-full absolute inset-y-1/2 end-0 ltr:scale-x-[-1]"
+      />
       <div className="relative w-full max-w-7xl mx-auto flex flex-col gap-3 justify-evenly h-full">
         <H1>{title}</H1>
         <p className="bg-gradient-to-r rtl:bg-gradient-to-l from-white/20 to-transparent p-2">
@@ -80,11 +84,6 @@ function Overview({ title, description, icon, puzzle, color }) {
           className="aspect-square h-full absolute inset-0 py-2"
         />
       </div>
-
-      <img
-        src={puzzle}
-        className="aspect-square h-full absolute inset-y-1/2 end-0 ltr:scale-x-[-1]"
-      />
     </section>
   );
 }
@@ -219,20 +218,20 @@ function SponsorsCarousel({ sponsors = [] }) {
     <div className="relative w-full container mx-auto" dir="ltr">
       {/* Carousel container */}
       <div className="overflow-hidden" ref={emblaRef}>
-      <div className="flex">
-        {sponsors.map((sponsor) => (
-          <div
-            key={sponsor.id}
-            className="flex-[0_0_100%] flex items-center justify-center p-8"
-          >
-            <img
-              src={sponsor.logo}
-              alt={sponsor.name}
-              className="w-1/2 object-contain text-center grid place-items-center"
-            />
-          </div>
-        ))}
-      </div>
+        <div className="flex">
+          {sponsors.map((sponsor) => (
+            <div
+              key={sponsor.id}
+              className="flex-[0_0_100%] flex items-center justify-center p-8"
+            >
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                className="w-1/2 object-contain text-center grid place-items-center"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Navigation buttons */}

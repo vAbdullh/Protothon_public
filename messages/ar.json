@@ -118,6 +118,155 @@
       "silver": "الرعاه الفضيين"
     }
   },
+  "tracks": {
+    "goalsTitle": "الأهداف",
+    "goal": "هدف",
+    "challenges": "التحديات",
+    "aChallenge": "تحدي",
+    "sponsors": {
+      "title": "رعاة المسار",
+      "sponsors": [
+        {
+          "id": 1,
+          "logo": "/images/partner-kau.png",
+          "name": "جامعة الملك عبدالعزيز"
+        },
+        {
+          "id": 2,
+          "logo": "/images/partner-abaad.png",
+          "name": "أبعاد"
+        }
+      ]
+    },
+    "health": {
+      "title": "مسار الصحة",
+      "description": "حلول الرعاية الصحية المبتكرة والتكنولوجيا الطبية",
+      "icon": "/images/health-track-icon.png",
+      "puzzle": "/images/health-track-puzzle.svg",
+      "puzzles": "/images/health-track-puzzles.png",
+      "color": "#0ABEED",
+      "goals": [
+        {
+          "goal": "تحسين رعاية المرضى والتشخيص",
+          "background": "#0ABEED"
+        },
+        {
+          "goal": "تعزيز إمكانية الوصول للرعاية الصحية",
+          "background": "#0EA5E9"
+        },
+        {
+          "goal": "تطوير أنظمة مراقبة طبية",
+          "background": "#08769E"
+        },
+        {
+          "goal": "إنشاء حلول الطب عن بعد",
+          "background": "#083B83"
+        }
+      ],
+      "challenges": [
+        "تصميم نماذج الأجهزة الطبية",
+        "أمن بيانات الصحة",
+        "مراقبة المرضى عن بعد",
+        "تكامل نظام الرعاية الصحية"
+      ]
+    },
+    "security": {
+      "title": "مسار الأمن والسلامة",
+      "description": "حلول السلامة والحماية والاستجابة للطوارئ",
+      "icon": "/images/security-track-icon.png",
+      "puzzle": "/images/security-track-puzzle.svg",
+      "puzzles": "/images/security-track-puzzles.png",
+      "color": "#084059",
+      "goals": [
+        {
+          "goal": "تعزيز إجراءات الأمن السيبراني",
+          "background": "#3D96B7"
+        },
+        {
+          "goal": "تحسين أنظمة الأمن المادي",
+          "background": "#08769E"
+        },
+        {
+          "goal": "تطوير أدوات الاستجابة للطوارئ",
+          "background": "#085D83"
+        },
+        {
+          "goal": "إنشاء تطبيقات السلامة العامة",
+          "background": "#084059"
+        }
+      ],
+      "challenges": [
+        "أنظمة كشف التهديدات",
+        "بروتوكولات الاتصال الآمنة",
+        "تنسيق الاستجابة للكوارث",
+        "حلول مراقبة السلامة"
+      ]
+    },
+    "innovation": {
+      "title": "مسار الحلول المبتكرة",
+      "description": "حلول رائدة عبر مختلف المجالات",
+      "icon": "/images/innovation-track-icon.png",
+      "puzzle": "/images/innovation-track-puzzle.svg",
+      "puzzles": "/images/innovation-track-puzzles.png",
+      "color": "#4C4BC4",
+      "goals": [
+        {
+          "goal": "تطوير تقنيات مبتكرة",
+          "background": "#4E4DC4"
+        },
+        {
+          "goal": "إنشاء تطبيقات جديدة",
+          "background": "#74399C"
+        },
+        {
+          "goal": "حل المشكلات المعقدة بشكل إبداعي",
+          "background": "#5D2F93"
+        },
+        {
+          "goal": "إظهار التميز التقني",
+          "background": "#351852"
+        }
+      ],
+      "challenges": [
+        "بنية تحتية للمدن الذكية",
+        "تطوير التكنولوجيا المستدامة",
+        "ابتكار الأدوات التعليمية",
+        "حل المشكلات عبر المجالات"
+      ]
+    },
+    "creative": {
+      "title": "المسار الفني والإبداعي",
+      "description": "تقاطع التكنولوجيا والإبداع",
+      "icon": "/images/creative-track-icon.png",
+      "puzzle": "/images/creative-track-puzzle.svg",
+      "puzzles": "/images/creative-track-puzzles.png",
+      "color": "#EC6638",
+      "goals": [
+        {
+          "goal": "دمج الفن مع التكنولوجيا",
+          "background": "#EC6638"
+        },
+        {
+          "goal": "إنشاء تجارب تفاعلية",
+          "background": "#BE4848"
+        },
+        {
+          "goal": "تطوير أدوات الفن الرقمي",
+          "background": "#8C3253"
+        },
+        {
+          "goal": "استكشاف تطبيقات الوسائط المتعددة",
+          "background": "#441A1A"
+        }
+      ],
+      "challenges": [
+        "تصميم المنشآت التفاعلية",
+        "تطبيقات البرمجة الإبداعية",
+        "تطوير أدوات الفن الرقمي",
+        "إنشاء تجارب الوسائط المتعددة"
+      ]
+    }
+  },
   "form": {
     "title": "صفحة التقديم",
     "ideaTitle": "عنوان الفكرة",
