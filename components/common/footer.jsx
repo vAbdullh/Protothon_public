@@ -54,7 +54,7 @@ export default function footer() {
                         alt="protothon logo purple"
                         width={150}
                         height={0}
-                        className="w-16 lg:w-[150px] h-auto bg-white"
+                        className="w-16 lg:w-[150px] h-auto invert brightness-0"
                         priority
                     />
                     <Image
@@ -62,7 +62,7 @@ export default function footer() {
                         alt="Manufacturing Community logo"
                         width={150}
                         height={0}
-                        className="w-22 lg:w-[190px] h-auto bg-white"
+                        className="w-22 lg:w-[190px] h-auto invert brightness-0"
                         priority
                     />
                 </div>
