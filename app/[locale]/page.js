@@ -96,12 +96,14 @@ function About() {
   const t = useTranslations("home.about");
   return (
     <div className="min-h-screen relative flex justify-start items-center">
-      <Image
-        src="/images/filament-about.png"
-        fill
-        className="absolute bottom-0 left-0 object-cover object-top-right h-auto w-auto aspect-auto max-h-1/3 -z-50"
-        alt=""
-      />
+      <div className="absolute bottom-0 left-0 w-3/4 h-1/4 md:w-1/2 md:h-2/4 md: -z-50">
+        <Image
+          src="/images/filament-about.png"
+          fill
+          className="object-cover object-top-right aspect-auto"
+          alt=""
+        />
+      </div>
       <div className="container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6 mb-[25vh]">
         <h3 className="text-5xl lg:text-7xl font-bold text-primary tracking-tight">
           {t("title")}
@@ -256,7 +258,7 @@ function PrizesAndRules() {
               alt=""
               width={100}
               height={100}
-              className="absolute top-0 start-0 m-2"
+              className="absolute lg:size-64 top-0 start-0 m-2"
             />
           </div>
 
@@ -266,7 +268,7 @@ function PrizesAndRules() {
               alt=""
               width={100}
               height={100}
-              className="absolute top-0 end-0 m-2 hidden md:block"
+              className="absolute lg:size-64 top-0 end-0 m-2 hidden md:block"
             />
           </div>
 
@@ -276,7 +278,7 @@ function PrizesAndRules() {
               alt=""
               width={100}
               height={100}
-              className="absolute bottom-0 start-0 m-2 hidden md:block"
+              className="absolute lg:size-64 bottom-0 start-0 m-2 hidden md:block"
             />
           </div>
 
@@ -286,18 +288,20 @@ function PrizesAndRules() {
               alt=""
               width={100}
               height={100}
-              className="absolute bottom-0 end-0 m-2"
+              className="absolute lg:size-64 bottom-0 end-0 m-2"
             />
           </div>
         </div>
       </div>
       <div className="grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative">
-        <Image
-          src="/images/prizes_illustration.svg"
-          alt=""
-          fill
-          className="absolute -top-[50lvh] -left-0 h-screen z-10"
-        />
+        <div className="absolute -top-[50lvh] -left-3 h-screen w-1/3 z-10">
+          <Image
+            src="/images/prizes_illustration.svg"
+            alt=""
+            fill
+            className=""
+          />
+        </div>
         <div className="flex flex-col gap-4 z-20 mt-[50lvh]">
           <h3 className="text-7xl lg:text-9xl font-bold  text-white tracking-tight capitalize text-center">
             {t.rules("title")}
@@ -326,7 +330,7 @@ function Community() {
         alt=""
         width={100}
         height={100}
-        className="col-start-2"
+        className="col-start-2 h-auto w-96"
       />
       <Image
         src="/images/quote-icon-3d.png"
