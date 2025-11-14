@@ -107,7 +107,9 @@ export default function Header() {
             </nav>
             <div className="mt-6 flex flex-col space-y-3">
               <Link href="/apply">
-                <Button size="lg">{t.shared("cta")}</Button>
+                <Button size="lg" className="w-full">
+                  {t.shared("cta")}
+                </Button>
               </Link>
               <LanguageSwitcher />
             </div>
