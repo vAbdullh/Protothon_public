@@ -2,12 +2,18 @@
 
 import { Button } from "@/components/shadcn/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/shadcn/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/shadcn/dropdown-menu";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import LanguageSwitcher from "../language-switcher";
-import { Menu } from "lucide-react"; // Hamburger icon
+import { Menu, ChevronDown } from "lucide-react"; // Hamburger icon
 
 export default function Header() {
   const pathname = usePathname();
@@ -18,9 +24,15 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: t.header("home") },
-    { href: "/tracks", label: t.header("tracks") },
     { href: "/policies", label: t.header("policies") },
     { href: "/contact", label: t.header("contact") },
+  ];
+
+  const trackLinks = [
+    { href: "/tracks/health", label: t.header("tracksList.health") },
+    { href: "/tracks/security", label: t.header("tracksList.security") },
+    { href: "/tracks/innovation", label: t.header("tracksList.innovation") },
+    { href: "/tracks/creative", label: t.header("tracksList.creative") },
   ];
 
   const locale = useLocale();
@@ -67,6 +79,33 @@ export default function Header() {
             </Link>
           );
         })}
+        
+        {/* Tracks Dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="flex items-center font-medium transition-colors text-gray-700 hover:text-purple-600">
+              {t.header("tracks")}
+              <ChevronDown className="ml-1 h-4 w-4" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="w-48">
+            {trackLinks.map((track) => {
+              const isActive = pathname === track.href;
+              return (
+                <DropdownMenuItem key={track.href} asChild>
+                  <Link
+                    href={track.href}
+                    className={`w-full ${
+                      isActive ? "text-purple-600" : "text-gray-700"
+                    }`}
+                  >
+                    {track.label}
+                  </Link>
+                </DropdownMenuItem>
+              );
+            })}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </nav>
       <div className="hidden lg:flex items-center space-x-4">
         <Link href="/apply">
@@ -104,6 +143,29 @@ export default function Header() {
                   </Link>
                 );
               })}
+              
+              {/* Tracks in Mobile Menu */}
+              <div className="pt-2">
+                <h3 className="font-semibold text-gray-900 mb-2">{t.header("tracks")}</h3>
+                <div className="flex flex-col space-y-2 pl-4">
+                  {trackLinks.map((track) => {
+                    const isActive = pathname === track.href;
+                    return (
+                      <Link
+                        key={track.href}
+                        href={track.href}
+                        className={`font-medium transition-colors ${
+                          isActive
+                            ? "text-purple-600"
+                            : "text-gray-700 hover:text-purple-600"
+                        }`}
+                      >
+                        {track.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             </nav>
             <div className="mt-6 flex flex-col space-y-3">
               <Link href="/apply">

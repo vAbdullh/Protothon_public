@@ -15,7 +15,13 @@
 
   "header": {
     "home": "Home",
-    "tracks": "Tracks",
+    "tracks":"Tracks",
+    "tracksList": {
+      "health": "Health Track",
+      "security": "Security Track",
+      "innovation": "Innovation Track",
+      "creative": "Creative & Artistic Track"
+    },
     "policies": "Policies",
     "contact": "Contact Us"
   },
