@@ -116,42 +116,55 @@ function About() {
 
 const TrackContainer = ({
   from,
-  to,
   title,
   description,
   illustration,
   reverse,
 }) => {
   return (
-    <div className="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 w-screen text-center">
+    <>
+      <div className="max-lg:hidden lg:grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 w-screen h-1/2 text-center">
+        <div
+          className={`w-full p-5 grid place-items-center gap-5 ${
+            reverse ? "lg:order-2" : ""
+          }`}
+          style={{
+            background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
+          }}
+        >
+          <h4 className="text-4xl font-bold">{title}</h4>
+          <p>{description}</p>
+        </div>
+        <div className="relative order-1 lg:order-0 grid place-items-center">
+          <Image
+            src={illustration}
+            alt=""
+            width={400}
+            height={300}
+            className=""
+          />
+        </div>
+      </div>
       <div
-        className={`w-full p-5 grid place-items-center gap-5 ${
+        className={`w-full text-center px-5 grid place-items-center py-16 gap-8 relative lg:hidden ${
           reverse ? "lg:order-2" : ""
         }`}
         style={{
-          background: `linear-gradient(to left, ${from}, ${to})`,
-          // order: reverse ? 2 : 0
+          background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
         }}
       >
+        <Image
+          src={illustration}
+          alt=""
+          width={120}
+          height={120}
+          className="absolute -top-[60px]"
+        />
+
         <h4 className="text-4xl font-bold">{title}</h4>
         <p>{description}</p>
       </div>
-      <div className="relative order-1 lg:order-0">
-        <Image
-          src={illustration}
-          alt=""
-          fill
-          className="w-full absolute top-5 -start-2 -z-30 grayscale opacity-40"
-        />
-        <Image
-          src={illustration}
-          alt=""
-          width={800}
-          height={600}
-          className="w-full"
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -294,7 +307,7 @@ function PrizesAndRules() {
         </div>
       </div>
       <div className="grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative">
-        <div className="absolute -top-[50lvh] -left-3 h-screen w-1/3 z-10">
+        <div className="absolute -top-[50lvh] -left-5 h-screen w-2/3 lg:w-2/5 z-10">
           <Image
             src="/images/prizes_illustration.svg"
             alt=""

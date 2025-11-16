@@ -45,7 +45,7 @@ export default async function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`antialiased`}>
+      <body className={`antialiased w-screen overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
