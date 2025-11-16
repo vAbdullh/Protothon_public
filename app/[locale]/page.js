@@ -306,7 +306,10 @@ function PrizesAndRules() {
           </div>
         </div>
       </div>
-      <div className="grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative">
+      <div
+        id="rules"
+        className="grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative"
+      >
         <div className="absolute -top-[50lvh] -left-5 h-screen w-2/3 lg:w-2/5 z-10">
           <Image
             src="/images/prizes_illustration.svg"

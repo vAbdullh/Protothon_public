@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn/dropdown-menu";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import LanguageSwitcher from "../language-switcher";
@@ -17,15 +17,27 @@ import { Menu, ChevronDown } from "lucide-react"; // Hamburger icon
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const t = {
     shared: useTranslations("shared"),
     header: useTranslations("header"),
   };
 
+  const scrollToSection = (id: string) => {
+    if (pathname !== "/") {
+      // Navigate to home page with hash
+      router.push(`/#${id}`);
+    } else {
+      // If already on home page, just scroll
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const navLinks = [
     { href: "/", label: t.header("home") },
-    { href: "/policies", label: t.header("policies") },
-    { href: "/contact", label: t.header("contact") },
+    { href: "#rules", label: t.header("policies") },
+    { href: "#footer", label: t.header("contact") },
   ];
 
   const trackLinks = [
@@ -65,6 +77,21 @@ export default function Header() {
       <nav className="hidden lg:flex space-x-6">
         {navLinks.map((link) => {
           const isActive = pathname === link.href;
+          if (link.href.startsWith("#")) {
+            return (
+              <button
+                key={link.href}
+                onClick={() => scrollToSection(link.href.substring(1))}
+                className={`font-medium transition-colors ${
+                  isActive
+                    ? "text-purple-600"
+                    : "text-gray-700 hover:text-purple-600"
+                }`}
+              >
+                {link.label}
+              </button>
+            );
+          }
           return (
             <Link
               key={link.href}
@@ -129,6 +156,21 @@ export default function Header() {
             <nav className="flex flex-col space-y-4">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
+                if (link.href.startsWith("#")) {
+                  return (
+                    <button
+                      key={link.href}
+                      onClick={() => scrollToSection(link.href.substring(1))}
+                      className={`font-medium transition-colors text-left ${
+                        isActive
+                          ? "text-purple-600"
+                          : "text-gray-700 hover:text-purple-600"
+                      }`}
+                    >
+                      {link.label}
+                    </button>
+                  );
+                }
                 return (
                   <Link
                     key={link.href}

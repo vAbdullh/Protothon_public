@@ -19,7 +19,7 @@ export default function footer() {
         { key: "contact_us", href: "#" },
     ];
     return (
-        <div className='flex flex-col gap-6 bg-gradient-to-b from-[#0F0723] to-[#3B1C89] py-8 px-3 mx-auto text-white'>
+        <div id="footer" className='flex flex-col gap-6 bg-gradient-to-b from-[#0F0723] to-[#3B1C89] py-8 px-3 mx-auto text-white'>
             <H3>{t.shared("protothon")}</H3>
             <ul className="flex flex-col gap-2 font-normal">
                 {footerLinks.map((link) => (

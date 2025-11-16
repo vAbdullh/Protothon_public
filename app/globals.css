@@ -130,3 +130,7 @@ body {
 button {
   @apply cursor-pointer;
 }
+
+* {
+  scroll-behavior: smooth;
+}
