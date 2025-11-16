@@ -57,14 +57,6 @@ export default function footer() {
                         className="w-16 lg:w-[150px] h-auto invert brightness-0"
                         priority
                     />
-                    <Image
-                        src="/manufacturing-community-logo.png"
-                        alt="Manufacturing Community logo"
-                        width={150}
-                        height={0}
-                        className="w-22 lg:w-[190px] h-auto invert brightness-0"
-                        priority
-                    />
                 </div>
             </div>
         </div >

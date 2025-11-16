@@ -62,15 +62,6 @@ export default function Header() {
           className="w-16 lg:w-[150px]"
           priority
         />
-        <Image
-          src="/manufacturing-community-logo.png"
-          alt="Manufacturing Community logo"
-          width={150}
-          height={0}
-          style={{ height: "auto" }}
-          className="w-22 lg:w-[190px]"
-          priority
-        />
       </div>
 
       {/* Desktop Navigation & Actions (lg+) */}
@@ -106,7 +97,7 @@ export default function Header() {
             </Link>
           );
         })}
-        
+
         {/* Tracks Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -185,10 +176,12 @@ export default function Header() {
                   </Link>
                 );
               })}
-              
+
               {/* Tracks in Mobile Menu */}
               <div className="pt-2">
-                <h3 className="font-semibold text-gray-900 mb-2">{t.header("tracks")}</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {t.header("tracks")}
+                </h3>
                 <div className="flex flex-col space-y-2 pl-4">
                   {trackLinks.map((track) => {
                     const isActive = pathname === track.href;
