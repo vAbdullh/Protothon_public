@@ -144,6 +144,7 @@
     }
   },
   "tracks": {
+    "overview": "Overview",
     "goalsTitle": "Goals",
     "goal": "Goal",
     "challenges": "Challenges",
@@ -161,103 +162,105 @@
     },
     "health": {
       "title": "Health Track",
-      "description": "Innovative healthcare solutions and medical technology",
+      "subtitle": "Developing assistive tools, medical wearables, solutions for physical therapy, or technologies that facilitate the user's interaction with their health environment.",
       "icon": "/images/health-track-icon.png",
       "puzzle": "/images/health-track-puzzle.svg",
       "puzzles": "/images/health-track-puzzles.png",
       "color": "#0ABEED",
       "goals": [
         {
-          "goal": "Improve patient care and diagnostics",
+          "goal": "Supporting the independence of people with physical or cognitive disabilities.",
           "background": "#0ABEED"
         },
         {
-          "goal": "Enhance healthcare accessibility",
+          "goal": "Developing tools that support movement, focus, learning, and interaction in public spaces.",
           "background": "#0EA5E9"
         },
         {
-          "goal": "Develop medical monitoring systems",
+          "goal": "Innovating in physical therapy and motor rehabilitation.",
           "background": "#08769E"
         },
         {
-          "goal": "Create telemedicine solutions",
+          "goal": "Designing smart medical wearables to track exercises and home treatment.",
           "background": "#083B83"
         }
       ],
       "challenges": [
-        "Medical device prototyping",
-        "Health data safety",
-        "Remote patient monitoring",
-        "Healthcare system integration"
+        "Innovating healthcare solutions that support patients and people with disabilities while improving quality of care.",
+        "Developing technologies that enhance safety and security and prevent accidents in daily life and factories.",
+        "Redesigning tools and devices in innovative ways or converting inanimate objects into smart devices.",
+        "Creating transportation solutions that reduce congestion and improve driving experience and traffic systems."
       ]
     },
     "safety": {
       "title": "safety Track",
-      "description": "Safety, protection, and emergency response solutions",
+      "subtitle": "This track offers the opportunity to develop intelligent systems that monitor, warn of, and provide effective protection in everyday or professional situations.",
+      "overview": "This track aims to create solutions that enhance safety in daily life and work environments. It enables participants to design technologies that prevent accidents before they occur, protect individuals, and proactively address factory hazards.",
       "icon": "/images/safety-track-icon.png",
       "puzzle": "/images/safety-track-puzzle.svg",
       "puzzles": "/images/safety-track-puzzles.png",
       "color": "#084059",
       "goals": [
         {
-          "goal": "Enhance cybersafety measures",
+          "goal": "Developing smart technological solutions to enhance personal safety and workplace safety.",
           "background": "#3D96B7"
         },
         {
-          "goal": "Improve physical safety systems",
+          "goal": "Preventing risks and enabling quick and effective response to accidents.",
           "background": "#08769E"
         },
         {
-          "goal": "Develop emergency response tools",
+          "goal": "Innovating tools that provide daily safety from crimes, theft, harassment, and accidents.",
           "background": "#085D83"
         },
         {
-          "goal": "Create public safety applications",
+          "goal": "Monitoring workplace hazards, predicting failures, and handling emergencies early.",
           "background": "#084059"
         }
       ],
       "challenges": [
-        "Threat detection systems",
-        "Secure communication protocols",
-        "Disaster response coordination",
-        "Safety monitoring solutions"
+        "Developing solutions that prevent daily accidents before they occur.",
+        "Designing technologies to protect children and the elderly.",
+        "Creating systems that monitor risks in factories.",
+        "Building tools that predict failures and provide rapid emergency response."
       ]
     },
     "innovation": {
       "title": "Innovation Track",
-      "description": "Groundbreaking solutions across various domains",
+      "subtitle": "Developing assistive devices, medical apparel, physiotherapy solutions, or technologies that facilitate user interaction with their healthcare environment.",
+      "overview": "This track is dedicated to those who believe that technology can improve human health and raise the quality of life. It focuses on developing smart solutions that take into account the needs of patients and people with disabilities, support treatment and rehabilitation, and provide practical tools that contribute to a more independent and comfortable life.",
       "icon": "/images/innovation-track-icon.png",
       "puzzle": "/images/innovation-track-puzzle.svg",
       "puzzles": "/images/innovation-track-puzzles.png",
       "color": "#4C4BC4",
       "goals": [
         {
-          "goal": "Develop disruptive technologies",
-          "background": "#4E4DC4"
+          "goal": "Supporting the independence of people with physical or cognitive disabilities.",
+          "background": "#0ABEED"
         },
         {
-          "goal": "Create novel applications",
-          "background": "#74399C"
+          "goal": "Developing tools that support movement, focus, learning, and interaction in public spaces.",
+          "background": "#0EA5E9"
         },
         {
-          "goal": "Solve complex problems vehiclely",
-          "background": "#5D2F93"
+          "goal": "Innovating in physical therapy and motor rehabilitation.",
+          "background": "#08769E"
         },
         {
-          "goal": "Demonstrate technical excellence",
-          "background": "#351852"
+          "goal": "Designing smart medical wearables to track exercises and home treatment.",
+          "background": "#083B83"
         }
       ],
       "challenges": [
-        "Smart city infrastructure",
-        "Sustainable technology development",
-        "Educational tool innovation",
-        "Cross-domain problem solving"
+        "Innovating healthcare solutions that support patients and people with disabilities while improving quality of care.",
+        "Developing technologies that enhance safety and security and prevent accidents in daily life and factories.",
+        "Redesigning tools and devices in innovative ways or converting inanimate objects into smart devices.",
+        "Creating transportation solutions that reduce congestion and improve driving experience and traffic systems."
       ]
     },
     "vehicle": {
       "title": "Vehicle & Transportation Track",
-      "description": "Technology and creativity intersection",
+      "subtitle": "Technology and creativity intersection",
       "icon": "/images/vehicle-track-icon.png",
       "puzzle": "/images/vehicle-track-puzzle.svg",
       "puzzles": "/images/vehicle-track-puzzles.png",

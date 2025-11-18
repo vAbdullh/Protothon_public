@@ -19,9 +19,10 @@ import { ToastProvider, useToast } from "@/components/shadcn/toast";
 /* ========================== CONFIG DATA ========================== */
 
 const TRACK_OPTIONS = [
-  { value: "ai", label: "AI" },
-  { value: "health", label: "Health" },
-  { value: "env", label: "Environment" },
+  { value: "health", label: "health" },
+  { value: "safety", label: "safety" },
+  { value: "innovation", label: "innovation" },
+  { value: "vehicle", label: "vehicle" },
 ];
 
 const UNIVERSITY_OPTIONS = [
@@ -136,6 +137,7 @@ function createHelpers(form) {
 function HackathonInfoSection({ t, form, helpers }) {
   const { register, setValue, watch } = form;
   const { getBorderClass, ErrorMessage } = helpers;
+  const headerT = useTranslations("header");
 
   return (
     <div className="bg-[#F8F8F8] rounded-3xl p-6 shadow-[0_0_20px_rgba(0,0,0,0.3)]">
@@ -176,8 +178,8 @@ function HackathonInfoSection({ t, form, helpers }) {
             </SelectTrigger>
             <SelectContent>
               {TRACK_OPTIONS.map((track) => (
-                <SelectItem key={track.value} value={track.value}>
-                  {track.label}
+                <SelectItem key={track.value} value={track.value} className="flex justify-center">
+                  {headerT(`tracksList.${track.label}`)}
                 </SelectItem>
               ))}
             </SelectContent>

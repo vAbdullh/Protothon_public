@@ -34,14 +34,20 @@ export default function TrackPage({ params }) {
 
   return (
     <main className="flex flex-col gap-20 py-5">
-      <Overview
+      <Heading
         title={t.track("title")}
-        description={t.track("description")}
+        description={t.track("subtitle")}
         icon={t.track("icon")}
         puzzle={t.track("puzzle")}
         color={trackColor}
       />
-      <div className="w-full max-w-7xl mx-auto flex flex-col gap-10 px-4">
+
+      <div className="w-full max-w-7xl mx-auto flex flex-col gap-20 px-4">
+        <Overview
+          title={t.tracks("overview")}
+          overview={t.track("overview")}
+          color={trackColor}
+        />
         <Goals
           title={t.tracks("goalsTitle")}
           aGoal={t.tracks("goal")}
@@ -76,7 +82,7 @@ export default function TrackPage({ params }) {
   );
 }
 
-function Overview({ title, description, icon, puzzle, color }) {
+function Heading({ title, description, icon, puzzle, color }) {
   return (
     <section
       className={`relative bg-gradient-to-r rtl:bg-gradient-to-l to-white px-2 py-8 text-white h-56`}
@@ -98,6 +104,19 @@ function Overview({ title, description, icon, puzzle, color }) {
           <Image src={icon} alt="" fill className="object-contain p-2" />
         </div>
       </div>
+    </section>
+  );
+}
+function Overview({ title, overview, color }) {
+  return (
+    <section>
+      <h2
+        className="text-4xl font-extrabold mb-4 text-center"
+        style={{ color }}
+      >
+        {title}
+      </h2>
+      <p className="text-center text-xl max-w-3xl mx-auto">{overview}</p>
     </section>
   );
 }
@@ -125,7 +144,7 @@ function Goals({ title, goals, aGoal, color }) {
               className={`p-10 ${roundedClass}`}
               style={{ backgroundColor: goal.background }}
             >
-              <h3 className="text-2xl font-bold">{`${aGoal} ${index + 1}`}</h3>
+              <h3 className="!text-2xl font-bold">{`${aGoal} ${index + 1}`}</h3>
               <p>{goal.goal}</p>
             </div>
           );
@@ -164,11 +183,11 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
           }
 
           return (
-            <li key={index} className="flex flex-col gap-2" style={style}>
-              <h3 className="text-2xl font-bold" style={{ color }}>
+            <li key={index} className="flex flex-col gap-4" style={style}>
+              <h3 className="!text-2xl font-extrabold" style={{ color }}>
                 {`${aChallenge} ${index + 1}`}
               </h3>
-              <p className="text-sm lg:text-2xl">{challenge}</p>
+              <p className="text-sm lg:text-lg">{challenge}</p>
             </li>
           );
         })}

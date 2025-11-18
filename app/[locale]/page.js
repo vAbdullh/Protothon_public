@@ -54,8 +54,8 @@ function Hero() {
         <h1 className="text-5xl md:text-9xl font-bold  text-center">
           {t("protothon")}
         </h1>
-        <div className="flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 mx-auto lg:gap-14 font-extrabold text-sm lg:text-xl">
-          <div className="flex gap-2 items-center lg:justify-end lg:h-11 lg:w-96">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-3 mx-auto lg:gap-14 font-extrabold text-sm lg:text-xl">
+          <div className="flex gap-2 items-center lg:justify-end lg:h-11 w-fit lg:w-96">
             <CalendarRange className="lg:size-11" />
             <div className="flex flex-col gap-2">
               <p>01 - 10 / 01 / 2026</p>
@@ -66,7 +66,7 @@ function Hero() {
           {/* divider */}
           <div className="h-px w-full bg-gray-300 my-4 lg:my-0 lg:h-full lg:w-1"></div>
 
-          <div className="flex gap-2 items-center lg:h-11 lg:w-96">
+          <div className="flex gap-2 items-center lg:h-11 w-full lg:w-96">
             <MapPin className="lg:size-11" />
             <div className="flex flex-col gap-2">
               <p>{t("university")}</p>
@@ -332,7 +332,7 @@ function Community() {
 
       {/* Button */}
       <a
-        href="#"
+        href="https://discord.gg/zwybBSrS"
         target="_blank"
         rel="noopener noreferrer"
         className="w-1/2 lg:w-1/4"
@@ -355,12 +355,23 @@ function Sponsors() {
   const strategicSponsors = {
     id: 1,
     logo: "/images/The-Ministry-of-Transport-and-Logistic-Services-logo.svg",
-    name: "KAU",
+    name: "logisticMinistry",
   };
+  const otherSponsors = [
+    {
+      id: 1,
+      logo: "/images/partner-kau.png",
+      name: "KAU",
+    },
+    {
+      id: 2,
+      logo: "/images/partner-manufacturing.png",
+      name: "manufacturing",
+    },
+  ];
 
   return (
     <div className="flex flex-col gap-5 justify-center items-center min-h-screen py-5">
-      <h3 className="text-primary tracking-tight text-center">{t("title")}</h3>
       <p className="text-2xl text-cyan-primary">{t("strategic")}</p>
       <Image
         src={strategicSponsors.logo}
@@ -369,6 +380,10 @@ function Sponsors() {
         height={150}
         className="w-1/2 object-contain text-center grid place-items-center"
       />
+      <h3 className="text-primary tracking-tight text-center mt-5">
+        {t("title")}
+      </h3>
+      <SponsorsCarousel partners={otherSponsors} />
     </div>
   );
 }
