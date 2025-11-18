@@ -9,9 +9,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import { Button } from "@/components/shadcn/button";
 
 // Valid track slugs
-const validSlugs = ["health", "security", "innovation", "creative"];
+const validSlugs = ["health", "safety", "innovation", "vehicle"];
 
 export default function TrackPage({ params }) {
   // Unwrap params promise for Next.js 15 compatibility
@@ -25,41 +26,51 @@ export default function TrackPage({ params }) {
 
   const t = {
     tracks: useTranslations("tracks"),
-    health: useTranslations(`tracks.${slug}`),
+    track: useTranslations(`tracks.${slug}`),
+    shared: useTranslations("shared"),
   };
 
-  const trackColor = t.health("color");
+  const trackColor = t.track("color");
 
   return (
     <main className="flex flex-col gap-20 py-5">
       <Overview
-        title={t.health("title")}
-        description={t.health("description")}
-        icon={t.health("icon")}
-        puzzle={t.health("puzzle")}
+        title={t.track("title")}
+        description={t.track("description")}
+        icon={t.track("icon")}
+        puzzle={t.track("puzzle")}
         color={trackColor}
       />
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-10 px-4">
         <Goals
           title={t.tracks("goalsTitle")}
           aGoal={t.tracks("goal")}
-          goals={t.health.raw("goals")}
+          goals={t.track.raw("goals")}
           color={trackColor}
         />
         <Challenges
           title={t.tracks("challenges")}
-          challenges={t.health.raw(`challenges`)}
+          challenges={t.track.raw(`challenges`)}
           aChallenge={t.tracks("aChallenge")}
-          puzzles={t.health("puzzles")}
+          puzzles={t.track("puzzles")}
           color={trackColor}
         />
-
         {/* Sponsors Section */}
         <Sponsors
-          title={t.tracks("sponsors.title")}
-          color={trackColor}
+          title={t.tracks("sponsors.strategic")}
           sponsors={t.tracks.raw("sponsors.sponsors")}
         />
+        <Link href={`/apply`} className="w-full max-w-4xl mx-auto">
+          <Button
+            className="w-full font-black text-lg py-6 hover:opacity-95"
+            size="lg"
+            style={{
+              background: t.track("color"),
+            }}
+          >
+            {t.shared("cta")}
+          </Button>
+        </Link>
       </div>
     </main>
   );
@@ -176,15 +187,20 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
   );
 }
 function Sponsors({ title, sponsors = [], color }) {
+  const strategicSponsors = sponsors[0];
+  console.log(sponsors);
   return (
     <section>
-      <h2
-        className="text-4xl font-extrabold mb-4 text-center"
-        style={{ color }}
-      >
-        {title}
-      </h2>
-      <SponsorsCarousel sponsors={sponsors} />
+      <div className="flex flex-col gap-5 justify-center items-center py-5">
+        <h3 className="text-primary tracking-tight text-center">{title}</h3>
+        <Image
+          src={strategicSponsors.logo}
+          alt={strategicSponsors.name}
+          width={300}
+          height={150}
+          className="w-1/2 object-contain text-center grid place-items-center"
+        />
+      </div>
     </section>
   );
 }

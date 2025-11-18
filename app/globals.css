@@ -134,3 +134,7 @@ button {
 * {
   scroll-behavior: smooth;
 }
+
+h3 {
+  @apply text-3xl lg:text-6xl font-bold capitalize tracking-tight;
+}

@@ -3,13 +3,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Countdown } from "@/components/count-down";
 import { useTranslations } from "next-intl";
-import {
-  CalendarRange,
-  ChevronLeft,
-  ChevronRight,
-  MapPin,
-  SaudiRiyal,
-} from "lucide-react";
+import { CalendarRange, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Button } from "@/components/shadcn/button";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/shadcn/card";
@@ -57,7 +51,9 @@ function Hero() {
       {/* Foreground content */}
 
       <div className="flex justify-center lg:justify-evenly gap-10 flex-col text-white lg:text-start container mx-auto h-full z-50 px-2">
-        <h1 className="text-5xl md:text-9xl font-bold">{t("protothon")}</h1>
+        <h1 className="text-5xl md:text-9xl font-bold  text-center">
+          {t("protothon")}
+        </h1>
         <div className="flex flex-col lg:flex-row lg:justify-center lg:items-center gap-3 mx-auto lg:gap-14 font-extrabold text-sm lg:text-xl">
           <div className="flex gap-2 items-center lg:justify-end lg:h-11 lg:w-96">
             <CalendarRange className="lg:size-11" />
@@ -80,8 +76,9 @@ function Hero() {
         </div>
         <Link href={"/apply"} className="w-full md:w-fit mx-auto">
           <Button
+            size="default"
             variant="default"
-            className="w-full md:w-xl py-9 text-2xl font-extrabold"
+            className="w-full md:w-xl py-7 text-2xl font-extrabold"
           >
             {t("cta")}
           </Button>
@@ -95,8 +92,8 @@ function Hero() {
 function About() {
   const t = useTranslations("home.about");
   return (
-    <div className="min-h-screen relative flex justify-start items-center">
-      <div className="absolute bottom-0 left-0 w-3/4 h-1/4 md:w-1/2 md:h-2/4 md: -z-50">
+    <div className="min-h-screen relative flex items-center">
+      <div className="absolute bottom-0 left-0 w-3/4 h-1/4 md:size-[400px] md:-z-50">
         <Image
           src="/images/filament-about.png"
           fill
@@ -104,11 +101,9 @@ function About() {
           alt=""
         />
       </div>
-      <div className="container mx-auto px-2 flex flex-col h-fit items-start justify-center gap-4 md:gap-6 mb-[25vh]">
-        <h3 className="text-5xl lg:text-7xl font-bold text-primary tracking-tight">
-          {t("title")}
-        </h3>
-        <p className="text-2xl lg:text-5xl">{t("description")}</p>
+      <div className="container mx-auto px-4 flex flex-col h-fit items-start justify-center gap-10 lg:gap-20 md:gap-6 w-full max-w-7xl">
+        <h3 className="text-primary">{t("title")}</h3>
+        <p className="text-lg lg:text-3xl">{t("description")}</p>
       </div>
     </div>
   );
@@ -120,12 +115,14 @@ const TrackContainer = ({
   description,
   illustration,
   reverse,
+  link,
 }) => {
+  const t = useTranslations("shared");
   return (
     <>
       <div className="max-lg:hidden lg:grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 w-screen h-1/2 text-center">
         <div
-          className={`w-full p-5 grid place-items-center gap-5 ${
+          className={`w-full p-5 flex flex-col justify-evenly gap-5 relative ${
             reverse ? "lg:order-2" : ""
           }`}
           style={{
@@ -133,7 +130,21 @@ const TrackContainer = ({
           }}
         >
           <h4 className="text-4xl font-bold">{title}</h4>
-          <p>{description}</p>
+          <p className="lg:text-xl">{description}</p>
+          <Link
+            href={`/tracks${link}`}
+            className="absolute w-80 -bottom-5 inset-x-1/2 -translate-x-1/2 rtl:translate-x-1/2"
+          >
+            <Button
+              className="w-full bg-white hover:bg-[#e6e6e6] font-black text-lg py-6"
+              size="lg"
+              style={{
+                color: from,
+              }}
+            >
+              {t("details")}
+            </Button>
+          </Link>
         </div>
         <div className="relative order-1 lg:order-0 grid place-items-center">
           <Image
@@ -163,6 +174,20 @@ const TrackContainer = ({
 
         <h4 className="text-4xl font-bold">{title}</h4>
         <p>{description}</p>
+        <Link
+          href={`/tracks${link}`}
+          className="absolute w-80 -bottom-5 inset-x-1/2 -translate-x-1/2 rtl:translate-x-1/2"
+        >
+          <Button
+            className="w-full bg-white hover:bg-[#e6e6e6] font-black text-lg py-6"
+            size="lg"
+            style={{
+              color: from,
+            }}
+          >
+            {t("details")}
+          </Button>
+        </Link>
       </div>
     </>
   );
@@ -172,11 +197,9 @@ function Tracks() {
   const t = useTranslations("home.tracks");
   const tracks = t.raw("tracks");
   return (
-    <div className="min-h-screen relative py-10 flex flex-col items-center justify-center gap-20 text-white w-screen">
+    <div className="min-h-screen relative py-20 flex flex-col items-center justify-center max-lg:gap-20 text-white w-screen">
       <div className="absolute -z-50 w-full h-full max-w-7xl mx-auto bg-gradient-to-b from-[#0F0723] to-[#3B1C89]" />
-      <h3 className="text-7xl lg:text-9xl font-bold tracking-tight capitalize text-center">
-        Tracks
-      </h3>
+      <h3 className="text-center mb-10">{t("title")}</h3>
       {tracks.map((track, index) => (
         <TrackContainer
           key={index}
@@ -185,7 +208,7 @@ function Tracks() {
           description={track.description}
           illustration={track.illustration}
           from={track.from}
-          to={track.to}
+          link={track.link}
         />
       ))}
     </div>
@@ -208,7 +231,7 @@ function CardStage({ index, details }) {
   const position = index % 2 === 0 ? "start" : "end";
   return (
     <div className="flex flex-col relative lg:w-[896px]">
-      <DiamondShape cn="absolute -inset-x-4 lg:inset-x-1/2 lg:-start-1/2 rtl:lg:translate-x-1/2 ltr:lg:-translate-x-1/2" />
+      <DiamondShape cn="absolute left-1 lg:left-1/2 rtl:left-auto rtl:right-1 rtl:lg:right-1/2 -translate-x-1/2 rtl:translate-x-1/2" />
       <div
         className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl ${
           index % 2 === 0 ? "lg:self-start" : "lg:self-end"
@@ -225,10 +248,8 @@ function Stages() {
   const t = useTranslations("home.stages");
   const stages = t.raw("timeline");
   return (
-    <div className="container w-fit max-w-7xl mx-auto p-6 flex flex-col gap-10">
-      <h3 className="text-5xl lg:text-7xl font-bold text-primary tracking-tight text-center capitalize">
-        {t("title")}
-      </h3>
+    <div className="container w-fit max-w-7xl mx-auto p-6 flex flex-col gap-10 py-20">
+      <h3 className="text-primary text-center">{t("title")}</h3>
       <div className="relative">
         <div className="absolute lg:left-1/2 transform lg:-translate-x-1/2 border-l-4 border-primary h-full z-40" />
         <div className="flex flex-col h-full justify-center relative w-fit">
@@ -236,7 +257,7 @@ function Stages() {
             <CardStage index={index} details={stage} key={index} />
           ))}
         </div>
-        <DiamondShape cn="absolute -inset-x-4 lg:inset-x-1/2 lg:-start-1/2 rtl:lg:translate-x-1/2 ltr:lg:-translate-x-1/2" />
+        <DiamondShape cn="absolute -left-4 left-1/2 rtl:left-auto rtl:-right-4 rtl:right-1/2 -translate-x-1/2 rtl:translate-x-1/2" />
       </div>
     </div>
   );
@@ -249,82 +270,15 @@ function PrizesAndRules() {
   };
   return (
     <>
-      <div className="container mx-auto px-2 h-screen mb-[50lvh] flex flex-col items-center justify-center gap-20 md:gap-0 md:justify-evenly">
-        <h3 className="text-7xl lg:text-9xl font-bold text-primary tracking-tight capitalize text-center">
-          {t.prizes("title")}
-        </h3>
-        <div className="flex flex-col gap-5 items-center justify-center font-bold text-[#ABB8C2]">
-          <p className="text-center text-4xl">{t.prizes("up_to")}</p>
-
-          <div className="flex gap-4 items-center rtl:flex-row-reverse">
-            <SaudiRiyal className="size-full" />
-            <p className="text-6xl lg:text-9xl text-cyan-primary font-bold">
-              999,999
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 absolute h-screen w-screen p-10 -z-50">
-          <div className="relative">
-            <Image
-              src="/images/puzzle_2.png"
-              alt=""
-              width={100}
-              height={100}
-              className="absolute lg:size-64 top-0 start-0 m-2"
-            />
-          </div>
-
-          <div className="relative">
-            <Image
-              src="/images/puzzle_1.png"
-              alt=""
-              width={100}
-              height={100}
-              className="absolute lg:size-64 top-0 end-0 m-2 hidden md:block"
-            />
-          </div>
-
-          <div className="relative">
-            <Image
-              src="/images/puzzle_4.png"
-              alt=""
-              width={100}
-              height={100}
-              className="absolute lg:size-64 bottom-0 start-0 m-2 hidden md:block"
-            />
-          </div>
-
-          <div className="relative">
-            <Image
-              src="/images/puzzle_3.png"
-              alt=""
-              width={100}
-              height={100}
-              className="absolute lg:size-64 bottom-0 end-0 m-2"
-            />
-          </div>
-        </div>
-      </div>
       <div
         id="rules"
-        className="grid place-items-end justify-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5 relative"
+        className="grid place-items-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5"
       >
-        <div className="absolute -top-[50lvh] -left-5 h-screen w-2/3 lg:w-2/5 z-10">
-          <Image
-            src="/images/prizes_illustration.svg"
-            alt=""
-            fill
-            className=""
-          />
-        </div>
-        <div className="flex flex-col gap-4 z-20 mt-[50lvh]">
-          <h3 className="text-7xl lg:text-9xl font-bold  text-white tracking-tight capitalize text-center">
-            {t.rules("title")}
-          </h3>
-          <Card className="text-white bg-gradient-to-b from-[#0F0723] to-[#251256] border-white/20 shadow-lg container mx-auto lg:w-4xl p-5">
+        <div className="flex flex-col gap-4 ">
+          <h3 className="text-white text-center">{t.rules("title")}</h3>
+          <Card className="text-white bg-gradient-to-b from-[#0F0723] to-[#251256] border-white/20 shadow-lg container mx-auto lg:w-3xl p-5">
             <CardContent className="text-white">
-              <ol className="flex flex-col gap-5 list-decimal text-sm md:text-2xl">
+              <ol className="flex flex-col gap-10 list-decimal text-sm md:text-[20px]">
                 {t.rules.raw("rules_list").map((rule, index) => (
                   <li key={index}>{rule}</li>
                 ))}
@@ -340,46 +294,56 @@ function PrizesAndRules() {
 function Community() {
   const t = useTranslations("home.community");
   return (
-    <div className="grid grid-cols-3 grid-rows-3 px-2 py-5 container mx-auto place-items-center">
+    <div className="flex flex-col items-center justify-center px-4 py-6 container mx-auto gap-4">
+      {/* Discord logo */}
       <Image
         src="/images/discord-logo.png"
-        alt=""
-        width={100}
-        height={100}
-        className="col-start-2 h-auto w-96"
+        alt="Discord Logo"
+        width={200}
+        height={200}
+        className="w-32 sm:w-48 md:w-64 h-auto"
       />
-      <Image
-        src="/images/quote-icon-3d.png"
-        alt=""
-        width={80}
-        height={80}
-        className="hidden md:block row-start-2 col-start-1 rotate-180"
-      />
-      <p className="row-start-2 col-span-3 md:col-span-1 md:col-start-2 text-3xl text-center font-bold">
-        {t("description")}
-      </p>
-      <Image
-        src="/images/quote-icon-3d.png"
-        alt=""
-        width={80}
-        height={80}
-        className="hidden md:block row-start-2 col-start-3 self-center place-self-center"
-      />
-      <div className="row-start-3 col-span-3 md:col-span-1 md:col-start-2 flex w-full justify-center">
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full"
-        >
-          <Button
-            size="lg"
-            className="w-full h-20 text-lg md:text-2xl font-bold"
-          >
-            {t("cta")}
-          </Button>
-        </a>
+
+      {/* Description with quotes */}
+      <div className="flex items-center justify-center w-full max-w-4xl px-2 md:gap-5 ">
+        {/* Left quote */}
+        <Image
+          src="/images/quote-icon-3d.png"
+          alt="Quote"
+          width={40}
+          height={40}
+          className="w-8 h-8 sm:w-16 sm:h-16 rotate-180"
+        />
+
+        {/* Text */}
+        <p className="text-lg sm:text-2xl md:text-3xl text-center font-bold px-8">
+          {t("description")}
+        </p>
+
+        {/* Right quote */}
+        <Image
+          src="/images/quote-icon-3d.png"
+          alt="Quote"
+          width={40}
+          height={40}
+          className="w-8 h-8 sm:w-16 sm:h-16"
+        />
       </div>
+
+      {/* Button */}
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-1/2 lg:w-1/4"
+      >
+        <Button
+          size="lg"
+          className="w-full py-3 md:py-6 text-lg md:text-2xl font-bold"
+        >
+          {t("cta")}
+        </Button>
+      </a>
     </div>
   );
 }
@@ -387,24 +351,25 @@ function Community() {
 // Sponsors, Credits for SponsorsCarousel: chatGPT and ClaudeAI
 function Sponsors() {
   const t = useTranslations("home.sponsors");
-  const goldPartners = [
-    { id: 1, logo: "/images/partner-kau.png", name: "KAU" },
-    { id: 2, logo: "/images/partner-kau.png", name: "kau" },
-  ];
-  const silverPartners = [
-    { id: 1, logo: "/images/partner-abaad.png", name: "KAU" },
-    { id: 2, logo: "/images/partner-abaad.png", name: "kau" },
-  ];
+
+  const strategicSponsors = {
+    id: 1,
+    logo: "/images/The-Ministry-of-Transport-and-Logistic-Services-logo.svg",
+    name: "KAU",
+  };
+  
   return (
-    <div className="flex flex-col gap-5 justify-center items-center h-screen py-5">
-      <h3 className="text-7xl lg:text-9xl font-bold text-primary tracking-tight capitalize text-center">
-        {t("title")}
-      </h3>
-      <p className="text-2xl text-cyan-primary">{t("gold")}</p>
-      <SponsorsCarousel partners={goldPartners} />
-      <p className="text-2xl text-cyan-primary">{t("silver")}</p>
-      <SponsorsCarousel partners={silverPartners} />
-    </div>
+    <div className="flex flex-col gap-5 justify-center items-center min-h-screen py-5">
+      <h3 className="text-primary tracking-tight text-center">{t("title")}</h3>
+      <p className="text-2xl text-cyan-primary">{t("strategic")}</p>
+      <Image
+        src={strategicSponsors.logo}
+        alt={strategicSponsors.name}
+        width={300}
+        height={150}
+        className="w-1/2 object-contain text-center grid place-items-center"
+      />
+    </div>  
   );
 }
 function SponsorsCarousel({ partners = [] }) {
@@ -446,7 +411,7 @@ function SponsorsCarousel({ partners = [] }) {
           {partners.map((partner) => (
             <div
               key={partner.id}
-              className="flex-[0_0_100%] flex items-center justify-center p-8"
+              className="flex-[0_0_100%] flex items-center justify-center p-8 h-fit"
             >
               <Image
                 src={partner.logo}

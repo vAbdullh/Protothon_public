@@ -8,8 +8,9 @@ import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 
 export const metadata = {
-  title: "Protothon Admin",
-  description: "Admin panel for Protothon",
+  title: "Protothon | بروتوثون",
+  description:
+    "بروتوثون هو هكاثون نمذجة يجمع المبتكرين والمصممين والمبرمجين لصناعة نماذج أولية لمشاريع واقعية ضمن أربعة مسارات: الصحة، الأمن والسلامة، إعادة تصميم الأشياء، و النقل والمركبات",
 };
 
 export default async function RootLayout({

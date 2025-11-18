@@ -10,7 +10,8 @@
     "edit": "Edit",
     "cta": "Register Now",
     "university": "King Abdulaziz university",
-    "venue": "King Faisal Conference Center"
+    "venue": "King Faisal Conference Center",
+    "details": "Details"
   },
 
   "header": {
@@ -18,11 +19,11 @@
     "tracks": "Tracks",
     "tracksList": {
       "health": "Health Track",
-      "security": "Security Track",
+      "safety": "safety Track",
       "innovation": "Innovation Track",
-      "creative": "Creative & Artistic Track"
+      "vehicle": "vehicle & Artistic Track"
     },
-    "policies": "Policies",
+    "rules": "Rules",
     "contact": "Contact Us"
   },
   "footer": {
@@ -50,25 +51,29 @@
           "title": "Innovation Track",
           "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
           "illustration": "/images/innovation-track-illustration.svg",
-          "from": "#4C4BC4"
+          "from": "#4C4BC4",
+          "link": "/innovation"
         },
         {
           "title": "Health Track",
           "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
           "illustration": "/images/health-track-illustration.svg",
-          "from": "#0ABEED"
+          "from": "#0ABEED",
+          "link": "/health"
         },
         {
-          "title": "Security & Safety Track",
+          "title": "safety & Safety Track",
           "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
-          "illustration": "/images/security-track-illustration.svg",
-          "from": "#084059"
+          "illustration": "/images/safety-track-illustration.svg",
+          "from": "#084059",
+          "link": "/safety"
         },
         {
           "title": "Transportation & Vehicles Track",
           "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
           "illustration": "/images/transportation-track-illustration.svg",
-          "from": "#EC6638"
+          "from": "#EC6638",
+          "link": "/vehicle"
         }
       ]
     },
@@ -118,7 +123,8 @@
     "sponsors": {
       "title": "Sponsors",
       "gold": "Gold Sponsors",
-      "silver": "Silver Sponsors"
+      "silver": "Silver Sponsors",
+      "strategic": "Strategic Sponsor"
     }
   },
   "tracks": {
@@ -128,16 +134,12 @@
     "aChallenge": "Challenge",
     "sponsors": {
       "title": "Track Sponsors",
+      "strategic": "Strategic Sponsor",
       "sponsors": [
         {
           "id": 1,
-          "logo": "/images/partner-kau.png",
-          "name": "KAU"
-        },
-        {
-          "id": 2,
-          "logo": "/images/partner-abaad.png",
-          "name": "Abaad"
+          "logo": "/images/The-Ministry-of-Transport-and-Logistic-Services-logo.svg",
+          "name": "logisticMinistry"
         }
       ]
     },
@@ -168,25 +170,25 @@
       ],
       "challenges": [
         "Medical device prototyping",
-        "Health data security",
+        "Health data safety",
         "Remote patient monitoring",
         "Healthcare system integration"
       ]
     },
-    "security": {
-      "title": "Security Track",
+    "safety": {
+      "title": "safety Track",
       "description": "Safety, protection, and emergency response solutions",
-      "icon": "/images/security-track-icon.png",
-      "puzzle": "/images/security-track-puzzle.svg",
-      "puzzles": "/images/security-track-puzzles.png",
+      "icon": "/images/safety-track-icon.png",
+      "puzzle": "/images/safety-track-puzzle.svg",
+      "puzzles": "/images/safety-track-puzzles.png",
       "color": "#084059",
       "goals": [
         {
-          "goal": "Enhance cybersecurity measures",
+          "goal": "Enhance cybersafety measures",
           "background": "#3D96B7"
         },
         {
-          "goal": "Improve physical security systems",
+          "goal": "Improve physical safety systems",
           "background": "#08769E"
         },
         {
@@ -222,7 +224,7 @@
           "background": "#74399C"
         },
         {
-          "goal": "Solve complex problems creatively",
+          "goal": "Solve complex problems vehiclely",
           "background": "#5D2F93"
         },
         {
@@ -237,12 +239,12 @@
         "Cross-domain problem solving"
       ]
     },
-    "creative": {
-      "title": "Creative & Artistic Track",
+    "vehicle": {
+      "title": "vehicle & Artistic Track",
       "description": "Technology and creativity intersection",
-      "icon": "/images/creative-track-icon.png",
-      "puzzle": "/images/creative-track-puzzle.svg",
-      "puzzles": "/images/creative-track-puzzles.png",
+      "icon": "/images/vehicle-track-icon.png",
+      "puzzle": "/images/vehicle-track-puzzle.svg",
+      "puzzles": "/images/vehicle-track-puzzles.png",
       "color": "#EC6638",
       "goals": [
         {
