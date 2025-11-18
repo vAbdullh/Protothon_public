@@ -32,12 +32,12 @@ export default function footer() {
             </ul>
             <div className='flex flex-col justify-between items-center md:flex-row gap-2'>
                 <div className='grid grid-cols-2 gap-3'>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.linkedin.com/company/protothon-kau" target="_blank" rel="noopener noreferrer"
                         className="bg-white rounded-sm p-1 hover:bg-gray-200"
                     >
                         <Linkedin className="text-primary w-5 h-5" />
                     </a>
-                    <a href="https://x.com/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://x.com/protothon_sa" target="_blank" rel="noopener noreferrer"
                         className="bg-white rounded-sm p-1 hover:bg-gray-200 text-primary fill-primary"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="size-5" viewBox="0 0 16 16">
