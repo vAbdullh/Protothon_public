@@ -21,7 +21,7 @@
       "health": "Health Track",
       "safety": "safety Track",
       "innovation": "Innovation Track",
-      "vehicle": "vehicle & Artistic Track"
+      "vehicle": "Vehicle & Transportation Track"
     },
     "rules": "Rules",
     "contact": "Contact Us"
@@ -42,35 +42,35 @@
   "home": {
     "about": {
       "title": "What is Protothon?",
-      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi."
+      "description": "Protothon is a prototyping hackathon that brings together innovators, designers, and programmers to create prototypes of real-world projects across four diverse tracks. Whether you're interested in health, security, redesigning things, or transportation, this is where your next product prototype begins.  This is where the journey starts. This is where your idea takes its first step toward becoming a reality."
     },
     "tracks": {
       "title": "Hackathon Tracks",
       "tracks": [
         {
           "title": "Innovation Track",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "description": "Unleash your imagination to redesign the things around you, and create modern products that combine simplicity and intelligence.",
           "illustration": "/images/innovation-track-illustration.svg",
           "from": "#4C4BC4",
           "link": "/innovation"
         },
         {
           "title": "Health Track",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "description": "Develop solutions that improve human health… from supporting patients and people with disabilities to smart clothing that changes their lives for the better",
           "illustration": "/images/health-track-illustration.svg",
           "from": "#0ABEED",
           "link": "/health"
         },
         {
           "title": "safety & Safety Track",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "description": "Develop technologies that protect people and make them feel safe on roads, in homes, and even in factories.",
           "illustration": "/images/safety-track-illustration.svg",
           "from": "#084059",
           "link": "/safety"
         },
         {
           "title": "Transportation & Vehicles Track",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "description": "Creating solutions that facilitate movement, reduce congestion, and enhance the driving experience through smarter and more efficient technologies.",
           "illustration": "/images/transportation-track-illustration.svg",
           "from": "#EC6638",
           "link": "/vehicle"
@@ -82,22 +82,37 @@
       "timeline": [
         {
           "title": "Registration",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "description": "Participants begin forming their teams and choosing the track that suits them best",
           "date": "01 June - 25 June"
         },
         {
-          "title": "Acceptance",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "title": "Pre-selection Workshops",
+          "description": "Intensive training in design, electronics, and programming to build a strong foundation before the competition",
           "date": "01 June - 25 June"
         },
         {
-          "title": "Hackathon Days",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "title": "Initial Submission",
+          "description": "Submitting the initial pitch, core components, and early prototype",
           "date": "01 June - 25 June"
         },
         {
-          "title": "Final day and prizes",
-          "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
+          "title": "Qualified Teams Announcement",
+          "description": "Selecting the best projects to advance to the in-person hackathon",
+          "date": "01 June - 25 June"
+        },
+        {
+          "title": "In-Person Hackathon",
+          "description": "Intensive working days to build the prototype with support from specialized mentors",
+          "date": "01 June - 25 June"
+        },
+        {
+          "title": "Final Judging",
+          "description": "Presenting the project before an expert panel to evaluate the idea, prototype, and impact",
+          "date": "01 June - 25 June"
+        },
+        {
+          "title": "Award Ceremony",
+          "description": "Honoring the winning teams and celebrating the best innovations",
           "date": "01 June - 25 June"
         }
       ]
@@ -109,11 +124,12 @@
     "rules": {
       "title": "rules",
       "rules_list": [
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi.",
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis quos accusamus, sequi ullam quo commodi autem fugiat nisi officia quas recusandae blanditiis voluptates placeat quam! Labore quis quasi nisi. Excepturi."
+        "The registration form must be fully completed before evaluation begins.",
+        "The idea must be related to one of the official Protothon challenges and tracks.",
+        "The work must be original and developed only during the hackathon period.",
+        "A functional prototype must be submitted to prove the idea’s feasibility.",
+        "A technical description, presentation, and disclosure of any pre-existing materials must be attached.",
+        "Teams cannot be mixed from both male and female campuses; all members must be either from the male campus or the female campus."
       ]
     },
     "community": {
@@ -240,7 +256,7 @@
       ]
     },
     "vehicle": {
-      "title": "vehicle & Artistic Track",
+      "title": "Vehicle & Transportation Track",
       "description": "Technology and creativity intersection",
       "icon": "/images/vehicle-track-icon.png",
       "puzzle": "/images/vehicle-track-puzzle.svg",

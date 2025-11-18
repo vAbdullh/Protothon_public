@@ -257,7 +257,7 @@ function Stages() {
             <CardStage index={index} details={stage} key={index} />
           ))}
         </div>
-        <DiamondShape cn="absolute -left-4 left-1/2 rtl:left-auto rtl:-right-4 rtl:right-1/2 -translate-x-1/2 rtl:translate-x-1/2" />
+        <DiamondShape cn="absolute left-1 lg:left-1/2 rtl:left-auto rtl:right-1 rtl:lg:right-1/2 -translate-x-1/2 rtl:translate-x-1/2" />
       </div>
     </div>
   );
@@ -357,7 +357,7 @@ function Sponsors() {
     logo: "/images/The-Ministry-of-Transport-and-Logistic-Services-logo.svg",
     name: "KAU",
   };
-  
+
   return (
     <div className="flex flex-col gap-5 justify-center items-center min-h-screen py-5">
       <h3 className="text-primary tracking-tight text-center">{t("title")}</h3>
@@ -369,7 +369,7 @@ function Sponsors() {
         height={150}
         className="w-1/2 object-contain text-center grid place-items-center"
       />
-    </div>  
+    </div>
   );
 }
 function SponsorsCarousel({ partners = [] }) {
