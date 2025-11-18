@@ -92,7 +92,7 @@ function Hero() {
 function About() {
   const t = useTranslations("home.about");
   return (
-    <div className="min-h-screen relative flex items-center">
+    <div id="about" className="min-h-screen relative flex items-center">
       <div className="absolute bottom-0 left-0 w-3/4 h-1/4 md:size-[400px] md:-z-50">
         <Image
           src="/images/filament-about.png"

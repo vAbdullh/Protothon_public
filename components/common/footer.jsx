@@ -5,18 +5,38 @@ import { useTranslations } from 'use-intl'
 import { H3 } from '../shadcn/typography-h3';
 import { Linkedin } from 'lucide-react';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function footer() {
+    const pathname = usePathname();
+    const router = useRouter();
     const t = {
         shared: useTranslations('shared'),
-        footer: useTranslations('footer')
+        footer: useTranslations('footer'),
+        header: useTranslations('header')
     };
+
+    const scrollToSection = (id) => {
+        if (pathname !== "/") {
+            // Navigate to home page with hash
+            router.push(`/#${id}`);
+        } else {
+            // If already on home page, just scroll
+            const element = document.getElementById(id);
+            element?.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     const footerLinks = [
-        { key: "about_hackathon", href: "#" },
-        { key: "about_club", href: "#" },
+        { key: "about_hackathon", href: "#about", onClick: () => scrollToSection("about") },
         { key: "faq", href: "#" },
-        { key: "team", href: "#" },
-        { key: "contact_us", href: "#" },
+    ];
+
+    const trackLinks = [
+        { href: "/tracks/health", label: "health" },
+        { href: "/tracks/safety", label: "safety" },
+        { href: "/tracks/innovation", label: "innovation" },
+        { href: "/tracks/vehicle", label: "vehicle" },
     ];
     return (
         <div id="footer" className='flex flex-col gap-6 bg-gradient-to-b from-[#0F0723] to-[#3B1C89] py-8 px-3 mx-auto text-white'>
@@ -24,12 +44,38 @@ export default function footer() {
             <ul className="flex flex-col gap-2 font-normal">
                 {footerLinks.map((link) => (
                     <li key={link.key}>
-                        <a href={link.href} className="hover:underline">
-                            {t.footer(link.key)}
-                        </a>
+                        {link.onClick ? (
+                            <button 
+                                onClick={link.onClick}
+                                className="hover:underline text-left"
+                            >
+                                {t.footer(link.key)}
+                            </button>
+                        ) : (
+                            <a href={link.href} className="hover:underline">
+                                {t.footer(link.key)}
+                            </a>
+                        )}
                     </li>
                 ))}
             </ul>
+
+            {/* Track Links */}
+            <div className="mt-4">
+                <h4 className="font-semibold mb-2">Tracks</h4>
+                <ul className="flex flex-col gap-2 font-normal">
+                    {trackLinks.map((track) => (
+                        <li key={track.href}>
+                            <a 
+                                href={track.href}
+                                className="hover:underline"
+                            >
+                                {t.header(`tracksList.${track.label}`)}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <div className='flex flex-col justify-between items-center md:flex-row gap-2'>
                 <div className='grid grid-cols-2 gap-3'>
                     <a href="https://www.linkedin.com/company/protothon-kau" target="_blank" rel="noopener noreferrer"

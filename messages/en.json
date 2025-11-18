@@ -140,7 +140,7 @@
       "title": "Sponsors",
       "gold": "Gold Sponsors",
       "silver": "Silver Sponsors",
-      "strategic": "Strategic Sponsor"
+      "strategic": "Strategic Partner"
     }
   },
   "tracks": {
@@ -151,7 +151,7 @@
     "aChallenge": "Challenge",
     "sponsors": {
       "title": "Track Sponsors",
-      "strategic": "Strategic Sponsor",
+      "strategic": "Strategic Partner",
       "sponsors": [
         {
           "id": 1,
@@ -234,31 +234,30 @@
       "puzzle": "/images/innovation-track-puzzle.svg",
       "puzzles": "/images/innovation-track-puzzles.png",
       "color": "#4C4BC4",
-     "goals": [
-  {
-    "goal": "Reimagine existing objects with creative designs that enhance their functions or expand their uses.",
-    "background": "#4E4DC4"
-  },
-  {
-    "goal": "Apply modern techniques to rebuild old or abandoned tools and devices with added features.",
-    "background": "#74399C"
-  },
-  {
-    "goal": "Transform static everyday items into smart, interactive, and practical devices.",
-    "background": "#5D2F93"
-  },
-  {
-    "goal": "Integrate movement, sensing, or user interaction into ordinary non-digital objects.",
-    "background": "#351852"
-  }
-],
-"challenges": [
-  "Disassemble old tools and redesign them in a modern way (reverse engineering).",
-  "Convert a static object into a smart device capable of movement or sensing.",
-  "Update home or office products by adding new functionalities.",
-  "Create an entirely new product inspired by a daily need."
-]
-
+      "goals": [
+        {
+          "goal": "Reimagine existing objects with creative designs that enhance their functions or expand their uses.",
+          "background": "#4E4DC4"
+        },
+        {
+          "goal": "Apply modern techniques to rebuild old or abandoned tools and devices with added features.",
+          "background": "#74399C"
+        },
+        {
+          "goal": "Transform static everyday items into smart, interactive, and practical devices.",
+          "background": "#5D2F93"
+        },
+        {
+          "goal": "Integrate movement, sensing, or user interaction into ordinary non-digital objects.",
+          "background": "#351852"
+        }
+      ],
+      "challenges": [
+        "Disassemble old tools and redesign them in a modern way (reverse engineering).",
+        "Convert a static object into a smart device capable of movement or sensing.",
+        "Update home or office products by adding new functionalities.",
+        "Create an entirely new product inspired by a daily need."
+      ]
     },
     "vehicle": {
       "title": "Vehicle & Transportation Track",
