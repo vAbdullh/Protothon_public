@@ -227,66 +227,68 @@
     },
     "innovation": {
       "title": "مسار الحلول المبتكرة",
-      "subtitle": "حلول رائدة عبر مختلف المجالات",
+      "subtitle": "يتيح للمشاركين بناء نماذج أولية لمنتجات مُعاد تصميمها، أو تحويل عناصر جامدة إلى أجهزة ذكية عبر إضافة الحركة أو الاستشعار أو التفاعل.",
+      "overview": "هذا المسار موجّه للأفكار غير التقليدية التي تعيد تخيّل الأشياء من حولنا. يجمع بين الإبداع والهندسة، ويُشجع على تطوير حلول جديدة بالكامل أو إعادة تصميم أدوات قديمة بطرق حديثة.",
       "icon": "/images/innovation-track-icon.png",
       "puzzle": "/images/innovation-track-puzzle.svg",
       "puzzles": "/images/innovation-track-puzzles.png",
       "color": "#4C4BC4",
       "goals": [
         {
-          "goal": "تطوير تقنيات مبتكرة",
+          "goal": "إعادة تصوّر الأشياء الموجودة بتصاميم إبداعية تُحسّن وظائفها أو توسّع استخدامها.",
           "background": "#4E4DC4"
         },
         {
-          "goal": "إنشاء تطبيقات جديدة",
+          "goal": "تطبيق تقنيات حديثة لإعادة بناء الأدوات والأجهزة القديمة أو المهجورة مع إضافة مزايا جديدة.",
           "background": "#74399C"
         },
         {
-          "goal": "حل المشكلات المعقدة بشكل إبداعي",
+          "goal": "تحويل العناصر اليومية الساكنة إلى أجهزة ذكية وتفاعلية وعملية.",
           "background": "#5D2F93"
         },
         {
-          "goal": "إظهار التميز التقني",
+          "goal": "دمج الحركة أو الاستشعار أو تفاعل المستخدم داخل أشياء عادية غير رقمية.",
           "background": "#351852"
         }
       ],
       "challenges": [
-        "بنية تحتية للمدن الذكية",
-        "تطوير التكنولوجيا المستدامة",
-        "ابتكار الأدوات التعليمية",
-        "حل المشكلات عبر المجالات"
+        " تفكيك أدوات قديمة وإعادة تصميمها بشكل حديث (الهندسة العكسية).",
+        "تحويل جماد ساكن إلى جهاز ذكي قادر على الحركة أو الاستشعار.",
+        "تحديث منتجات منزلية أو مكتبية وإضافة وظائف جديدة لها.",
+        "ابتكار منتج جديد كليًا مستوحى من احتياج يومي."
       ]
     },
     "vehicle": {
       "title": "النقل والمركبات",
-      "subtitle": "تقاطع التكنولوجيا والإبداع",
+      "subtitle": "يتيح المجال لتطوير أجهزة أو أنظمة تُحسن الحركة في الطرق، وتقترح مسارات، وتدعم السائق داخل المركبة، وتزيد الأمان.",
+      "overview": "يركّز هذا المسار على تحسين تجربة التنقل داخل المدن عبر حلول ذكية تُخفف الازدحام وتُحسّن سلامة المركبات.يسمح للمشاركين بتطوير نماذج أولية تُسهّل القيادة وتدعم أنظمة المرور.",
       "icon": "/images/vehicle-track-icon.png",
       "puzzle": "/images/vehicle-track-puzzle.svg",
       "puzzles": "/images/vehicle-track-puzzles.png",
       "color": "#EC6638",
       "goals": [
         {
-          "goal": "دمج الفن مع التكنولوجيا",
+          "goal": "Design user-centered systems that enhance safety, comfort, and the driving experience.",
           "background": "#EC6638"
         },
         {
-          "goal": "إنشاء تجارب تفاعلية",
+          "goal": "Develop smart solutions to reduce traffic congestion and improve urban mobility.",
           "background": "#BE4848"
         },
         {
-          "goal": "تطوير أدوات الفن الرقمي",
+          "goal": "Promote locally adaptable innovations to improve the experience of drivers and passengers.",
           "background": "#8C3253"
         },
         {
-          "goal": "استكشاف تطبيقات الوسائط المتعددة",
+          "goal": "Support sustainable and energy-efficient mobility solutions suited to the climate of Saudi Arabia.",
           "background": "#441A1A"
         }
       ],
       "challenges": [
-        "تصميم المنشآت التفاعلية",
-        "تطبيقات البرمجة الإبداعية",
-        "تطوير أدوات الفن الرقمي",
-        "إنشاء تجارب الوسائط المتعددة"
+        "Develop smart solutions to ease congestion and improve traffic flow.",
+        "Innovate tools that enhance driver comfort and safety inside the vehicle.",
+        "Design sensor devices to analyze traffic movement.",
+        "Create systems that optimize signal management and guide vehicles effectively."
       ]
     }
   },

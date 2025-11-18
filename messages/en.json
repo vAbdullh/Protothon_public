@@ -162,7 +162,8 @@
     },
     "health": {
       "title": "Health Track",
-      "subtitle": "Developing assistive tools, medical wearables, solutions for physical therapy, or technologies that facilitate the user's interaction with their health environment.",
+      "subtitle": "Developing assistive devices, medical apparel, physiotherapy solutions, or technologies that facilitate user interaction with their healthcare environment",
+      "overview": "This track is for those who believe that technology can improve human health and raise quality of life. It focuses on developing smart solutions that take into account the needs of patients and people with disabilities, support treatment and rehabilitation, and provide practical tools that contribute to a more independent and comfortable life.",
       "icon": "/images/health-track-icon.png",
       "puzzle": "/images/health-track-puzzle.svg",
       "puzzles": "/images/health-track-puzzles.png",
@@ -227,67 +228,69 @@
     },
     "innovation": {
       "title": "Innovation Track",
-      "subtitle": "Developing assistive devices, medical apparel, physiotherapy solutions, or technologies that facilitate user interaction with their healthcare environment.",
-      "overview": "This track is dedicated to those who believe that technology can improve human health and raise the quality of life. It focuses on developing smart solutions that take into account the needs of patients and people with disabilities, support treatment and rehabilitation, and provide practical tools that contribute to a more independent and comfortable life.",
+      "subtitle": "It allows participants to build prototypes of redesigned products or transform inanimate objects into smart devices by adding movement, sensing, or interaction.",
+      "overview": "This track is geared towards unconventional ideas that reimagine the things around us. It combines creativity and engineering, encouraging the development of entirely new solutions or the redesign of existing tools in modern ways.",
       "icon": "/images/innovation-track-icon.png",
       "puzzle": "/images/innovation-track-puzzle.svg",
       "puzzles": "/images/innovation-track-puzzles.png",
       "color": "#4C4BC4",
-      "goals": [
-        {
-          "goal": "Supporting the independence of people with physical or cognitive disabilities.",
-          "background": "#0ABEED"
-        },
-        {
-          "goal": "Developing tools that support movement, focus, learning, and interaction in public spaces.",
-          "background": "#0EA5E9"
-        },
-        {
-          "goal": "Innovating in physical therapy and motor rehabilitation.",
-          "background": "#08769E"
-        },
-        {
-          "goal": "Designing smart medical wearables to track exercises and home treatment.",
-          "background": "#083B83"
-        }
-      ],
-      "challenges": [
-        "Innovating healthcare solutions that support patients and people with disabilities while improving quality of care.",
-        "Developing technologies that enhance safety and security and prevent accidents in daily life and factories.",
-        "Redesigning tools and devices in innovative ways or converting inanimate objects into smart devices.",
-        "Creating transportation solutions that reduce congestion and improve driving experience and traffic systems."
-      ]
+     "goals": [
+  {
+    "goal": "Reimagine existing objects with creative designs that enhance their functions or expand their uses.",
+    "background": "#4E4DC4"
+  },
+  {
+    "goal": "Apply modern techniques to rebuild old or abandoned tools and devices with added features.",
+    "background": "#74399C"
+  },
+  {
+    "goal": "Transform static everyday items into smart, interactive, and practical devices.",
+    "background": "#5D2F93"
+  },
+  {
+    "goal": "Integrate movement, sensing, or user interaction into ordinary non-digital objects.",
+    "background": "#351852"
+  }
+],
+"challenges": [
+  "Disassemble old tools and redesign them in a modern way (reverse engineering).",
+  "Convert a static object into a smart device capable of movement or sensing.",
+  "Update home or office products by adding new functionalities.",
+  "Create an entirely new product inspired by a daily need."
+]
+
     },
     "vehicle": {
       "title": "Vehicle & Transportation Track",
-      "subtitle": "Technology and creativity intersection",
+      "subtitle": "It allows participants to build prototypes of redesigned products or transform inanimate objects into smart devices by adding movement, sensing, or interaction.",
+      "overview": "This track is geared towards unconventional ideas that reimagine the things around us. It combines creativity and engineering, encouraging the development of entirely new solutions or the redesign of existing tools in modern ways.",
       "icon": "/images/vehicle-track-icon.png",
       "puzzle": "/images/vehicle-track-puzzle.svg",
       "puzzles": "/images/vehicle-track-puzzles.png",
       "color": "#EC6638",
       "goals": [
         {
-          "goal": "Blend art with technology",
-          "background": "#EC6638"
+          "goal": "Reimagining existing objects with creative designs that improve their functions or expand their uses.",
+          "background": "#4E4DC4"
         },
         {
-          "goal": "Create interactive experiences",
-          "background": "#BE4848"
+          "goal": "Applying modern techniques to rebuild old or abandoned tools and devices with added features.",
+          "background": "#74399C"
         },
         {
-          "goal": "Develop digital art tools",
-          "background": "#8C3253"
+          "goal": "Transforming everyday static items into smart, interactive, and practical devices.",
+          "background": "#5D2F93"
         },
         {
-          "goal": "Explore multimedia applications",
-          "background": "#441A1A"
+          "goal": "Integrating movement, sensing, or user interaction into ordinary non-digital objects.",
+          "background": "#351852"
         }
       ],
       "challenges": [
-        "Interactive installation design",
-        "Creative coding applications",
-        "Digital art tool development",
-        "Multimedia experience creation"
+        "Disassembling old tools and redesigning them in a modern way (reverse engineering).",
+        "Converting a static object into a smart device capable of movement or sensing.",
+        "Updating home or office products by adding new functionalities.",
+        "Creating an entirely new product inspired by a daily need."
       ]
     }
   },
