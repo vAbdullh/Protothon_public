@@ -33,18 +33,16 @@ function Hero() {
   return (
     <section className="relative flex-1 h-screen flex items-center justify-center">
       <Countdown
-        targetDate={1767225600000}
+        targetDate={'2025-12-04T23:59:59'}
         className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-50"
       />
-
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0F0723] via-[#3B1C89] to-[#0EA5E9]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#091233] via-[#3B1C89] to-[#0EA5E9] z-10 opacity-70" />
 
-      {/* Background overlay */}
       <Image
-        src="/images/hero-overlay-new.jpg"
+        src="/images/hero-overlay-md.png"
         fill
-        className="absolute inset-0 w-full h-full object-cover object-top opacity-25"
+        className="absolute inset-0 object-cover object-top-left"
         alt=""
       />
 
@@ -58,8 +56,8 @@ function Hero() {
           <div className="flex gap-2 items-center lg:justify-end lg:h-11 w-fit lg:w-96">
             <CalendarRange className="lg:size-11" />
             <div className="flex flex-col gap-2">
-              <p>01 - 10 / 01 / 2026</p>
-              <p>8:00 AM - 12:00 PM</p>
+              <p>11-14/01/2026</p>
+              <p>8:00AM - 12:00PM</p>
             </div>
           </div>
 
@@ -130,15 +128,15 @@ const TrackContainer = ({
         data-aos="fade-up"
       >
         <div
-          className={`w-full p-5 flex flex-col justify-evenly gap-5 relative ${
+          className={`w-full p-5 flex flex-col justify-center gap-10 relative ${
             reverse ? "lg:order-2" : ""
           }`}
           style={{
             background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
           }}
         >
-          <h4 className="text-4xl font-bold">{title}</h4>
-          <p className="lg:text-xl">{description}</p>
+          <h4 className="text-4xl font-extrabold">{title}</h4>
+          <p className="lg:text-2xl">{description}</p>
           <Link
             href={`/tracks${link}`}
             className="absolute w-80 -bottom-5 inset-x-1/2 -translate-x-1/2 rtl:translate-x-1/2"
@@ -154,18 +152,18 @@ const TrackContainer = ({
             </Button>
           </Link>
         </div>
-        <div className="relative order-1 lg:order-0 grid place-items-center">
+        <div className="relative order-1 lg:order-0 grid place-items-center p-10">
           <Image
             src={illustration}
             alt=""
             width={400}
             height={300}
-            className=""
+            className="filter drop-shadow-[0_0_15px_rgba(255,255,255,0.20)]"
           />
         </div>
       </div>
       <div
-        className={`w-4/5 text-center px-5 grid place-items-center py-16 gap-8 relative lg:hidden
+        className={`w-4/5 text-center px-5 grid place-items-center py-16 gap-8 relative lg:hidden p-5
     ${
       reverse
         ? "ml-auto text-right ltr:rounded-l-2xl rtl:ml-0 rtl:mr-auto rtl:text-left rtl:rounded-r-2xl"
@@ -182,7 +180,7 @@ const TrackContainer = ({
           alt=""
           width={120}
           height={120}
-          className={`absolute -top-[60px] ${
+          className={`absolute -top-[60px] filter drop-shadow-[0_0_5px_rgba(255,255,255,0.20)] ${
             reverse ? "ltr:right-0 rtl:left-0" : "ltr:left-0 rtl:right-0"
           }`}
         />

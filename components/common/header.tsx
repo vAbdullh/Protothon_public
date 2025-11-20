@@ -55,7 +55,7 @@ export default function Header() {
   return (
     <header className="w-full px-6 py-4 flex justify-between items-center border-b border-gray-200">
       {/* Logo */}
-      <div className="flex items-center space-x-2">
+      <Link href={"/"}>
         <Image
           src="/protothon-logo-purple.png"
           alt="protothon logo purple"
@@ -65,7 +65,7 @@ export default function Header() {
           className="w-24 lg:w-[150px]"
           priority
         />
-      </div>
+      </Link>
 
       {/* Desktop Navigation & Actions (lg+) */}
       <nav className="hidden lg:flex space-x-6">

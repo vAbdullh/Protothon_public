@@ -262,27 +262,27 @@
       "color": "#EC6638",
       "goals": [
         {
-          "goal": "Design user-centered systems that enhance safety, comfort, and the driving experience.",
-          "background": "#EC6638"
+          "goal": "تصميم أنظمة متمحورة حول المستخدم تعزّز السلامة والراحة وتجربة القيادة.",
+          "background": "#EE7850"
         },
         {
-          "goal": "Develop smart solutions to reduce traffic congestion and improve urban mobility.",
-          "background": "#BE4848"
+          "goal": "تطوير حلول ذكية لتقليل الازدحام المروري وتحسين التنقّل داخل المدن.",
+          "background": "#ED6637"
         },
         {
-          "goal": "Promote locally adaptable innovations to improve the experience of drivers and passengers.",
-          "background": "#8C3253"
+          "goal": "تعزيز ابتكارات قابلة للتكيّف محليًا لتحسين تجربة السائق والركاب.",
+          "background": "#EA5221"
         },
         {
-          "goal": "Support sustainable and energy-efficient mobility solutions suited to the climate of Saudi Arabia.",
-          "background": "#441A1A"
+          "goal": "دعم حلول تنقّل مستدامة وذات كفاءة في استهلاك الطاقة تتناسب مع مناخ المملكة العربية السعودية.",
+          "background": "#DC4916"
         }
       ],
       "challenges": [
-        "Develop smart solutions to ease congestion and improve traffic flow.",
-        "Innovate tools that enhance driver comfort and safety inside the vehicle.",
-        "Design sensor devices to analyze traffic movement.",
-        "Create systems that optimize signal management and guide vehicles effectively."
+        "ابتكار حلول تقلل الازدحام وتحسّن انسيابية الحركة عبر أنظمة ذكية لإدارة الطرق وتوجيه المركبات بكفاءة",
+        "رفع مستوى السلامة المرورية من خلال تنبيهات استباقية وتقنيات تساعد على تقليل الحوادث وحماية الركاب",
+        "دعم التنقل المستدام والصديق للبيئة بتقنيات تقلل الانبعاثات وتراعي طبيعة واحتياجات الطرق في المملكة",
+        "تحسين تجربة التنقل للمستخدمين بجعل المركبات والطرق أكثر راحة وتفاعلية وسهولة للوصول للجميع"
       ]
     }
   },

@@ -86,7 +86,7 @@ function Heading({ title, description, icon, puzzle, color }) {
   return (
     <section
       className={`relative bg-gradient-to-r rtl:bg-gradient-to-l to-white px-2 py-8 text-white h-56`}
-      style={{ "--tw-gradient-from": color, "--tw-gradient-to": "white" }}
+      style={{ "--tw-gradient-from": color, "--tw-gradient-to": "#e6e6e650" }}
     >
       <Image
         src={puzzle}
@@ -97,7 +97,7 @@ function Heading({ title, description, icon, puzzle, color }) {
       />
       <div className="relative w-full max-w-7xl mx-auto flex flex-col gap-3 justify-evenly h-full">
         <H1>{title}</H1>
-        <p className="bg-gradient-to-r rtl:bg-gradient-to-l from-white/20 to-transparent p-2">
+        <p className="bg-gradient-to-r rtl:bg-gradient-to-l from-white/20 to-transparent p-2 pe-5">
           {description}
         </p>
         <div className="size-44 absolute inset-0 py-2">
@@ -113,10 +113,13 @@ function Overview({ title, overview, color }) {
       <h2
         className="text-4xl font-extrabold mb-4 text-center"
         style={{ color }}
+        data-aos="fade-up"
       >
         {title}
       </h2>
-      <p className="text-center text-xl max-w-3xl mx-auto">{overview}</p>
+      <p className="text-center text-xl max-w-3xl mx-auto" data-aos="fade-up">
+        {overview}
+      </p>
     </section>
   );
 }
@@ -126,6 +129,7 @@ function Goals({ title, goals, aGoal, color }) {
       <h2
         className="text-4xl font-extrabold mb-4 text-center"
         style={{ color }}
+        data-aos="fade-up"
       >
         {title}
       </h2>
@@ -143,6 +147,7 @@ function Goals({ title, goals, aGoal, color }) {
               key={index}
               className={`p-10 ${roundedClass}`}
               style={{ backgroundColor: goal.background }}
+              data-aos="fade-up"
             >
               <h3 className="!text-2xl font-bold">{`${aGoal} ${index + 1}`}</h3>
               <p>{goal.goal}</p>
@@ -159,6 +164,7 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
       <h2
         className="text-4xl font-extrabold mb-4 text-center"
         style={{ color }}
+        data-aos="fade-up"
       >
         {title}
       </h2>
@@ -183,7 +189,12 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
           }
 
           return (
-            <li key={index} className="flex flex-col gap-4" style={style}>
+            <li
+              key={index}
+              className="flex flex-col gap-4"
+              style={style}
+              data-aos="fade-up"
+            >
               <h3 className="!text-2xl font-extrabold" style={{ color }}>
                 {`${aChallenge} ${index + 1}`}
               </h3>
@@ -200,6 +211,7 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
           style={{ gridColumn: "2 / 3", gridRow: "2 / 3" }}
           className="w-48"
           alt=""
+          data-aos="fade-up"
         />
       </ul>
     </section>
@@ -211,13 +223,19 @@ function Sponsors({ title, sponsors = [], color }) {
   return (
     <section>
       <div className="flex flex-col gap-5 justify-center items-center py-5">
-        <h3 className="text-primary tracking-tight text-center">{title}</h3>
+        <h3
+          className="text-primary tracking-tight text-center"
+          data-aos="fade-up"
+        >
+          {title}
+        </h3>
         <Image
           src={strategicSponsors.logo}
           alt={strategicSponsors.name}
           width={300}
           height={150}
           className="w-1/2 object-contain text-center grid place-items-center"
+          data-aos="fade-up"
         />
       </div>
     </section>

@@ -263,27 +263,27 @@
       "color": "#EC6638",
       "goals": [
         {
-          "goal": "Reimagining existing objects with creative designs that improve their functions or expand their uses.",
-          "background": "#4E4DC4"
+          "goal": "Design user-centered systems that enhance safety, comfort, and the driving experience.",
+          "background": "#EC6638"
         },
         {
-          "goal": "Applying modern techniques to rebuild old or abandoned tools and devices with added features.",
-          "background": "#74399C"
+          "goal": "Develop smart solutions to reduce traffic congestion and improve urban mobility.",
+          "background": "#BE4848"
         },
         {
-          "goal": "Transforming everyday static items into smart, interactive, and practical devices.",
-          "background": "#5D2F93"
+          "goal": "Promote locally adaptable innovations to improve the experience of drivers and passengers.",
+          "background": "#8C3253"
         },
         {
-          "goal": "Integrating movement, sensing, or user interaction into ordinary non-digital objects.",
-          "background": "#351852"
+          "goal": "Support sustainable and energy-efficient mobility solutions suited to the climate of Saudi Arabia.",
+          "background": "#441A1A"
         }
       ],
       "challenges": [
-        "Disassembling old tools and redesigning them in a modern way (reverse engineering).",
-        "Converting a static object into a smart device capable of movement or sensing.",
-        "Updating home or office products by adding new functionalities.",
-        "Creating an entirely new product inspired by a daily need."
+        "Develop smart solutions to ease congestion and improve traffic flow.",
+        "Innovate tools that enhance driver comfort and safety inside the vehicle.",
+        "Design sensor devices to analyze traffic movement.",
+        "Create systems that optimize signal management and guide vehicles effectively."
       ]
     }
   },
