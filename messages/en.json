@@ -135,10 +135,12 @@
       "cta": "Join the community"
     },
     "sponsors": {
-      "title": "Sponsors",
+      "title": "Sponsors and Organizers",
       "gold": "Gold Sponsors",
       "silver": "Silver Sponsors",
-      "strategic": "Strategic Partner"
+      "strategic": "Strategic Partner",
+      "sponsoredBy": "Sponsored by",
+      "organizedBy": "Organized by"
     }
   },
   "tracks": {

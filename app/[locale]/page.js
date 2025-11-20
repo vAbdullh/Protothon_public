@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import { Countdown } from "@/components/count-down";
 import { useTranslations } from "next-intl";
-import { CalendarRange, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
+import { CalendarRange, MapPin } from "lucide-react";
 import { Button } from "@/components/shadcn/button";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/shadcn/card";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
 export default function Page() {
@@ -129,9 +127,8 @@ const TrackContainer = ({
         data-aos="fade-up"
       >
         <div
-          className={`w-full p-5 flex flex-col justify-center gap-10 relative ${
-            reverse ? "lg:order-2" : ""
-          }`}
+          className={`w-full p-5 flex flex-col justify-center gap-10 relative ${reverse ? "lg:order-2" : ""
+            }`}
           style={{
             background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
           }}
@@ -165,11 +162,10 @@ const TrackContainer = ({
       </div>
       <div
         className={`w-4/5 text-center px-5 grid place-items-center py-16 gap-8 relative lg:hidden p-5
-    ${
-      reverse
-        ? "ml-auto text-right ltr:rounded-l-2xl rtl:ml-0 rtl:mr-auto rtl:text-left rtl:rounded-r-2xl"
-        : "mr-auto text-left ltr:rounded-r-2xl rtl:mr-0 rtl:ml-auto rtl:text-right rtl:rounded-l-2xl"
-    }
+    ${reverse
+            ? "ml-auto text-right ltr:rounded-l-2xl rtl:ml-0 rtl:mr-auto rtl:text-left rtl:rounded-r-2xl"
+            : "mr-auto text-left ltr:rounded-r-2xl rtl:mr-0 rtl:ml-auto rtl:text-right rtl:rounded-l-2xl"
+          }
   `}
         style={{
           background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
@@ -181,9 +177,8 @@ const TrackContainer = ({
           alt=""
           width={120}
           height={120}
-          className={`absolute -top-[60px] filter drop-shadow-[0_0_5px_rgba(255,255,255,0.20)] ${
-            reverse ? "ltr:right-0 rtl:left-0" : "ltr:left-0 rtl:right-0"
-          }`}
+          className={`absolute -top-[60px] filter drop-shadow-[0_0_5px_rgba(255,255,255,0.20)] ${reverse ? "ltr:right-0 rtl:left-0" : "ltr:left-0 rtl:right-0"
+            }`}
         />
 
         <h4 className="text-4xl font-bold">{title}</h4>
@@ -270,9 +265,8 @@ function CardStage({ index, details }) {
     <div className="flex flex-col relative lg:w-[896px]">
       <DiamondShape cn="absolute left-1 lg:left-1/2 rtl:left-auto rtl:right-1 rtl:lg:right-1/2 -translate-x-1/2 rtl:translate-x-1/2" />
       <div
-        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl flex flex-col justify-start items-start ${
-          index % 2 === 0 ? "lg:self-start" : "lg:self-end"
-        }`}
+        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl flex flex-col justify-start items-start ${index % 2 === 0 ? "lg:self-start" : "lg:self-end"
+          }`}
         data-aos="fade-up"
       >
         <h4 className="text-2xl font-bold mb-2">{title}</h4>
@@ -432,7 +426,7 @@ function Community() {
   );
 }
 
-// Sponsors, Credits for SponsorsCarousel: chatGPT and ClaudeAI
+// Sponsors
 function Sponsors() {
   const t = useTranslations("home.sponsors");
 
@@ -441,132 +435,60 @@ function Sponsors() {
     logo: "/images/The-Ministry-of-Transport-and-Logistic-Services-logo.svg",
     name: "logisticMinistry",
   };
-  const otherSponsors = [
-    {
-      id: 1,
-      logo: "/images/partner-kau.svg",
-      name: "KAU",
-    },
-    {
-      id: 2,
-      logo: "/images/partner-manufacturing.svg",
-      name: "manufacturing",
-    },
-  ];
+  const sponsoredBy = {
+    logo: "/images/partner-kau.png",
+    name: "KAU",
+  };
+  const organizedBy = {
+    logo: "/images/partner-manufacturing.svg",
+    name: "manufacturing",
+  };
 
   return (
-    <div className="flex flex-col gap-5 justify-center items-center min-h-screen py-5">
-      <p className="text-2xl text-cyan-primary" data-aos="fade-up">
-        {t("strategic")}
-      </p>
-      <Image
-        src={strategicSponsors.logo}
-        alt={strategicSponsors.name}
-        width={300}
-        height={150}
-        className="w-1/2 object-contain text-center grid place-items-center"
-        data-aos="fade-up"
-      />
-      <h3
-        className="text-primary tracking-tight text-center mt-5"
-        data-aos="fade-up"
-      >
+    <div className="flex flex-col gap-20 justify-center items-center min-h-screen lg:py-20 py-10">
+      <h3 className="text-primary text-center" data-aos="fade-up">
         {t("title")}
       </h3>
-      <SponsorsCarousel partners={otherSponsors} />
-    </div>
-  );
-}
-function SponsorsCarousel({ partners = [] }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 3000, stopOnInteraction: false }),
-  ]);
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const scrollTo = useCallback(
-    (index) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
-  );
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-  }, [emblaApi, onSelect]);
-
-  return (
-    <div
-      className="relative w-full container mx-auto"
-      dir="ltr"
-      data-aos="fade-up"
-    >
-      {/* Carousel container */}
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
-          {partners.map((partner) => (
-            <div
-              key={partner.id}
-              className="flex-[0_0_100%] flex items-center justify-center p-8 h-fit"
-            >
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                width={300}
-                height={150}
-                className="w-1/2 object-contain text-center grid place-items-center max-h-[400px]"
-              />
-            </div>
-          ))}
+      <div className="flex flex-col gap-3 items-center">
+        <h4 className="text-2xl lg:text-4xl text-cyan-primary" data-aos="fade-up">
+          {t("strategic")}
+        </h4>
+        <div className="w-[300px] lg:w-[700px]" data-aos="fade-up">
+          <Image
+            src={strategicSponsors.logo}
+            alt={strategicSponsors.name}
+            width={300}
+            height={1}
+            className="object-contain w-full h-auto mx-auto"
+            data-aos="fade-up"
+          />
         </div>
       </div>
-
-      {/* Navigation buttons */}
-      <button
-        type="button"
-        onClick={scrollPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-shadow-cyan-primary"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="size-10 text-cyan-primary" />
-      </button>
-
-      <button
-        type="button"
-        onClick={scrollNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 text-shadow-cyan-primary"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="size-10 text-cyan-primary" />
-      </button>
-
-      {/* Dots */}
-      <div className="flex justify-center gap-2 mt-4">
-        {partners.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollTo(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === selectedIndex
-                ? "bg-primary w-6"
-                : "bg-gray-300 hover:bg-gray-400"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+      <div className="flex flex-col gap-8 items-center">
+        <div className="flex flex-col gap-3 items-center" >
+          <h4 className="text-2xl lg:text-4xl text-cyan-primary" data-aos="fade-up">{t("sponsoredBy")}</h4>
+          <div className="w-[300px] lg:w-[700px]" data-aos="fade-up">
+            <Image
+              src={sponsoredBy.logo}
+              alt={sponsoredBy.name}
+              width={300}
+              height={1}
+              className="object-contain w-full h-auto mx-auto"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 items-center">
+          <h4 className="text-2xl lg:text-4xl text-cyan-primary" data-aos="fade-up">{t("organizedBy")}</h4>
+          <div className="w-[300px] lg:w-[700px]" data-aos="fade-up">
+            <Image
+              src={organizedBy.logo}
+              alt={organizedBy.name}
+              width={300}
+              height={1}
+              className="object-contain w-full h-auto mx-auto"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
