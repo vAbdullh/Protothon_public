@@ -40,8 +40,9 @@ export default function footer() {
     ];
     return (
         <footer>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className='fill-[#24234C] translate-y-1'>
-                <path fillOpacity="1" d="M0,256L60,261.3C120,267,240,277,360,282.7C480,288,600,288,720,277.3C840,267,960,245,1080,240C1200,235,1320,245,1380,250.7L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" className='translate-y-1'>
+                <path fill="#24234C" fillOpacity="1" d="M0,16L60,21.3C120,27,240,37,360,42.7C480,48,600,48,720,37.3C840,27,960,5,1080,0C1200,-5,1320,5,1380,10.7L1440,16L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"></path>
+            </svg>
             <div id="footer" className='flex flex-col gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
                 <div className='flex gap-4 items-center space-x-2'>
                     <Image
