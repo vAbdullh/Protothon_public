@@ -81,39 +81,34 @@
       "title": "Hackathon Stages",
       "timeline": [
         {
-          "title": "Registration",
+          "title": "Registration Start",
           "description": "Participants begin forming their teams and choosing the track that suits them best",
-          "date": "01 June - 25 June"
+          "date": "20/11/2025"
         },
         {
-          "title": "Pre-selection Workshops",
+          "title": "First Qualifiers",
           "description": "Intensive training in design, electronics, and programming to build a strong foundation before the competition",
-          "date": "01 June - 25 June"
+          "date": "4/12/2025"
         },
         {
-          "title": "Initial Submission",
+          "title": "Initial Acceptance",
           "description": "Submitting the initial pitch, core components, and early prototype",
-          "date": "01 June - 25 June"
+          "date": "7/12/2025"
         },
         {
-          "title": "Qualified Teams Announcement",
+          "title": "Workshops (Online)",
           "description": "Selecting the best projects to advance to the in-person hackathon",
-          "date": "01 June - 25 June"
+          "date": "9–11/12/2025"
         },
         {
-          "title": "In-Person Hackathon",
+          "title": "Final Acceptance",
           "description": "Intensive working days to build the prototype with support from specialized mentors",
-          "date": "01 June - 25 June"
+          "date": "20/12/2025"
         },
         {
-          "title": "Final Judging",
+          "title": "Hackathon Days (In-Person)",
           "description": "Presenting the project before an expert panel to evaluate the idea, prototype, and impact",
-          "date": "01 June - 25 June"
-        },
-        {
-          "title": "Award Ceremony",
-          "description": "Honoring the winning teams and celebrating the best innovations",
-          "date": "01 June - 25 June"
+          "date": "11–14/1/2026"
         }
       ]
     },
