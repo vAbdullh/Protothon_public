@@ -345,8 +345,8 @@ function AdvantagesAndRules() {
                   {t.rules.raw("rules_list").map((rule, index) => (
                     <li
                       key={index}
-                      className="border rounded-lg p-4 list-inside bg-gradient-to-br from-[#0EA5E9]/90 to-white/0 bg-white/20 backdrop-blur-xl border-white/30"
                       data-aos="fade-up"
+                      className="border rounded-lg p-4 list-inside bg-gradient-to-br from-[#0EA5E9]/90 to-white/0 bg-white/20 backdrop-blur-xl border-white/30"
                     >
                       {rule}
                     </li>
