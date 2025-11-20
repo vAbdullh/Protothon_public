@@ -11,9 +11,9 @@
     "cta": "Register Now",
     "university": "King Abdulaziz university",
     "venue": "King Faisal Conference Center",
-    "details": "Details"
+    "details": "Details",
+    "time": "9:00AM - 3:00PM"
   },
-
   "header": {
     "home": "Home",
     "tracks": "Tracks",
@@ -31,7 +31,9 @@
     "about_club": "About the Manufacturing Club",
     "faq": "Frequently Asked Questions",
     "team": "Team",
-    "contact_us": "Contact Us"
+    "contact_us": "Contact Us",
+    "rules": "Rules",
+    "apply": "Register Now"
   },
   "countdown": {
     "days": "Days",
@@ -144,6 +146,8 @@
     "goal": "Goal",
     "challenges": "Challenges",
     "aChallenge": "Challenge",
+    "firstChallenge": "First Challenge",
+    "secondChallenge": "Second Challenge",
     "sponsors": {
       "title": "Track Sponsors",
       "strategic": "Strategic Partner",
@@ -300,6 +304,14 @@
     "gender": "Gender",
     "otherUniversity": "University Name",
     "teamLeader": "Team Leader",
+    "universities": {
+      "kau": "King Abdulaziz University",
+      "other": "Other"
+    },
+    "genders": {
+      "male": "Male",
+      "female": "Female"
+    },
     "addMember": "Add Member",
     "removeMember": "Remove Member",
     "submit": "Submit Application",
@@ -316,7 +328,8 @@
       "phone": "9665XXXXXXXX",
       "major": "Enter your major",
       "university": "Select university",
-      "otherUniversity": "Enter university name"
+      "otherUniversity": "Enter university name",
+      "gender": "Select gender"
     },
     "errors": {
       "required": "This field is required",
@@ -329,8 +342,16 @@
       "oneLeaderRequired": "Please select exactly one team leader",
       "submissionFailed": "Failed to submit application. Please try again.",
       "teamSizeTitle": "Team Size Requirement",
-      "teamSizeRequirement": "Your team must have at least 3 members including the team leader."
+      "teamSizeRequirement": "Your team must have at least 3 members including the team leader.",
+      "rulesRequired": "Please confirm that you have read and agree to the rules",
+      "dataSharingRequired": "Please confirm your consent for data sharing"
     },
-    "memberCount": "{current} / 3 members minimum"
+    "memberCount": "{current} / 3 members minimum",
+    "agreements": {
+      "readRulesPrefix": "I have read and agree to the",
+      "rulesLink": "rules",
+      "readRulesSuffix": "",
+      "dataSharing": "I consent to sharing my data with sponsors and third parties"
+    }
   }
 }

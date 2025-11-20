@@ -60,6 +60,8 @@ export default function TrackPage({ params }) {
           aChallenge={t.tracks("aChallenge")}
           puzzles={t.track("puzzles")}
           color={trackColor}
+          firstChallenge={t.tracks("firstChallenge")}
+          secondChallenge={t.tracks("secondChallenge")}
         />
         {/* Sponsors Section */}
         <Sponsors
@@ -149,8 +151,7 @@ function Goals({ title, goals, aGoal, color }) {
               style={{ backgroundColor: goal.background }}
               data-aos="fade-up"
             >
-              <h3 className="!text-2xl font-bold">{`${aGoal} ${index + 1}`}</h3>
-              <p>{goal.goal}</p>
+              <p className="!text-2xl font-bold">{goal.goal}</p>
             </div>
           );
         })}
@@ -158,7 +159,7 @@ function Goals({ title, goals, aGoal, color }) {
     </section>
   );
 }
-function Challenges({ title, aChallenge, challenges, puzzles, color }) {
+function Challenges({ title, aChallenge, challenges, puzzles, color, firstChallenge, secondChallenge }) {
   return (
     <section>
       <h2
@@ -172,7 +173,7 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
         {/* Left challenge */}
         <div className="flex flex-col gap-4 text-center" data-aos="fade-up">
           <h3 className="!text-2xl font-extrabold" style={{ color }}>
-            {`${aChallenge} 1`}
+            {firstChallenge}
           </h3>
           <p className="text-sm lg:text-lg max-w-md">{challenges[0]}</p>
         </div>
@@ -190,7 +191,7 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
         {/* Right challenge */}
         <div className="flex flex-col gap-4 text-center" data-aos="fade-up">
           <h3 className="!text-2xl font-extrabold" style={{ color }}>
-            {`${aChallenge} 2`}
+            {secondChallenge}
           </h3>
           <p className="text-sm lg:text-lg max-w-md">{challenges[1]}</p>
         </div>

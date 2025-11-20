@@ -6,6 +6,7 @@ import { H3 } from '../shadcn/typography-h3';
 import { Instagram, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function footer() {
     const pathname = usePathname();
@@ -19,7 +20,7 @@ export default function footer() {
     const scrollToSection = (id) => {
         if (pathname !== "/") {
             // Navigate to home page with hash
-            router.push(`/#${id}`);
+            router.push(`/?#rules`);
         } else {
             // If already on home page, just scroll
             const element = document.getElementById(id);
@@ -30,6 +31,9 @@ export default function footer() {
     const footerLinks = [
         { key: "about_hackathon", href: "#about", onClick: () => scrollToSection("about") },
         { key: "faq", href: "#" },
+        { key: "rules", href: "#rules", onClick: () => scrollToSection("rules") },
+        { key: "apply", href: "/apply" },
+        { key: "become_partner", href: "https://mail.google.com/mail/?view=cm&fs=1&to=protothon.kau@gmail.com" },
     ];
 
     const trackLinks = [
@@ -44,6 +48,10 @@ export default function footer() {
                 <path fill="#24234C" fillOpacity="1" d="M0,16L60,21.3C120,27,240,37,360,42.7C480,48,600,48,720,37.3C840,27,960,5,1080,0C1200,-5,1320,5,1380,10.7L1440,16L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"></path>
             </svg>
             <div id="footer" className='flex flex-col gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
+             <div>
+                <p className='text-4xl mx-auto w-fit mb-2'>تواصل معنا</p>
+                <p className='text-7xl mx-auto w-fit '>Protothon.sa@gmail.com</p>
+             </div>
                 <div className='flex gap-4 items-center space-x-2'>
                     <Image
                         src="/protothon-logo-white.svg"
@@ -67,6 +75,10 @@ export default function footer() {
                                         >
                                             {t.footer(link.key)}
                                         </button>
+                                    ) : link.href.startsWith('/') ? (
+                                        <Link href={link.href} className="hover:underline">
+                                            {t.footer(link.key)}
+                                        </Link>
                                     ) : (
                                         <a href={link.href} className="hover:underline">
                                             {t.footer(link.key)}

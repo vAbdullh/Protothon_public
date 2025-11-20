@@ -58,7 +58,7 @@ function Hero() {
             <CalendarRange className="lg:size-11" />
             <div className="flex flex-col gap-2">
               <p>11-14/01/2026</p>
-              <p>8:00AM - 12:00PM</p>
+              <p>{t("time")}</p>
             </div>
           </div>
 
@@ -319,49 +319,49 @@ function AdvantagesAndRules() {
         ></path>
       </svg>
 
-      <div className="bg-gradient-to-b from-[#202C64] to-[#27A4BD]/80 py-10">
-        <h3 className="text-white text-center" data-aos="fade-up">
-          {t.advantages("title")}
-        </h3>
-        <div className="w-fit ml-auto">
-          <Image
-            src="/images/advantages-vector.svg"
-            alt="Advantages"
-            width={600}
-            height={400}
-            className="h-auto w-screen lg:w-[70vw] aspect-auto"
-            data-aos="fade-up"
-          />
+      <div className="bg-gradient-to-b from-[#202C64] to-[#27A4BD]/80 pt-20 flex flex-col gap-28 justify-between">
+        <div className="flex flex-col gap-16">
+          <h3 className="text-white text-center" data-aos="fade-up">
+            {t.advantages("title")}
+          </h3>
+          <div className="w-fit ml-auto">
+            <Image
+              src="/images/advantages-vector.svg"
+              alt="Advantages"
+              width={600}
+              height={400}
+              className="h-auto w-screen lg:w-[70vw] aspect-auto"
+              data-aos="fade-up"
+            />
+          </div>
         </div>
 
-        <div id="rules" className="grid place-items-center py-5">
-          <div className="flex flex-col gap-4 ">
-            <h3 className="text-white text-center" data-aos="fade-up">
-              {t.rules("title")}
-            </h3>
-            <Card className="text-white bg-transparent border-none shadow-none container mx-auto lg:w-3xl">
-              <CardContent className="text-white">
-                <ol className="flex flex-col gap-5 lg:gap-10 list-decimal text-sm md:text-[20px]">
-                  {t.rules.raw("rules_list").map((rule, index) => (
-                    <li
-                      key={index}
-                      data-aos="fade-up"
-                      className="border rounded-lg p-4 list-inside bg-gradient-to-br from-[#0EA5E9]/90 to-white/0 bg-white/20 backdrop-blur-xl border-white/30"
-                    >
-                      {rule}
-                    </li>
-                  ))}
-                </ol>
-              </CardContent>
-            </Card>
-          </div>
+        <div className="flex flex-col gap-4">
+          <h3 className="text-white text-center" data-aos="fade-up" id="rules">
+            {t.rules("title")}
+          </h3>
+          <Card className="text-white bg-transparent border-none shadow-none container mx-auto lg:w-3xl">
+            <CardContent className="text-white">
+              <ol className="flex flex-col gap-5 lg:gap-10 list-decimal text-sm md:text-[20px]">
+                {t.rules.raw("rules_list").map((rule, index) => (
+                  <li
+                    key={index}
+                    data-aos="fade-up"
+                    className="border rounded-lg p-4 list-inside bg-gradient-to-br from-[#0EA5E9]/90 to-white/0 bg-white/20 backdrop-blur-xl border-white/30"
+                  >
+                    {rule}
+                  </li>
+                ))}
+              </ol>
+            </CardContent>
+          </Card>
         </div>
       </div>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="fill-[#27A4BD]/80"
+        className="fill-[#27A4BD]/80 translate-0"
       >
         <path
           fillOpacity="1"
@@ -444,12 +444,12 @@ function Sponsors() {
   const otherSponsors = [
     {
       id: 1,
-      logo: "/images/partner-kau.png",
+      logo: "/images/partner-kau.svg",
       name: "KAU",
     },
     {
       id: 2,
-      logo: "/images/partner-manufacturing.jpg",
+      logo: "/images/partner-manufacturing.svg",
       name: "manufacturing",
     },
   ];
@@ -527,7 +527,7 @@ function SponsorsCarousel({ partners = [] }) {
                 alt={partner.name}
                 width={300}
                 height={150}
-                className="w-1/2 object-contain text-center grid place-items-center"
+                className="w-1/2 object-contain text-center grid place-items-center max-h-[400px]"
               />
             </div>
           ))}

@@ -2,11 +2,12 @@
 "use client";
 import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Input } from "@/components/shadcn/input";
 import { Textarea } from "@/components/shadcn/textarea";
 import { Button } from "@/components/shadcn/button";
 import { Label } from "@/components/shadcn/label";
+import { Checkbox } from "@/components/shadcn/checkbox";
 import {
   Select,
   SelectTrigger,
@@ -15,6 +16,8 @@ import {
   SelectItem,
 } from "@/components/shadcn/select";
 import { ToastProvider, useToast } from "@/components/shadcn/toast";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 /* ========================== CONFIG DATA ========================== */
 
@@ -67,6 +70,8 @@ function useApplyForm() {
       ideaTitle: "",
       ideaDescription: "",
       attachment: null,
+      readRules: false,
+      dataSharing: false,
       members: [
         {
           nameAr: "",
@@ -138,6 +143,8 @@ function HackathonInfoSection({ t, form, helpers }) {
   const { register, setValue, watch } = form;
   const { getBorderClass, ErrorMessage } = helpers;
   const headerT = useTranslations("header");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
 
   return (
     <div className="bg-[#F8F8F8] rounded-3xl p-6 shadow-[0_0_20px_rgba(0,0,0,0.3)]">
@@ -148,7 +155,9 @@ function HackathonInfoSection({ t, form, helpers }) {
       <div className="grid gap-5 md:grid-cols-2">
         {/* Team Name */}
         <div>
-          <Label className="mb-2">{t("teamName")}</Label>
+          <Label className="mb-2">
+            {t("teamName")} <span className="text-red-500">*</span>
+          </Label>
           <Input
             className={getBorderClass("teamName")}
             {...register("teamName", { required: t("errors.required") })}
@@ -159,24 +168,26 @@ function HackathonInfoSection({ t, form, helpers }) {
 
         {/* Track */}
         <div>
-          <Label className="mb-2">{t("track")}</Label>
+          <Label className="mb-2">
+            {t("track")} <span className="text-red-500">*</span>
+          </Label>
           <Select
             onValueChange={(value) =>
               setValue("track", value, { shouldDirty: true })
             }
           >
             <SelectTrigger
-              className={`w-full ${
-                form.formState.errors.track
-                  ? "border-red-500"
-                  : watch("track")
+              className={`w-full ${form.formState.errors.track
+                ? "border-red-500"
+                : watch("track")
                   ? "border-green-500"
                   : ""
-              }`}
+                }`}
+              dir={isRTL ? "rtl" : "ltr"}
             >
               <SelectValue placeholder={t("placeholders.track")} />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent dir={isRTL ? "rtl" : "ltr"}>
               {TRACK_OPTIONS.map((track) => (
                 <SelectItem key={track.value} value={track.value} className="flex justify-center">
                   {headerT(`tracksList.${track.label}`)}
@@ -191,7 +202,9 @@ function HackathonInfoSection({ t, form, helpers }) {
       {/* Idea Section */}
       <div className="grid gap-5 mt-5">
         <div>
-          <Label className="mb-2">{t("ideaTitle")}</Label>
+          <Label className="mb-2">
+            {t("ideaTitle")} <span className="text-red-500">*</span>
+          </Label>
           <Input
             className={getBorderClass("ideaTitle")}
             {...register("ideaTitle", { required: t("errors.required") })}
@@ -201,7 +214,9 @@ function HackathonInfoSection({ t, form, helpers }) {
         </div>
 
         <div>
-          <Label className="mb-2">{t("ideaDescription")}</Label>
+          <Label className="mb-2">
+            {t("ideaDescription")} <span className="text-red-500">*</span>
+          </Label>
           <Textarea
             className={getBorderClass("ideaDescription")}
             {...register("ideaDescription", {
@@ -222,13 +237,12 @@ function HackathonInfoSection({ t, form, helpers }) {
           <Input
             type="file"
             accept=".pdf"
-            className={`${
-              form.formState.errors.attachment
-                ? "border-red-500"
-                : form.watch("attachment")?.length
+            className={`${form.formState.errors.attachment
+              ? "border-red-500"
+              : form.watch("attachment")?.length
                 ? "border-green-500"
                 : ""
-            }`}
+              }`}
             {...register("attachment", {
               required: t("errors.required"),
               validate: (value) => {
@@ -253,6 +267,8 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
   const { getBorderClass, getDirection, ErrorMessage } = helpers;
   const uniValue = form.watch(`members.${index}.university`);
   const allMembers = form.watch("members");
+  const locale = useLocale();
+  const isRTL = locale === "ar";
 
   const handleLeaderChange = (isLeader) => {
     // If setting this member as leader, unset all others
@@ -294,7 +310,9 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
       <div className="grid md:grid-cols-2 gap-4">
         {MEMBER_FIELDS.map(({ name, labelKey, placeholderKey, required }) => (
           <div key={name}>
-            <Label className="mb-2">{t(labelKey)}</Label>
+            <Label className="mb-2">
+              {t(labelKey)} {required && <span className="text-red-500">*</span>}
+            </Label>
             <Input
               dir={getDirection(form.watch(`members.${index}.${name}`))}
               className={getBorderClass(`members.${index}.${name}`)}
@@ -323,7 +341,9 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
 
         {/* Gender */}
         <div>
-          <Label className="mb-2">{t("gender")}</Label>
+          <Label className="mb-2">
+            {t("gender")} <span className="text-red-500">*</span>
+          </Label>
           <Select
             onValueChange={(value) =>
               setValue(`members.${index}.gender`, value, {
@@ -332,20 +352,20 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
             }
           >
             <SelectTrigger
-              className={`w-full ${
-                form.formState.errors.members?.[index]?.gender
-                  ? "border-red-500"
-                  : form.watch(`members.${index}.gender`)
+              className={`w-full ${form.formState.errors.members?.[index]?.gender
+                ? "border-red-500"
+                : form.watch(`members.${index}.gender`)
                   ? "border-green-500"
                   : ""
-              }`}
+                }`}
+              dir={isRTL ? "rtl" : "ltr"}
             >
-              <SelectValue placeholder="Select gender" />
+              <SelectValue placeholder={t("placeholders.gender")} />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent dir={isRTL ? "rtl" : "ltr"}>
               {GENDER_OPTIONS.map((gender) => (
                 <SelectItem key={gender.value} value={gender.value}>
-                  {gender.label}
+                  {t(`genders.${gender.value}`)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -357,7 +377,9 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
 
         {/* University */}
         <div>
-          <Label className="mb-2">{t("university")}</Label>
+          <Label className="mb-2">
+            {t("university")} <span className="text-red-500">*</span>
+          </Label>
           <Select
             onValueChange={(value) =>
               setValue(`members.${index}.university`, value, {
@@ -366,20 +388,20 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
             }
           >
             <SelectTrigger
-              className={`w-full ${
-                form.formState.errors.members?.[index]?.university
-                  ? "border-red-500"
-                  : form.watch(`members.${index}.university`)
+              className={`w-full ${form.formState.errors.members?.[index]?.university
+                ? "border-red-500"
+                : form.watch(`members.${index}.university`)
                   ? "border-green-500"
                   : ""
-              }`}
+                }`}
+              dir={isRTL ? "rtl" : "ltr"}
             >
               <SelectValue placeholder={t("placeholders.university")} />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent dir={isRTL ? "rtl" : "ltr"}>
               {UNIVERSITY_OPTIONS.map((u) => (
                 <SelectItem key={u.value} value={u.value}>
-                  {u.label}
+                  {t(`universities.${u.value}`)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -394,7 +416,9 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
         {/* Student ID if KAU */}
         {uniValue === "kau" && (
           <div>
-            <Label className="mb-2">{t("uniId")}</Label>
+            <Label className="mb-2">
+              {t("uniId")} <span className="text-red-500">*</span>
+            </Label>
             <Input
               className={getBorderClass(`members.${index}.uniId`)}
               {...register(`members.${index}.uniId`, {
@@ -415,7 +439,9 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
         {/* University Name if Other */}
         {uniValue === "other" && (
           <div>
-            <Label className="mb-2">{t("otherUniversity")}</Label>
+            <Label className="mb-2">
+              {t("otherUniversity")} <span className="text-red-500">*</span>
+            </Label>
             <Input
               className={getBorderClass(`members.${index}.otherUniversity`)}
               {...register(`members.${index}.otherUniversity`, {
@@ -504,6 +530,19 @@ function ApplyPageContent() {
   const helpers = createHelpers(form);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { addToast } = useToast();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const scrollToSection = (id) => {
+    if (pathname !== "/") {
+      // Navigate to home page with hash
+      router.push(`/?#${id}`);
+    } else {
+      // If already on home page, just scroll
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const onSubmit = async (formData) => {
     setIsSubmitting(true);
@@ -526,6 +565,29 @@ function ApplyPageContent() {
         addToast({
           title: t("errors.teamSizeTitle"),
           description: t("errors.teamSizeRequirement"),
+          variant: "warning",
+          duration: 5000,
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Validate checkboxes
+      if (!formData.readRules) {
+        addToast({
+          title: "Rules Required",
+          description: t("errors.rulesRequired"),
+          variant: "warning",
+          duration: 5000,
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!formData.dataSharing) {
+        addToast({
+          title: "Data Sharing Required",
+          description: t("errors.dataSharingRequired"),
           variant: "warning",
           duration: 5000,
         });
@@ -614,6 +676,74 @@ function ApplyPageContent() {
             remove={remove}
             helpers={helpers}
           />
+
+          {/* Agreements Section */}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-start gap-3">
+              <Checkbox
+                id="readRules"
+                {...form.register("readRules", {
+                  required: t("errors.rulesRequired"),
+                })}
+                checked={form.watch("readRules")}
+                onCheckedChange={(checked) =>
+                  form.setValue("readRules", checked === true, {
+                    shouldValidate: true,
+                    shouldDirty: true,
+                  })
+                }
+                className={form.formState.errors.readRules ? "border-red-500" : ""}
+              />
+              <Label
+                htmlFor="readRules"
+                className="text-sm font-normal leading-relaxed cursor-pointer"
+              >
+                <span>{t("agreements.readRulesPrefix")} </span>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("rules")}
+                  className="text-primary underline hover:no-underline"
+                >
+                  {t("agreements.rulesLink")}
+                </button>
+                <span> {t("agreements.readRulesSuffix")}</span>
+                <span className="text-red-500"> *</span>
+              </Label>
+            </div>
+            {form.formState.errors.readRules && (
+              <p className="text-red-500 text-sm -mt-2">
+                {form.formState.errors.readRules.message}
+              </p>
+            )}
+
+            <div className="flex items-start gap-3">
+              <Checkbox
+                id="dataSharing"
+                {...form.register("dataSharing", {
+                  required: t("errors.dataSharingRequired"),
+                })}
+                checked={form.watch("dataSharing")}
+                onCheckedChange={(checked) =>
+                  form.setValue("dataSharing", checked === true, {
+                    shouldValidate: true,
+                    shouldDirty: true,
+                  })
+                }
+                className={form.formState.errors.dataSharing ? "border-red-500" : ""}
+              />
+              <Label
+                htmlFor="dataSharing"
+                className="text-sm font-normal leading-relaxed cursor-pointer"
+              >
+                {t("agreements.dataSharing")} <span className="text-red-500">*</span>
+              </Label>
+            </div>
+            {form.formState.errors.dataSharing && (
+              <p className="text-red-500 text-sm -mt-2">
+                {form.formState.errors.dataSharing.message}
+              </p>
+            )}
+          </div>
 
           <Button
             type="submit"
