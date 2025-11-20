@@ -82,32 +82,32 @@
       "timeline": [
         {
           "title": "Registration Start",
-          "description": "Participants begin forming their teams and choosing the track that suits them best",
+          "description": "Start of the registration period for teams and participants in the hackathon",
           "date": "20/11/2025"
         },
         {
           "title": "First Qualifiers",
-          "description": "Intensive training in design, electronics, and programming to build a strong foundation before the competition",
+          "description": "Initial qualification stage to evaluate submitted projects",
           "date": "4/12/2025"
         },
         {
           "title": "Initial Acceptance",
-          "description": "Submitting the initial pitch, core components, and early prototype",
+          "description": "Announcement of teams accepted in the first stage",
           "date": "7/12/2025"
         },
         {
           "title": "Workshops (Online)",
-          "description": "Selecting the best projects to advance to the in-person hackathon",
+          "description": "Series of training workshops online for accepted teams",
           "date": "9–11/12/2025"
         },
         {
           "title": "Final Acceptance",
-          "description": "Intensive working days to build the prototype with support from specialized mentors",
+          "description": "Announcement of teams qualified to participate in the in-person hackathon",
           "date": "20/12/2025"
         },
         {
           "title": "Hackathon Days (In-Person)",
-          "description": "Presenting the project before an expert panel to evaluate the idea, prototype, and impact",
+          "description": "Main hackathon days for building prototypes and presenting projects",
           "date": "11–14/1/2026"
         }
       ]
