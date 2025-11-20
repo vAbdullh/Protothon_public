@@ -27,13 +27,16 @@ export default function Page() {
 // Hero. Credit ChatGPT
 function Hero() {
   const t = useTranslations("shared");
+  const countdownT = useTranslations("countdown");
 
   return (
     <section className="relative flex-1 h-screen flex items-center justify-center">
-      <Countdown
-        targetDate={"2025-12-04T23:59:59"}
-        className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-50"
-      />
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-50 flex flex-col items-center gap-2 w-full max-w-5xl mx-auto">
+        <p className="text-white text-base md:text-xl font-semibold text-center px-3">
+          {countdownT("registrationEnds")}
+        </p>
+        <Countdown targetDate={"2025-12-04T23:59:59"} />
+      </div>
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#091233] via-[#3B1C89] to-[#0EA5E9] z-10 opacity-70" />
 
