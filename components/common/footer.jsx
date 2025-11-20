@@ -33,7 +33,7 @@ export default function footer() {
         { key: "faq", href: "#" },
         { key: "rules", href: "#rules", onClick: () => scrollToSection("rules") },
         { key: "apply", href: "/apply" },
-        { key: "become_partner", href: "https://mail.google.com/mail/?view=cm&fs=1&to=protothon.kau@gmail.com" },
+        { key: "become_partner", href: "mailto:protothon.kau@gmail.comn" },
     ];
 
     const trackLinks = [
@@ -48,9 +48,9 @@ export default function footer() {
                 <path fill="#24234C" fillOpacity="1" d="M0,16L60,21.3C120,27,240,37,360,42.7C480,48,600,48,720,37.3C840,27,960,5,1080,0C1200,-5,1320,5,1380,10.7L1440,16L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"></path>
             </svg>
             <div id="footer" className='flex flex-col gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
-             <div>
-                <p className='text-4xl mx-auto w-fit mb-2'>تواصل معنا</p>
-                <p className='text-7xl mx-auto w-fit '>Protothon.sa@gmail.com</p>
+             <div className='mx-auto w-fit text-center py-5'>
+                <p className='text-2xl lg:text-4xl mb-2'>تواصل معنا</p>
+                <p className='text-3xl lg:text-7xl '>Protothon.sa@gmail.com</p>
              </div>
                 <div className='flex gap-4 items-center space-x-2'>
                     <Image
@@ -80,7 +80,7 @@ export default function footer() {
                                             {t.footer(link.key)}
                                         </Link>
                                     ) : (
-                                        <a href={link.href} className="hover:underline">
+                                        <a href={link.href} className="hover:underline" target="_blank" rel="noopener noreferrer">
                                             {t.footer(link.key)}
                                         </a>
                                     )}
