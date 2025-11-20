@@ -18,7 +18,7 @@ export default function Page() {
       <About />
       <Tracks />
       <Stages />
-      <PrizesAndRules />
+      <AdvantagesAndRules />
       <Community />
       <Sponsors />
     </>
@@ -42,9 +42,9 @@ function Hero() {
 
       {/* Background overlay */}
       <Image
-        src="/images/hero-overlay.jpg"
+        src="/images/hero-overlay-new.jpg"
         fill
-        className="absolute inset-0 w-full h-full object-cover opacity-25"
+        className="absolute inset-0 w-full h-full object-cover object-top opacity-25"
         alt=""
       />
 
@@ -78,7 +78,7 @@ function Hero() {
           <Button
             size="default"
             variant="default"
-            className="w-full md:w-xl py-7 text-2xl font-extrabold"
+            className="w-full md:w-xl py-7 text-2xl font-extrabold bg-white text-primary hover:bg-white/90"
           >
             {t("cta")}
           </Button>
@@ -92,16 +92,17 @@ function Hero() {
 function About() {
   const t = useTranslations("home.about");
   return (
-    <div id="about" className="min-h-screen relative flex items-center">
-      <div className="absolute bottom-0 left-0 w-3/4 h-1/4 md:size-[400px] md:-z-50">
+    <div id="about" className="pt-40 relative flex items-center">
+      <div className="absolute top-full left-0 z-10 w-[100px] h-[200px] lg:w-[200px] lg:h-[400px]">
         <Image
           src="/images/filament-about.png"
-          fill
-          className="object-cover object-top-right aspect-auto"
           alt=""
+          fill
+          className="object-contain"
         />
       </div>
-      <div className="container mx-auto px-4 flex flex-col h-fit items-start justify-center gap-10 lg:gap-20 md:gap-6 w-full max-w-7xl">
+
+      <div className="container mx-auto px-4 flex flex-col h-fit items-start justify-center gap-10 lg:gap-20 md:gap-6 w-full max-w-7xl z-50">
         <h3 className="text-primary">{t("title")}</h3>
         <p className="text-lg lg:text-3xl">{t("description")}</p>
       </div>
@@ -157,9 +158,13 @@ const TrackContainer = ({
         </div>
       </div>
       <div
-        className={`w-full text-center px-5 grid place-items-center py-16 gap-8 relative lg:hidden ${
-          reverse ? "lg:order-2" : ""
-        }`}
+        className={`w-4/5 text-center px-5 grid place-items-center py-16 gap-8 relative lg:hidden
+    ${
+      reverse
+        ? "ml-auto text-right ltr:rounded-l-2xl rtl:ml-0 rtl:mr-auto rtl:text-left rtl:rounded-r-2xl"
+        : "mr-auto text-left ltr:rounded-r-2xl rtl:mr-0 rtl:ml-auto rtl:text-right rtl:rounded-l-2xl"
+    }
+  `}
         style={{
           background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
         }}
@@ -169,14 +174,16 @@ const TrackContainer = ({
           alt=""
           width={120}
           height={120}
-          className="absolute -top-[60px]"
+          className={`absolute -top-[60px] ${
+            reverse ? "ltr:right-0 rtl:left-0" : "ltr:left-0 rtl:right-0"
+          }`}
         />
 
         <h4 className="text-4xl font-bold">{title}</h4>
         <p>{description}</p>
         <Link
           href={`/tracks${link}`}
-          className="absolute w-80 -bottom-5 inset-x-1/2 -translate-x-1/2 rtl:translate-x-1/2"
+          className="absolute w-1/2 -bottom-5 inset-x-1/2 -translate-x-1/2 rtl:translate-x-1/2"
         >
           <Button
             className="w-full bg-white hover:bg-[#e6e6e6] font-black text-lg py-6"
@@ -197,21 +204,44 @@ function Tracks() {
   const t = useTranslations("home.tracks");
   const tracks = t.raw("tracks");
   return (
-    <div className="min-h-screen relative py-20 flex flex-col items-center justify-center max-lg:gap-20 text-white w-screen">
-      <div className="absolute -z-50 w-full h-full max-w-7xl mx-auto bg-gradient-to-b from-[#0F0723] to-[#3B1C89]" />
-      <h3 className="text-center mb-10">{t("title")}</h3>
-      {tracks.map((track, index) => (
-        <TrackContainer
-          key={index}
-          reverse={index % 2 !== 0}
-          title={track.title}
-          description={track.description}
-          illustration={track.illustration}
-          from={track.from}
-          link={track.link}
-        />
-      ))}
-    </div>
+    <section className="relative flex flex-col gap-0">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="fill-[#202C64] translate-y-1"
+      >
+        <path
+          fillOpacity="1"
+          d="M0,160L30,170.7C60,181,120,203,180,229.3C240,256,300,288,360,288C420,288,480,256,540,218.7C600,181,660,139,720,117.3C780,96,840,96,900,96C960,96,1020,96,1080,112C1140,128,1200,160,1260,160C1320,160,1380,128,1410,112L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+        ></path>
+      </svg>
+
+      <div className="min-h-screen py-20 flex flex-col items-center justify-center max-lg:gap-20 text-white w-screen bg-gradient-to-b from-[#202C64] to-[#211D55]/60">
+        <h3 className="text-center mb-10">{t("title")}</h3>
+        {tracks.map((track, index) => (
+          <TrackContainer
+            key={index}
+            reverse={index % 2 !== 0}
+            title={track.title}
+            description={track.description}
+            illustration={track.illustration}
+            from={track.from}
+            link={track.link}
+          />
+        ))}
+      </div>
+
+      <svg
+        className="w-full fill-[#211D55]/60"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
+        <path
+          fillOpacity="1"
+          d="M0,128L48,128C96,128,192,128,288,112C384,96,480,64,576,48C672,32,768,32,864,80C960,128,1056,224,1152,240C1248,256,1344,192,1392,160L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+        ></path>
+      </svg>
+    </section>
   );
 }
 function DiamondShape({ cn }) {
@@ -263,31 +293,68 @@ function Stages() {
   );
 }
 // Prizes & Rules
-function PrizesAndRules() {
+function AdvantagesAndRules() {
   const t = {
-    prizes: useTranslations("home.prizes"),
+    advantages: useTranslations("home.advantages"),
     rules: useTranslations("home.rules"),
   };
   return (
-    <>
-      <div
-        id="rules"
-        className="grid place-items-center bg-gradient-to-b from-[#0F0723] to-[#3B1C89] min-h-screen p-5"
+    <section>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="fill-[#202C64]"
       >
-        <div className="flex flex-col gap-4 ">
-          <h3 className="text-white text-center">{t.rules("title")}</h3>
-          <Card className="text-white bg-gradient-to-b from-[#0F0723] to-[#251256] border-white/20 shadow-lg container mx-auto lg:w-3xl p-5">
-            <CardContent className="text-white">
-              <ol className="flex flex-col gap-10 list-decimal text-sm md:text-[20px]">
-                {t.rules.raw("rules_list").map((rule, index) => (
-                  <li key={index}>{rule}</li>
-                ))}
-              </ol>
-            </CardContent>
-          </Card>
+        <path
+          fillOpacity="1"
+          d="M0,288L60,288C120,288,240,288,360,293.3C480,299,600,309,720,288C840,267,960,213,1080,208C1200,203,1320,245,1380,266.7L1440,288L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        ></path>
+      </svg>
+
+      <div className="bg-gradient-to-b from-[#202C64] to-[#27A4BD]/80 py-10">
+        <h3 className="text-white text-center">{t.advantages("title")}</h3>
+        <div className="w-fit ml-auto">
+          <Image
+            src="/images/advantages-vector.svg"
+            alt="Advantages"
+            width={600}
+            height={400}
+            className="h-auto w-screen lg:w-[70vw] aspect-auto"
+          />
+        </div>
+
+        <div id="rules" className="grid place-items-center py-5">
+          <div className="flex flex-col gap-4 ">
+            <h3 className="text-white text-center">{t.rules("title")}</h3>
+            <Card className="text-white bg-transparent border-none shadow-none container mx-auto lg:w-3xl">
+              <CardContent className="text-white">
+                <ol className="flex flex-col gap-5 lg:gap-10 list-decimal text-sm md:text-[20px]">
+                  {t.rules.raw("rules_list").map((rule, index) => (
+                    <li
+                      key={index}
+                      className="border rounded-lg p-4 list-inside bg-gradient-to-br from-[#0EA5E9]/90 to-white/0 bg-white/20 backdrop-blur-xl border-white/30"
+                    >
+                      {rule}
+                    </li>
+                  ))}
+                </ol>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
-    </>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="fill-[#27A4BD]/80"
+      >
+        <path
+          fillOpacity="1"
+          d="M0,224L80,202.7C160,181,320,139,480,154.7C640,171,800,245,960,277.3C1120,309,1280,299,1360,293.3L1440,288L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+        ></path>
+      </svg>
+    </section>
   );
 }
 // join community

@@ -117,9 +117,8 @@
         }
       ]
     },
-    "prizes": {
-      "title": "Prizes",
-      "up_to": "Up to"
+    "advantages": {
+      "title": "What Protothon Brings You"
     },
     "rules": {
       "title": "rules",

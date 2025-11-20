@@ -57,7 +57,7 @@ export function Countdown({ targetDate, className }: CountdownProps) {
   return (
     <div
       className={cn(
-        "grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 w-screen md:w-full max-w-7xl px-3",
+        "grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 w-screen md:w-full max-w-5xl px-3",
         className
       )}
       dir="ltr"
@@ -90,7 +90,7 @@ function CountdownCard({ value, label }: CountdownCardProps) {
     }
   }, [value, prevValue]);
   return (
-    <Card className="overflow-hidden bg-gradient-to-t from-[#99E9FE] to-[#E9F6FE] text-[#3B1C89] sm:text-xl font-black">
+    <Card className="overflow-hidden bg-gradient-to-b from-gray-500/50 to-white/10 backdrop-blur-md border border-white/30 text-[#3B1C89] sm:text-xl font-black rounded-xl">
       <CardContent className="flex flex-col items-center justify-center p-2 sm:p-4 md:p-6">
         <div className="relative h-10 w-full sm:h-16 md:h-20 overflow-hidden">
           <div
@@ -112,7 +112,7 @@ function CountdownCard({ value, label }: CountdownCardProps) {
             {String(value).padStart(2, "0")}
           </div>
         </div>
-        <p className="mt-1  uppercase tracking-wider">{label}</p>
+        <p className="mt-1 uppercase tracking-wider">{label}</p>
       </CardContent>
     </Card>
   );
