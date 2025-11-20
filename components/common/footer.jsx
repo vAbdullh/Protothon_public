@@ -50,7 +50,9 @@ export default function footer() {
             <div id="footer" className='flex flex-col gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
              <div className='mx-auto w-fit text-center py-5'>
                 <p className='text-2xl lg:text-4xl mb-2'>تواصل معنا</p>
-                <p className='text-3xl lg:text-7xl '>Protothon.sa@gmail.com</p>
+                <a href='mailto:protothon.sa@gmail.com' className="hover:underline text-3xl lg:text-7xl " target="_blank" rel="noopener noreferrer">
+                    Protothon.sa@gmail.com
+                </a>
              </div>
                 <div className='flex gap-4 items-center space-x-2'>
                     <Image
