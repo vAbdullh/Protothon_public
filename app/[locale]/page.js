@@ -271,14 +271,14 @@ function CardStage({ index, details }) {
     <div className="flex flex-col relative lg:w-[896px]">
       <DiamondShape cn="absolute left-1 lg:left-1/2 rtl:left-auto rtl:right-1 rtl:lg:right-1/2 -translate-x-1/2 rtl:translate-x-1/2" />
       <div
-        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl ${
+        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl flex flex-col justify-start items-start ${
           index % 2 === 0 ? "lg:self-start" : "lg:self-end"
         }`}
         data-aos="fade-up"
       >
         <h4 className="text-2xl font-bold mb-2">{title}</h4>
         <p>{description}</p>
-        <p>{date}</p>
+        <p dir="ltr">{date}</p>
       </div>
     </div>
   );

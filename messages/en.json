@@ -81,39 +81,34 @@
       "title": "Hackathon Stages",
       "timeline": [
         {
-          "title": "Registration",
-          "description": "Participants begin forming their teams and choosing the track that suits them best",
-          "date": "01 June - 25 June"
+          "title": "Registration Start",
+          "description": "Start of the registration period for teams and participants in the hackathon",
+          "date": "20/11/2025"
         },
         {
-          "title": "Pre-selection Workshops",
-          "description": "Intensive training in design, electronics, and programming to build a strong foundation before the competition",
-          "date": "01 June - 25 June"
+          "title": "First Qualifiers",
+          "description": "Initial qualification stage to evaluate submitted projects",
+          "date": "4/12/2025"
         },
         {
-          "title": "Initial Submission",
-          "description": "Submitting the initial pitch, core components, and early prototype",
-          "date": "01 June - 25 June"
+          "title": "Initial Acceptance",
+          "description": "Announcement of teams accepted in the first stage",
+          "date": "7/12/2025"
         },
         {
-          "title": "Qualified Teams Announcement",
-          "description": "Selecting the best projects to advance to the in-person hackathon",
-          "date": "01 June - 25 June"
+          "title": "Workshops (Online)",
+          "description": "Series of training workshops online for accepted teams",
+          "date": "9–11/12/2025"
         },
         {
-          "title": "In-Person Hackathon",
-          "description": "Intensive working days to build the prototype with support from specialized mentors",
-          "date": "01 June - 25 June"
+          "title": "Final Acceptance",
+          "description": "Announcement of teams qualified to participate in the in-person hackathon",
+          "date": "20/12/2025"
         },
         {
-          "title": "Final Judging",
-          "description": "Presenting the project before an expert panel to evaluate the idea, prototype, and impact",
-          "date": "01 June - 25 June"
-        },
-        {
-          "title": "Award Ceremony",
-          "description": "Honoring the winning teams and celebrating the best innovations",
-          "date": "01 June - 25 June"
+          "title": "Hackathon Days (In-Person)",
+          "description": "Main hackathon days for building prototypes and presenting projects",
+          "date": "11–14/1/2026"
         }
       ]
     },
