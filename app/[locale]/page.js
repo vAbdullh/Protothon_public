@@ -33,7 +33,7 @@ function Hero() {
   return (
     <section className="relative flex-1 h-screen flex items-center justify-center">
       <Countdown
-        targetDate={'2025-12-04T23:59:59'}
+        targetDate={"2025-12-04T23:59:59"}
         className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-50"
       />
       {/* Gradient overlay */}
@@ -44,6 +44,7 @@ function Hero() {
         fill
         className="absolute inset-0 object-cover object-top-left"
         alt=""
+        loading="eager"
       />
 
       {/* Foreground content */}
