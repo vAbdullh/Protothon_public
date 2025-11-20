@@ -103,8 +103,12 @@ function About() {
       </div>
 
       <div className="container mx-auto px-4 flex flex-col h-fit items-start justify-center gap-10 lg:gap-20 md:gap-6 w-full max-w-7xl z-50">
-        <h3 className="text-primary">{t("title")}</h3>
-        <p className="text-lg lg:text-3xl">{t("description")}</p>
+        <h3 className="text-primary" data-aos="fade-up">
+          {t("title")}
+        </h3>
+        <p className="text-lg lg:text-3xl" data-aos="fade-up">
+          {t("description")}
+        </p>
       </div>
     </div>
   );
@@ -121,7 +125,10 @@ const TrackContainer = ({
   const t = useTranslations("shared");
   return (
     <>
-      <div className="max-lg:hidden lg:grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 w-screen h-1/2 text-center">
+      <div
+        className="max-lg:hidden lg:grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 w-screen h-1/2 text-center"
+        data-aos="fade-up"
+      >
         <div
           className={`w-full p-5 flex flex-col justify-evenly gap-5 relative ${
             reverse ? "lg:order-2" : ""
@@ -168,6 +175,7 @@ const TrackContainer = ({
         style={{
           background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
         }}
+        data-aos="fade-up"
       >
         <Image
           src={illustration}
@@ -266,6 +274,7 @@ function CardStage({ index, details }) {
         className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl ${
           index % 2 === 0 ? "lg:self-start" : "lg:self-end"
         }`}
+        data-aos="fade-up"
       >
         <h4 className="text-2xl font-bold mb-2">{title}</h4>
         <p>{description}</p>
@@ -303,7 +312,7 @@ function AdvantagesAndRules() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        className="fill-[#202C64]"
+        className="fill-[#202C64] translate-y-1"
       >
         <path
           fillOpacity="1"
@@ -312,7 +321,9 @@ function AdvantagesAndRules() {
       </svg>
 
       <div className="bg-gradient-to-b from-[#202C64] to-[#27A4BD]/80 py-10">
-        <h3 className="text-white text-center">{t.advantages("title")}</h3>
+        <h3 className="text-white text-center" data-aos="fade-up">
+          {t.advantages("title")}
+        </h3>
         <div className="w-fit ml-auto">
           <Image
             src="/images/advantages-vector.svg"
@@ -320,12 +331,15 @@ function AdvantagesAndRules() {
             width={600}
             height={400}
             className="h-auto w-screen lg:w-[70vw] aspect-auto"
+            data-aos="fade-up"
           />
         </div>
 
         <div id="rules" className="grid place-items-center py-5">
           <div className="flex flex-col gap-4 ">
-            <h3 className="text-white text-center">{t.rules("title")}</h3>
+            <h3 className="text-white text-center" data-aos="fade-up">
+              {t.rules("title")}
+            </h3>
             <Card className="text-white bg-transparent border-none shadow-none container mx-auto lg:w-3xl">
               <CardContent className="text-white">
                 <ol className="flex flex-col gap-5 lg:gap-10 list-decimal text-sm md:text-[20px]">
@@ -333,6 +347,7 @@ function AdvantagesAndRules() {
                     <li
                       key={index}
                       className="border rounded-lg p-4 list-inside bg-gradient-to-br from-[#0EA5E9]/90 to-white/0 bg-white/20 backdrop-blur-xl border-white/30"
+                      data-aos="fade-up"
                     >
                       {rule}
                     </li>
@@ -361,7 +376,10 @@ function AdvantagesAndRules() {
 function Community() {
   const t = useTranslations("home.community");
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-6 container mx-auto gap-4">
+    <div
+      className="flex flex-col items-center justify-center px-4 py-6 container mx-auto gap-4"
+      data-aos="fade-up"
+    >
       {/* Discord logo */}
       <Image
         src="/images/discord-logo.png"
@@ -439,15 +457,21 @@ function Sponsors() {
 
   return (
     <div className="flex flex-col gap-5 justify-center items-center min-h-screen py-5">
-      <p className="text-2xl text-cyan-primary">{t("strategic")}</p>
+      <p className="text-2xl text-cyan-primary" data-aos="fade-up">
+        {t("strategic")}
+      </p>
       <Image
         src={strategicSponsors.logo}
         alt={strategicSponsors.name}
         width={300}
         height={150}
         className="w-1/2 object-contain text-center grid place-items-center"
+        data-aos="fade-up"
       />
-      <h3 className="text-primary tracking-tight text-center mt-5">
+      <h3
+        className="text-primary tracking-tight text-center mt-5"
+        data-aos="fade-up"
+      >
         {t("title")}
       </h3>
       <SponsorsCarousel partners={otherSponsors} />
@@ -486,7 +510,11 @@ function SponsorsCarousel({ partners = [] }) {
   }, [emblaApi, onSelect]);
 
   return (
-    <div className="relative w-full container mx-auto" dir="ltr">
+    <div
+      className="relative w-full container mx-auto"
+      dir="ltr"
+      data-aos="fade-up"
+    >
       {/* Carousel container */}
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">

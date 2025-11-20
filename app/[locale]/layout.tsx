@@ -6,6 +6,8 @@ import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
+import AOSInit from "@/components/AOSInit";
+import "aos/dist/aos.css";
 
 export const metadata = {
   title: "Protothon | بروتوثون",
@@ -47,6 +49,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`antialiased w-screen overflow-x-hidden`}>
+        <AOSInit />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
