@@ -449,7 +449,7 @@ function Sponsors() {
     },
     {
       id: 2,
-      logo: "/images/partner-manufacturing.png",
+      logo: "/images/partner-manufacturing.jpg",
       name: "manufacturing",
     },
   ];

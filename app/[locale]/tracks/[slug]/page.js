@@ -168,52 +168,33 @@ function Challenges({ title, aChallenge, challenges, puzzles, color }) {
       >
         {title}
       </h2>
-      <ul className="grid grid-cols-3 grid-rows-3 gap-4 text-center place-items-center">
-        {challenges.map((challenge, index) => {
-          let style = {};
-          switch (index) {
-            case 0: // Top center
-              style = { gridColumn: "2 / 3", gridRow: "1 / 2" };
-              break;
-            case 1: // Left center
-              style = { gridColumn: "1 / 2", gridRow: "2 / 3" };
-              break;
-            case 2: // Right center
-              style = { gridColumn: "3 / 4", gridRow: "2 / 3" };
-              break;
-            case 3: // Bottom center
-              style = { gridColumn: "2 / 3", gridRow: "3 / 4" };
-              break;
-            default:
-              break;
-          }
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-10">
+        {/* Left challenge */}
+        <div className="flex flex-col gap-4 text-center" data-aos="fade-up">
+          <h3 className="!text-2xl font-extrabold" style={{ color }}>
+            {`${aChallenge} 1`}
+          </h3>
+          <p className="text-sm lg:text-lg max-w-md">{challenges[0]}</p>
+        </div>
 
-          return (
-            <li
-              key={index}
-              className="flex flex-col gap-4"
-              style={style}
-              data-aos="fade-up"
-            >
-              <h3 className="!text-2xl font-extrabold" style={{ color }}>
-                {`${aChallenge} ${index + 1}`}
-              </h3>
-              <p className="text-sm lg:text-lg">{challenge}</p>
-            </li>
-          );
-        })}
-
-        {/* Center image */}
+        {/* Center puzzle image */}
         <Image
           src={puzzles}
           width={192}
           height={192}
-          style={{ gridColumn: "2 / 3", gridRow: "2 / 3" }}
-          className="w-48"
+          className="w-32 lg:w-48"
           alt=""
           data-aos="fade-up"
         />
-      </ul>
+
+        {/* Right challenge */}
+        <div className="flex flex-col gap-4 text-center" data-aos="fade-up">
+          <h3 className="!text-2xl font-extrabold" style={{ color }}>
+            {`${aChallenge} 2`}
+          </h3>
+          <p className="text-sm lg:text-lg max-w-md">{challenges[1]}</p>
+        </div>
+      </div>
     </section>
   );
 }

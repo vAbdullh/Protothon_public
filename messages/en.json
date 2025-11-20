@@ -182,10 +182,8 @@
         }
       ],
       "challenges": [
-        "Innovating healthcare solutions that support patients and people with disabilities while improving quality of care.",
-        "Developing technologies that enhance safety and security and prevent accidents in daily life and factories.",
-        "Redesigning tools and devices in innovative ways or converting inanimate objects into smart devices.",
-        "Creating transportation solutions that reduce congestion and improve driving experience and traffic systems."
+        "Assisting People with Disabilities: Developing tools and technologies that support the independence of people with disabilities and enable them to interact easily with their surrounding environment.",
+        "Physical Therapy and Medical Wearables: Innovating devices and medical wearables that enhance motor rehabilitation and improve patients' ability to adapt to their daily activities."
       ]
     },
     "safety": {
@@ -215,10 +213,8 @@
         }
       ],
       "challenges": [
-        "Developing solutions that prevent daily accidents before they occur.",
-        "Designing technologies to protect children and the elderly.",
-        "Creating systems that monitor risks in factories.",
-        "Building tools that predict failures and provide rapid emergency response."
+        "Daily Safety: Innovating smart tools and technologies that reduce daily accidents and risks at home or in public spaces for people of all ages.",
+        "Factory Safety: Developing solutions to monitor workplace hazards and provide a safe working environment to protect workers and reduce industrial accidents."
       ]
     },
     "innovation": {
@@ -248,10 +244,8 @@
         }
       ],
       "challenges": [
-        "Disassemble old tools and redesign them in a modern way (reverse engineering).",
-        "Convert a static object into a smart device capable of movement or sensing.",
-        "Update home or office products by adding new functionalities.",
-        "Create an entirely new product inspired by a daily need."
+        "Animating Inanimate Objects Challenge: Transforming an existing inanimate object in the environment to become interactive or smart without changing its fundamental identity.",
+        "Reverse Engineering Challenge: Redesigning or improving an existing product or tool to make it more efficient or higher quality without changing its original function."
       ]
     },
     "vehicle": {
@@ -281,10 +275,8 @@
         }
       ],
       "challenges": [
-        "Develop smart solutions to ease congestion and improve traffic flow.",
-        "Innovate tools that enhance driver comfort and safety inside the vehicle.",
-        "Design sensor devices to analyze traffic movement.",
-        "Create systems that optimize signal management and guide vehicles effectively."
+        "Traffic and Congestion: Innovating smart solutions to reduce traffic congestion and facilitate transportation within cities through organized and more efficient methods.",
+        "Developing and Improving Car Experience: Designing innovative technologies that make driving more comfortable, safe, and enjoyable for users in various conditions."
       ]
     }
   },
