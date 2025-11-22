@@ -124,11 +124,12 @@
       "rules_list": [
         "The registration form must be fully completed before evaluation begins.",
         "The idea must be related to one of the official Protothon challenges and tracks.",
-        "The work must be original and developed only during the hackathon period.",
+        "The prototype must be original and developed only during the hackathon period.",
         "A functional prototype must be submitted to prove the idea's feasibility.",
         "The prototype must include three main domains: electronics and electricity, programming, and 3D printing.",
         "A technical description, presentation, and disclosure of any pre-existing materials must be attached.",
-        "Teams cannot be mixed from both male and female campuses; all members must be either from the male campus or the female campus."
+        "Teams cannot be mixed from both male and female campuses; all members must be either from the male campus or the female campus.",
+        "All team members must be present in Jeddah during the hackathon."
       ]
     },
     "community": {
