@@ -20,7 +20,7 @@ export default function footer() {
     const scrollToSection = (id) => {
         if (pathname !== "/") {
             // Navigate to home page with hash
-            router.push(`/?#rules`);
+            router.push(`/?#${id}`);
         } else {
             // If already on home page, just scroll
             const element = document.getElementById(id);
@@ -47,13 +47,13 @@ export default function footer() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" className='translate-y-1'>
                 <path fill="#24234C" fillOpacity="1" d="M0,16L60,21.3C120,27,240,37,360,42.7C480,48,600,48,720,37.3C840,27,960,5,1080,0C1200,-5,1320,5,1380,10.7L1440,16L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"></path>
             </svg>
-            <div id="footer" className='flex flex-col gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
-             <div className='mx-auto w-fit text-center py-5'>
-                <p className='text-2xl lg:text-4xl mb-2'>تواصل معنا</p>
-                <a href='mailto:protothon.sa@gmail.com' className="hover:underline text-3xl lg:text-7xl " target="_blank" rel="noopener noreferrer">
-                    Protothon.sa@gmail.com
-                </a>
-             </div>
+            <div id="footer" className='flex flex-col items-center md:items-start md:text-start text-center gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
+                <div className='mx-auto w-fit text-center py-5'>
+                    <p className='text-2xl lg:text-4xl mb-2'>تواصل معنا</p>
+                    <a href='mailto:protothon.sa@gmail.com' className="hover:underline text-3xl lg:text-7xl " target="_blank" rel="noopener noreferrer">
+                        Protothon.sa@gmail.com
+                    </a>
+                </div>
                 <div className='flex gap-4 items-center space-x-2'>
                     <Image
                         src="/protothon-logo-white.svg"
@@ -64,7 +64,7 @@ export default function footer() {
                         priority
                     />
                 </div>
-                <div className='flex flex-col md:grid grid-cols-2 justify-evenly'>
+                <div className='flex flex-col md:grid grid-cols-2 max-md:gap-10 justify-evenly w-full'>
                     <div>
                         <h4 className='text-2xl font-semibold mb-2'>{t.shared("protothon")}</h4>
                         <ul className="flex flex-col gap-2 font-normal">
