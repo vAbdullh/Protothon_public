@@ -1,13 +1,19 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Countdown } from "@/components/count-down";
 import { useTranslations } from "next-intl";
 import { CalendarRange, MapPin } from "lucide-react";
 import { Button } from "@/components/shadcn/button";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/shadcn/card";
-import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/shadcn/accordion";
 
 export default function Page() {
   return (
@@ -16,7 +22,7 @@ export default function Page() {
       <About />
       <Tracks />
       <Stages />
-      <AdvantagesAndRules />
+      <Details />
       <Community />
       <Sponsors />
     </>
@@ -130,8 +136,9 @@ const TrackContainer = ({
         data-aos="fade-up"
       >
         <div
-          className={`w-full p-5 flex flex-col justify-center gap-10 relative ${reverse ? "lg:order-2" : ""
-            }`}
+          className={`w-full p-5 flex flex-col justify-center gap-10 relative ${
+            reverse ? "lg:order-2" : ""
+          }`}
           style={{
             background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
           }}
@@ -165,10 +172,11 @@ const TrackContainer = ({
       </div>
       <div
         className={`w-4/5 text-center px-5 grid place-items-center py-16 gap-8 relative lg:hidden p-5
-    ${reverse
-            ? "ml-auto text-right ltr:rounded-l-2xl rtl:ml-0 rtl:mr-auto rtl:text-left rtl:rounded-r-2xl"
-            : "mr-auto text-left ltr:rounded-r-2xl rtl:mr-0 rtl:ml-auto rtl:text-right rtl:rounded-l-2xl"
-          }
+    ${
+      reverse
+        ? "ml-auto text-right ltr:rounded-l-2xl rtl:ml-0 rtl:mr-auto rtl:text-left rtl:rounded-r-2xl"
+        : "mr-auto text-left ltr:rounded-r-2xl rtl:mr-0 rtl:ml-auto rtl:text-right rtl:rounded-l-2xl"
+    }
   `}
         style={{
           background: `linear-gradient(to bottom, ${from}, #E6E6E6)`,
@@ -180,8 +188,9 @@ const TrackContainer = ({
           alt=""
           width={120}
           height={120}
-          className={`absolute -top-[60px] filter drop-shadow-[0_0_5px_rgba(255,255,255,0.20)] ${reverse ? "ltr:right-0 rtl:left-0" : "ltr:left-0 rtl:right-0"
-            }`}
+          className={`absolute -top-[60px] filter drop-shadow-[0_0_5px_rgba(255,255,255,0.20)] ${
+            reverse ? "ltr:right-0 rtl:left-0" : "ltr:left-0 rtl:right-0"
+          }`}
         />
 
         <h4 className="text-4xl font-bold">{title}</h4>
@@ -268,8 +277,9 @@ function CardStage({ index, details }) {
     <div className="flex flex-col relative lg:w-[896px]">
       <DiamondShape cn="absolute left-1 lg:left-1/2 rtl:left-auto rtl:right-1 rtl:lg:right-1/2 -translate-x-1/2 rtl:translate-x-1/2" />
       <div
-        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl flex flex-col justify-start items-start ${index % 2 === 0 ? "lg:self-start" : "lg:self-end"
-          }`}
+        className={`mt-4 lg:mt-7 p-5 py-7 bg-[#E9F6FE] text-primary border border-white/20 shadow-lg lg:w-md rounded-3xl flex flex-col justify-start items-start ${
+          index % 2 === 0 ? "lg:self-start" : "lg:self-end"
+        }`}
         data-aos="fade-up"
       >
         <h4 className="text-2xl font-bold mb-2">{title}</h4>
@@ -297,11 +307,13 @@ function Stages() {
     </div>
   );
 }
-// Prizes & Rules
-function AdvantagesAndRules() {
+// Advantages & Rules & FAQs
+function Details() {
   const t = {
     advantages: useTranslations("home.advantages"),
     rules: useTranslations("home.rules"),
+    faqs: useTranslations("home.faqs"),
+    faqs_list: useTranslations("home.faqs").raw("faqs_list"),
   };
   return (
     <section>
@@ -339,7 +351,7 @@ function AdvantagesAndRules() {
           </h3>
           <Card className="text-white bg-transparent border-none shadow-none container mx-auto lg:w-3xl">
             <CardContent className="text-white">
-              <ol className="flex flex-col gap-5 lg:gap-10 list-decimal text-sm md:text-[20px]">
+              <ol className="flex flex-col gap-5 lg:gap-10 list-decimal">
                 {t.rules.raw("rules_list").map((rule, index) => (
                   <li
                     key={index}
@@ -352,6 +364,26 @@ function AdvantagesAndRules() {
               </ol>
             </CardContent>
           </Card>
+        </div>
+        <div className="flex flex-col gap-4 w-full lg:w-3xl mx-auto text-white">
+          <h3 className="text-white text-center">{t.faqs("title")}</h3>
+
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full px-6 container mx-auto"
+          >
+            {t.faqs_list.map((faq, index) => (
+              <AccordionItem value={`item-${index + 1}`} key={index}>
+                <AccordionTrigger className="text-base md:text-[24px] font-bold tracking-tight">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm md:text-[18px] font-medium tracking-tight text-muted">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
 
@@ -453,7 +485,10 @@ function Sponsors() {
         {t("title")}
       </h3>
       <div className="flex flex-col gap-3 items-center">
-        <h4 className="text-2xl lg:text-4xl text-cyan-primary" data-aos="fade-up">
+        <h4
+          className="text-2xl lg:text-4xl text-cyan-primary"
+          data-aos="fade-up"
+        >
           {t("strategic")}
         </h4>
         <div className="w-[300px] lg:w-[700px]" data-aos="fade-up">
@@ -468,8 +503,13 @@ function Sponsors() {
         </div>
       </div>
       <div className="flex flex-col gap-8 items-center">
-        <div className="flex flex-col gap-3 items-center" >
-          <h4 className="text-2xl lg:text-4xl text-cyan-primary" data-aos="fade-up">{t("sponsoredBy")}</h4>
+        <div className="flex flex-col gap-3 items-center">
+          <h4
+            className="text-2xl lg:text-4xl text-cyan-primary"
+            data-aos="fade-up"
+          >
+            {t("sponsoredBy")}
+          </h4>
           <div className="w-[300px] lg:w-[700px]" data-aos="fade-up">
             <Image
               src={sponsoredBy.logo}
@@ -481,7 +521,12 @@ function Sponsors() {
           </div>
         </div>
         <div className="flex flex-col gap-3 items-center">
-          <h4 className="text-2xl lg:text-4xl text-cyan-primary" data-aos="fade-up">{t("organizedBy")}</h4>
+          <h4
+            className="text-2xl lg:text-4xl text-cyan-primary"
+            data-aos="fade-up"
+          >
+            {t("organizedBy")}
+          </h4>
           <div className="w-[300px] lg:w-[700px]" data-aos="fade-up">
             <Image
               src={organizedBy.logo}

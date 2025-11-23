@@ -143,6 +143,55 @@
       "strategic": "Strategic Partner",
       "sponsoredBy": "Sponsored by",
       "organizedBy": "Organized by"
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions",
+      "faqs_list": [
+        {
+          "question": "Who can participate?",
+          "answer": "University students, or anyone interested in technological innovation can participate. The team must be entirely from the same group (all male or all female)."
+        },
+        {
+          "question": "What are the basic participation requirements?",
+          "answer": "The idea must fit within one of the tracks. It should be implemented during the hackathon. A prototype must be presented including: electronics + programming + 3D printing. A presentation and technical description must also be provided."
+        },
+        {
+          "question": "What if I don’t have a team?",
+          "answer": "You can form a team through the event's Discord and meet other participants."
+        },
+        {
+          "question": "Is experience required?",
+          "answer": "No expertise is required. The hackathon includes guidance workshops to help you build the prototype and develop your skills."
+        },
+        {
+          "question": "How are projects evaluated?",
+          "answer": "Based on: innovation, quality of execution, clarity of presentation, alignment of the idea with the track, and feasibility."
+        },
+        {
+          "question": "Does the idea have to be completely new?",
+          "answer": "It is preferable that it is new, but an existing idea can be developed as long as the work is done during the hackathon and clear improvements are added."
+        },
+        {
+          "question": "How many team members are allowed?",
+          "answer": "From 3 to 5 members to ensure effective task distribution."
+        },
+        {
+          "question": "Can I participate remotely?",
+          "answer": "Workshops are held online, but project implementation and final judging will be in-person at the event venue."
+        },
+        {
+          "question": "Is technical support available during the hackathon?",
+          "answer": "Yes, there are specialized mentors in electronics, programming, and fabrication to assist you during development."
+        },
+        {
+          "question": "How can I contact the organizing team?",
+          "answer": "Via email: Protothon.sa@gmail.com or through official communication channels such as Discord and X."
+        },
+        {
+          "question": "Will the hackathon provide tools and equipment?",
+          "answer": "Yes, basic tools and equipment will be provided at the hackathon venue during the in-person days, along with technical support."
+        }
+      ]
     }
   },
   "tracks": {
