@@ -309,6 +309,7 @@
     "gender": "الجنس",
     "otherUniversity": "اسم الجامعة",
     "teamLeader": "قائد الفريق",
+    "teamGender": "شطر الفريق",
     "universities": {
       "kau": "جامعة الملك عبدالعزيز",
       "other": "أخرى"
@@ -334,7 +335,8 @@
       "major": "أدخل التخصص",
       "university": "اختر الجامعة",
       "otherUniversity": "أدخل اسم الجامعة",
-      "gender": "اختر الجنس"
+      "gender": "اختر الجنس",
+      "teamGender": "اختر شطر الفريق"
     },
     "errors": {
       "required": "هذا الحقل مطلوب",
@@ -349,7 +351,8 @@
       "teamSizeTitle": "متطلبات حجم الفريق",
       "teamSizeRequirement": "يجب أن يتكون فريقك من 3 أعضاء على الأقل بما في ذلك قائد الفريق.",
       "rulesRequired": "يرجى التأكد من قراءة والموافقة على الشروط",
-      "dataSharingRequired": "يرجى تأكيد موافقتك على مشاركة البيانات"
+      "dataSharingRequired": "يرجى تأكيد موافقتك على مشاركة البيانات",
+      "teamGenderRequired": "يرجى اختيار شطر الفريق"
     },
     "memberCount": "{current} / 3 أعضاء كحد أدنى",
     "agreements": {

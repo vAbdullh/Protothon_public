@@ -72,11 +72,11 @@ function useApplyForm() {
       attachment: null,
       readRules: false,
       dataSharing: false,
+      teamGender: "",
       members: [
         {
           nameAr: "",
           nameEn: "",
-          gender: "",
           phone: "",
           email: "",
           university: "",
@@ -177,19 +177,24 @@ function HackathonInfoSection({ t, form, helpers }) {
             }
           >
             <SelectTrigger
-              className={`w-full ${form.formState.errors.track
-                ? "border-red-500"
-                : watch("track")
+              className={`w-full ${
+                form.formState.errors.track
+                  ? "border-red-500"
+                  : watch("track")
                   ? "border-green-500"
                   : ""
-                }`}
+              }`}
               dir={isRTL ? "rtl" : "ltr"}
             >
               <SelectValue placeholder={t("placeholders.track")} />
             </SelectTrigger>
             <SelectContent dir={isRTL ? "rtl" : "ltr"}>
               {TRACK_OPTIONS.map((track) => (
-                <SelectItem key={track.value} value={track.value} className="flex justify-center">
+                <SelectItem
+                  key={track.value}
+                  value={track.value}
+                  className="flex justify-center"
+                >
                   {headerT(`tracksList.${track.label}`)}
                 </SelectItem>
               ))}
@@ -237,12 +242,13 @@ function HackathonInfoSection({ t, form, helpers }) {
           <Input
             type="file"
             accept=".pdf"
-            className={`${form.formState.errors.attachment
-              ? "border-red-500"
-              : form.watch("attachment")?.length
+            className={`${
+              form.formState.errors.attachment
+                ? "border-red-500"
+                : form.watch("attachment")?.length
                 ? "border-green-500"
                 : ""
-              }`}
+            }`}
             {...register("attachment", {
               required: t("errors.required"),
               validate: (value) => {
@@ -311,7 +317,8 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
         {MEMBER_FIELDS.map(({ name, labelKey, placeholderKey, required }) => (
           <div key={name}>
             <Label className="mb-2">
-              {t(labelKey)} {required && <span className="text-red-500">*</span>}
+              {t(labelKey)}{" "}
+              {required && <span className="text-red-500">*</span>}
             </Label>
             <Input
               dir={getDirection(form.watch(`members.${index}.${name}`))}
@@ -339,42 +346,6 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
           </div>
         ))}
 
-        {/* Gender */}
-        <div>
-          <Label className="mb-2">
-            {t("gender")} <span className="text-red-500">*</span>
-          </Label>
-          <Select
-            onValueChange={(value) =>
-              setValue(`members.${index}.gender`, value, {
-                shouldDirty: true,
-              })
-            }
-          >
-            <SelectTrigger
-              className={`w-full ${form.formState.errors.members?.[index]?.gender
-                ? "border-red-500"
-                : form.watch(`members.${index}.gender`)
-                  ? "border-green-500"
-                  : ""
-                }`}
-              dir={isRTL ? "rtl" : "ltr"}
-            >
-              <SelectValue placeholder={t("placeholders.gender")} />
-            </SelectTrigger>
-            <SelectContent dir={isRTL ? "rtl" : "ltr"}>
-              {GENDER_OPTIONS.map((gender) => (
-                <SelectItem key={gender.value} value={gender.value}>
-                  {t(`genders.${gender.value}`)}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          <ErrorMessage
-            message={form.formState.errors.members?.[index]?.gender?.message}
-          />
-        </div>
-
         {/* University */}
         <div>
           <Label className="mb-2">
@@ -388,12 +359,13 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
             }
           >
             <SelectTrigger
-              className={`w-full ${form.formState.errors.members?.[index]?.university
-                ? "border-red-500"
-                : form.watch(`members.${index}.university`)
+              className={`w-full ${
+                form.formState.errors.members?.[index]?.university
+                  ? "border-red-500"
+                  : form.watch(`members.${index}.university`)
                   ? "border-green-500"
                   : ""
-                }`}
+              }`}
               dir={isRTL ? "rtl" : "ltr"}
             >
               <SelectValue placeholder={t("placeholders.university")} />
@@ -483,6 +455,36 @@ function TeamInfoSection({ t, form, fields, append, remove, helpers }) {
         </div>
       </div>
 
+      {/* Team Gender */}
+      <div>
+        <Label className="mb-2">
+          {t("teamGender")} <span className="text-red-500">*</span>
+        </Label>
+        <Select
+          onValueChange={(value) =>
+            form.setValue("teamGender", value, { shouldDirty: true })
+          }
+        >
+          <SelectTrigger
+            className={`w-full ${
+              form.formState.errors.teamGender ? "border-red-500" : ""
+            }`}
+          >
+            <SelectValue placeholder={t("placeholders.teamGender")} />
+          </SelectTrigger>
+          <SelectContent>
+            {GENDER_OPTIONS.map((gender) => (
+              <SelectItem key={gender.value} value={gender.value}>
+                {t(`genders.${gender.value}`)}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        <helpers.ErrorMessage
+          message={form.formState.errors.teamGender?.message}
+        />
+      </div>
+
       {fields.map((field, index) => (
         <MemberFormSection
           key={field.id}
@@ -503,7 +505,6 @@ function TeamInfoSection({ t, form, fields, append, remove, helpers }) {
             append({
               nameAr: "",
               nameEn: "",
-              gender: "",
               phone: "",
               email: "",
               university: "",
@@ -547,6 +548,18 @@ function ApplyPageContent() {
   const onSubmit = async (formData) => {
     setIsSubmitting(true);
     try {
+      // Validate team gender
+      if (!formData.teamGender) {
+        addToast({
+          title: "Team Gender Required",
+          description: t("errors.teamGenderRequired"),
+          variant: "warning",
+          duration: 5000,
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
       // Validate that exactly one member is selected as leader
       const leaders = formData.members.filter((member) => member.isLeader);
       if (leaders.length !== 1) {
@@ -595,6 +608,12 @@ function ApplyPageContent() {
         return;
       }
 
+      // Add team gender to each member
+      const membersWithGender = formData.members.map((member) => ({
+        ...member,
+        gender: formData.teamGender,
+      }));
+
       // Create FormData for file upload
       const submitFormData = new FormData();
 
@@ -605,7 +624,7 @@ function ApplyPageContent() {
       submitFormData.append("ideaDescription", formData.ideaDescription);
 
       // Add members as JSON string
-      submitFormData.append("members", JSON.stringify(formData.members));
+      submitFormData.append("members", JSON.stringify(membersWithGender));
 
       // Add file if exists
       if (formData.attachment && formData.attachment.length > 0) {
@@ -692,7 +711,9 @@ function ApplyPageContent() {
                     shouldDirty: true,
                   })
                 }
-                className={form.formState.errors.readRules ? "border-red-500" : ""}
+                className={
+                  form.formState.errors.readRules ? "border-red-500" : ""
+                }
               />
               <Label
                 htmlFor="readRules"
@@ -729,13 +750,16 @@ function ApplyPageContent() {
                     shouldDirty: true,
                   })
                 }
-                className={form.formState.errors.dataSharing ? "border-red-500" : ""}
+                className={
+                  form.formState.errors.dataSharing ? "border-red-500" : ""
+                }
               />
               <Label
                 htmlFor="dataSharing"
                 className="text-sm font-normal leading-relaxed cursor-pointer"
               >
-                {t("agreements.dataSharing")} <span className="text-red-500">*</span>
+                {t("agreements.dataSharing")}{" "}
+                <span className="text-red-500">*</span>
               </Label>
             </div>
             {form.formState.errors.dataSharing && (

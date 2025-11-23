@@ -309,6 +309,7 @@
     "gender": "Gender",
     "otherUniversity": "University Name",
     "teamLeader": "Team Leader",
+    "teamGender": "Team Campus",
     "universities": {
       "kau": "King Abdulaziz University",
       "other": "Other"
@@ -334,7 +335,8 @@
       "major": "Enter your major",
       "university": "Select university",
       "otherUniversity": "Enter university name",
-      "gender": "Select gender"
+      "gender": "Select gender",
+      "teamGender": "Select Team Campus"
     },
     "errors": {
       "required": "This field is required",
@@ -349,7 +351,8 @@
       "teamSizeTitle": "Team Size Requirement",
       "teamSizeRequirement": "Your team must have at least 3 members including the team leader.",
       "rulesRequired": "Please confirm that you have read and agree to the rules",
-      "dataSharingRequired": "Please confirm your consent for data sharing"
+      "dataSharingRequired": "Please confirm your consent for data sharing",
+      "teamGenderRequired": "Please select a Team Campus"
     },
     "memberCount": "{current} / 3 members minimum",
     "agreements": {
