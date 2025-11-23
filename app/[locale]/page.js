@@ -366,7 +366,9 @@ function Details() {
           </Card>
         </div>
         <div className="flex flex-col gap-4 w-full lg:w-3xl mx-auto text-white">
-          <h3 className="text-white text-center">{t.faqs("title")}</h3>
+          <h3 className="text-white text-center" data-aos="fade-up" id="faqs">
+            {t.faqs("title")}
+          </h3>
 
           <Accordion
             type="single"
@@ -374,8 +376,13 @@ function Details() {
             className="w-full px-6 container mx-auto"
           >
             {t.faqs_list.map((faq, index) => (
-              <AccordionItem value={`item-${index + 1}`} key={index}>
-                <AccordionTrigger className="text-base md:text-[24px] font-bold tracking-tight">
+              <AccordionItem
+                value={`item-${index + 1}`}
+                key={index}
+                data-aos="fade-up"
+                id="faqs"
+              >
+                <AccordionTrigger className="text-base md:text-[24px] font-semibold tracking-tight">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm md:text-[18px] font-medium tracking-tight text-muted">
