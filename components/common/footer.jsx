@@ -30,7 +30,7 @@ export default function footer() {
 
     const footerLinks = [
         { key: "about_hackathon", href: "#about", onClick: () => scrollToSection("about") },
-        { key: "faq", href: "#" },
+        { key: "faq", href: "#faqs", onClick: () => scrollToSection("faqs") },
         { key: "rules", href: "#rules", onClick: () => scrollToSection("rules") },
         { key: "apply", href: "/apply" },
         { key: "become_partner", href: "mailto:protothon.kau@gmail.comn" },
@@ -97,12 +97,12 @@ export default function footer() {
                         <ul className="flex flex-col gap-2 font-normal px-2">
                             {trackLinks.map((track) => (
                                 <li key={track.href}>
-                                    <a
+                                    <Link
                                         href={track.href}
                                         className="hover:underline"
                                     >
                                         {t.header(`tracksList.${track.label}`)}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
