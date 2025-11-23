@@ -10,9 +10,35 @@ import AOSInit from "@/components/AOSInit";
 import "aos/dist/aos.css";
 
 export const metadata = {
-  title: "Protothon | بروتوثون",
+  title: "Protothon | هاكثون النمذجة",
   description:
     "بروتوثون هو هاكاثون نمذجة يجمع المبتكرين والمصممين والمبرمجين لصناعة نماذج أولية لمشاريع واقعية ضمن أربعة مسارات: الصحة، الأمن والسلامة، إعادة تصميم الأشياء، و النقل والمركبات",
+
+  openGraph: {
+    title: "Protothon | هاكثون النمذجة",
+    description:
+      "بروتوثون هو هاكاثون نمذجة يجمع المبتكرين والمصممين والمبرمجين لصناعة نماذج أولية.",
+    url: "https://your-domain.com",
+    siteName: "Protothon",
+    images: [
+      {
+        url: "/preview.png", 
+        width: 1200,
+        height: 630,
+        alt: "Protothon Preview",
+      },
+    ],
+    locale: "ar",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Protothon | بروتوثون",
+    description:
+      "بروتوثون هو هاكاثون نمذجة يجمع المبتكرين والمصممين والمبرمجين لصناعة نماذج أولية.",
+    images: ["/preview.png"],
+  },
 };
 
 export default async function RootLayout({
