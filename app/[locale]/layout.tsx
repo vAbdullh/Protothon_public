@@ -8,6 +8,7 @@ import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 import AOSInit from "@/components/AOSInit";
 import "aos/dist/aos.css";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: "Protothon | هاكثون النمذجة",
@@ -87,6 +88,7 @@ export default async function RootLayout({
             <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
