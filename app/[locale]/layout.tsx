@@ -18,7 +18,7 @@ export const metadata = {
     title: "Protothon | هاكثون النمذجة",
     description:
       "هاكاثون النمذجة هو هاكاثون نمذجة يجمع المبتكرين والمصممين والمبرمجين لصناعة نماذج أولية لمشاريع واقعية ضمن أربعة مسارات: الصحة، الأمن والسلامة، إعادة تصميم الأشياء، و النقل والمركبات",
-    url: "https://your-domain.com",
+    url: "https://protothon.info",
     siteName: "Protothon",
     images: [
       {
