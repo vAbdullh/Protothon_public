@@ -190,6 +190,14 @@
         {
           "question": "Will the hackathon provide tools and equipment?",
           "answer": "Yes, basic tools and equipment will be provided at the hackathon venue during the in-person days, along with technical support."
+        },
+        {
+          "question": "Do all team members need to attend in person?",
+          "answer": "Yes, all team members must be present in Jeddah during the hackathon days."
+        },
+        {
+          "question": "Does the hackathon cover accommodation or transportation costs?",
+          "answer": "No, the hackathon does not provide sponsorship or coverage for accommodation or transportation expenses."
         }
       ]
     }
