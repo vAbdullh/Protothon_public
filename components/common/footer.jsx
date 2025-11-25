@@ -49,7 +49,7 @@ export default function footer() {
             </svg>
             <div id="footer" className='flex flex-col items-center md:items-start md:text-start text-center gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
                 <div className='mx-auto w-fit text-center py-5'>
-                    <p className='text-2xl lg:text-4xl mb-2'>تواصل معنا</p>
+                    <p className='text-2xl lg:text-4xl mb-2'>{t.footer('contactus')}</p>
                     <a href='mailto:protothon.sa@gmail.com' className="hover:underline text-3xl lg:text-7xl " target="_blank" rel="noopener noreferrer">
                         Protothon.sa@gmail.com
                     </a>
