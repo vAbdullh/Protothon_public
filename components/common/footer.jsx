@@ -3,7 +3,7 @@
 import React from 'react'
 import { useTranslations } from 'use-intl'
 import { H3 } from '../shadcn/typography-h3';
-import { Instagram, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin, Link as LinkIcon } from 'lucide-react';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -47,7 +47,7 @@ export default function footer() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" className='translate-y-1'>
                 <path fill="#24234C" fillOpacity="1" d="M0,16L60,21.3C120,27,240,37,360,42.7C480,48,600,48,720,37.3C840,27,960,5,1080,0C1200,-5,1320,5,1380,10.7L1440,16L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"></path>
             </svg>
-            <div id="footer" className='flex flex-col items-center md:items-start md:text-start text-center gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-8 px-3 mx-auto text-white'>
+            <div id="footer" className='flex flex-col items-center md:items-start md:text-start text-center gap-6 bg-gradient-to-b from-[#24234C] to-[#145474] pb-4 px-3 mx-auto text-white'>
                 <div className='mx-auto w-fit text-center py-5'>
                     <p className='text-2xl lg:text-4xl mb-2'>{t.footer('contactus')}</p>
                     <a href='mailto:protothon.sa@gmail.com' className="hover:underline text-3xl lg:text-7xl " target="_blank" rel="noopener noreferrer">
@@ -137,6 +137,18 @@ export default function footer() {
 
                     </div>
                 </div>
+                <p className="flex gap-2 text-sm text-center mx-auto" dir='ltr'>
+                    <p className='opacity-50'>Created with ❤️ by</p>
+                    <a
+                        href="https://abdullh.tech"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-200 opacity-50 hover:opacity-100 transition-colors border-b flex items-center gap-1"
+                    >
+                        abdullh.tech
+                        <LinkIcon className='size-3' />
+                    </a>
+                </p>
             </div >
         </footer>
     )
