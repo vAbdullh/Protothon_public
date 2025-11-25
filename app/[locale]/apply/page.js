@@ -18,6 +18,7 @@ import {
 import { ToastProvider, useToast } from "@/components/shadcn/toast";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabaseClient";
 
 /* ========================== CONFIG DATA ========================== */
 
@@ -177,13 +178,12 @@ function HackathonInfoSection({ t, form, helpers }) {
             }
           >
             <SelectTrigger
-              className={`w-full ${
-                form.formState.errors.track
-                  ? "border-red-500"
-                  : watch("track")
+              className={`w-full ${form.formState.errors.track
+                ? "border-red-500"
+                : watch("track")
                   ? "border-green-500"
                   : ""
-              }`}
+                }`}
               dir={isRTL ? "rtl" : "ltr"}
             >
               <SelectValue placeholder={t("placeholders.track")} />
@@ -242,13 +242,12 @@ function HackathonInfoSection({ t, form, helpers }) {
           <Input
             type="file"
             accept=".pdf"
-            className={`${
-              form.formState.errors.attachment
-                ? "border-red-500"
-                : form.watch("attachment")?.length
+            className={`${form.formState.errors.attachment
+              ? "border-red-500"
+              : form.watch("attachment")?.length
                 ? "border-green-500"
                 : ""
-            }`}
+              }`}
             {...register("attachment", {
               required: t("errors.required"),
               validate: (value) => {
@@ -359,13 +358,12 @@ function MemberFormSection({ member, index, t, form, helpers, onRemove }) {
             }
           >
             <SelectTrigger
-              className={`w-full ${
-                form.formState.errors.members?.[index]?.university
-                  ? "border-red-500"
-                  : form.watch(`members.${index}.university`)
+              className={`w-full ${form.formState.errors.members?.[index]?.university
+                ? "border-red-500"
+                : form.watch(`members.${index}.university`)
                   ? "border-green-500"
                   : ""
-              }`}
+                }`}
               dir={isRTL ? "rtl" : "ltr"}
             >
               <SelectValue placeholder={t("placeholders.university")} />
@@ -466,9 +464,8 @@ function TeamInfoSection({ t, form, fields, append, remove, helpers }) {
           }
         >
           <SelectTrigger
-            className={`w-full ${
-              form.formState.errors.teamGender ? "border-red-500" : ""
-            }`}
+            className={`w-full ${form.formState.errors.teamGender ? "border-red-500" : ""
+              }`}
           >
             <SelectValue placeholder={t("placeholders.teamGender")} />
           </SelectTrigger>
@@ -573,7 +570,7 @@ function ApplyPageContent() {
         return;
       }
 
-      // Validate minimum 3 members (including leader)
+      // Validate minimum 3 members
       if (formData.members.length < 3) {
         addToast({
           title: t("errors.teamSizeTitle"),
@@ -614,56 +611,68 @@ function ApplyPageContent() {
         gender: formData.teamGender,
       }));
 
-      // Create FormData for file upload
-      const submitFormData = new FormData();
+      // Convert file to base64 if exists
+      let fileBase64 = null;
+      let fileName = null;
 
-      // Add form fields
-      submitFormData.append("teamName", formData.teamName);
-      submitFormData.append("track", formData.track);
-      submitFormData.append("ideaTitle", formData.ideaTitle);
-      submitFormData.append("ideaDescription", formData.ideaDescription);
-
-      // Add members as JSON string
-      submitFormData.append("members", JSON.stringify(membersWithGender));
-
-      // Add file if exists
       if (formData.attachment && formData.attachment.length > 0) {
-        submitFormData.append("attachment", formData.attachment[0]);
+        const file = formData.attachment[0];
+        fileName = file.name;
+
+        console.log("📄 Converting file to base64...");
+
+        fileBase64 = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const base64 = reader.result.split(',')[1]; // Remove data:application/pdf;base64, prefix
+            resolve(base64);
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+
+        console.log("✅ File converted to base64");
       }
 
-      console.log("📤 Submitting form data with file...");
+      // Prepare payload
+      const payload = {
+        teamName: formData.teamName,
+        track: formData.track,
+        ideaTitle: formData.ideaTitle,
+        ideaDescription: formData.ideaDescription,
+        members: membersWithGender,
+        fileBase64: fileBase64,
+        fileName: fileName
+      };
 
-      // Submit to API with FormData (no headers needed for FormData)
-      const response = await fetch("/api/applications/submit", {
-        method: "POST",
-        body: submitFormData,
+      console.log("📤 Submitting to Edge Function...");
+
+      // Call Edge Function
+      const { data, error } = await supabase.functions.invoke('apply', {
+        body: payload,
       });
 
-      const result = await response.json();
-
-      if (response.ok) {
-        console.log("✅ Application submitted successfully:", result);
-        addToast({
-          title: "Success! 🎉",
-          description: t("submitSuccess"),
-          variant: "success",
-          duration: 6000,
-        });
-        form.reset(); // Reset form on success
-      } else {
-        console.error("❌ API Error:", result);
-        addToast({
-          title: "Submission Failed",
-          description: result.error || t("errors.submissionFailed"),
-          variant: "destructive",
-          duration: 5000,
-        });
+      if (error) {
+        console.error("❌ Edge Function Error:", error);
+        throw new Error(error.message || t("errors.submissionFailed"));
       }
+
+      console.log("✅ Success:", data);
+
+      addToast({
+        title: "Success! 🎉",
+        description: t("submitSuccess"),
+        variant: "success",
+        duration: 6000,
+      });
+
+      form.reset();
+
     } catch (error) {
       console.error("❌ Submission error:", error);
       addToast({
         title: "Submission Error",
-        description: t("errors.submissionFailed"),
+        description: error.message || t("errors.submissionFailed"),
         variant: "destructive",
         duration: 5000,
       });
