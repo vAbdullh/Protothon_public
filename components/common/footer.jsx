@@ -137,7 +137,7 @@ export default function footer() {
 
                     </div>
                 </div>
-                <p className="flex gap-2 text-sm text-center mx-auto" dir='ltr'>
+                <div className="flex gap-2 text-sm text-center mx-auto" dir='ltr'>
                     <p className='opacity-50'>Created with ❤️ by</p>
                     <a
                         href="https://abdullh.tech"
@@ -148,7 +148,7 @@ export default function footer() {
                         abdullh.tech
                         <LinkIcon className='size-3' />
                     </a>
-                </p>
+                </div>
             </div >
         </footer>
     )
