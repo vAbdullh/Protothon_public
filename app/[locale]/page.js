@@ -452,7 +452,7 @@ function Community() {
 
       {/* Button */}
       <a
-        href="https://discord.gg/QmRpjqnEru"
+        href="https://discord.gg/ehF8tjbtWS"
         target="_blank"
         rel="noopener noreferrer"
         className="w-1/2 lg:w-1/4"
