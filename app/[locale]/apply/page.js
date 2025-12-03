@@ -249,7 +249,7 @@ function HackathonInfoSection({ t, form, helpers }) {
                 : ""
               }`}
             {...register("attachment", {
-              required: t("errors.required"),
+              // required: t("errors.required"), // Made optional
               validate: (value) => {
                 const file = value?.[0];
                 if (!file) return true;
