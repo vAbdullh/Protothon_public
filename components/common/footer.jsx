@@ -43,7 +43,7 @@ export default function footer() {
         { href: "/tracks/vehicle", label: "vehicle" },
     ];
     return (
-        <footer>
+        <footer className='hidden'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" className='translate-y-1'>
                 <path fill="#24234C" fillOpacity="1" d="M0,16L60,21.3C120,27,240,37,360,42.7C480,48,600,48,720,37.3C840,27,960,5,1080,0C1200,-5,1320,5,1380,10.7L1440,16L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"></path>
             </svg>
