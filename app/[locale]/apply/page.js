@@ -682,7 +682,29 @@ function ApplyPageContent() {
   };
 
   /* ========================== RENDER ========================== */
+  // Registration Deadline Check
+  // Deadline: December 11, 2025 at 11:59 PM
+  const REGISTRATION_DEADLINE = new Date("2025-12-11T23:59:00");
+  const now = new Date();
+  const isRegistrationClosed = now > REGISTRATION_DEADLINE;
 
+  if (isRegistrationClosed) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[80vh] gap-6 text-center px-4 py-20">
+        <h1 className="text-4xl md:text-6xl font-bold text-primary">
+          {t("errors.closedTitle")}
+        </h1>
+        <p className="text-xl text-gray-600 max-w-2xl">
+          {t("errors.closedMessage")}
+        </p>
+        <Link href="/">
+          <Button size="lg" className="text-xl px-8 py-6">
+            {t("errors.returnHome")}
+          </Button>
+        </Link>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col gap-10 min-h-screen">
       <div className="container w-full max-w-5xl p-10 mx-auto flex flex-col gap-10">

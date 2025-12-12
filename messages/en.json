@@ -409,7 +409,10 @@
       "teamSizeRequirement": "Your team must have at least 3 members including the team leader.",
       "rulesRequired": "Please confirm that you have read and agree to the rules",
       "dataSharingRequired": "Please confirm your consent for data sharing",
-      "teamGenderRequired": "Please select a Team Campus"
+      "teamGenderRequired": "Please select a Team Campus",
+      "closedTitle": "Registration Closed ",
+      "closedMessage": "Thank you for your interest.",
+      "returnHome": "Return Home"
     },
     "memberCount": "{current} / 3 members minimum",
     "agreements": {

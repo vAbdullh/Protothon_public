@@ -409,7 +409,10 @@
       "teamSizeRequirement": "يجب أن يتكون فريقك من 3 أعضاء على الأقل بما في ذلك قائد الفريق.",
       "rulesRequired": "يرجى التأكد من قراءة والموافقة على الشروط",
       "dataSharingRequired": "يرجى تأكيد موافقتك على مشاركة البيانات",
-      "teamGenderRequired": "يرجى اختيار شطر الفريق"
+      "teamGenderRequired": "يرجى اختيار شطر الفريق",
+      "closedTitle": " انتهت فترة التسجيل",
+      "closedMessage": "شكراً لاهتمامكم",
+      "returnHome": "العودة للرئيسية"
     },
     "memberCount": "{current} / 3 أعضاء كحد أدنى",
     "agreements": {
