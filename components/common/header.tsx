@@ -130,6 +130,9 @@ export default function Header() {
         </DropdownMenu>
       </nav>
       <div className="hidden lg:flex items-center space-x-4">
+        <Link href="/login">
+            <Button variant="outline">{t.header("login")}</Button>
+        </Link>
         <Link href="/apply">
           <Button size="lg">{t.shared("cta")}</Button>
         </Link>
@@ -209,6 +212,11 @@ export default function Header() {
               </div>
             </nav>
             <div className="mt-6 flex flex-col space-y-3">
+              <Link href="/login" onClick={() => setIsSheetOpen(false)}>
+                <Button variant="outline" className="w-full">
+                  {t.header("login")}
+                </Button>
+              </Link>
               <Link href="/apply" onClick={() => setIsSheetOpen(false)}>
                 <Button size="lg" className="w-full">
                   {t.shared("cta")}

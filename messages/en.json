@@ -12,7 +12,8 @@
     "university": "King Abdulaziz university",
     "venue": "King Faisal Conference Center",
     "details": "Details",
-    "time": "9:00AM - 3:00PM"
+    "time": "9:00AM - 3:00PM",
+    "backToHome": "Back to Home"
   },
   "header": {
     "home": "Home",
@@ -24,7 +25,8 @@
       "vehicle": "Vehicle & Transportation Track"
     },
     "rules": "Rules",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "login": "Login"
   },
   "footer": {
     "about_hackathon": "About the Hackathon",
@@ -421,5 +423,31 @@
       "readRulesSuffix": "",
       "dataSharing": "I consent to sharing my data with sponsors and third parties"
     }
+  },
+  "auth": {
+    "loginTitle": "Participant Login",
+    "loginDescription": "Login to view your profile and application status",
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Login",
+    "loading": "Loading...",
+    "errors": {
+      "required": "Required",
+      "invalidEmail": "Invalid email",
+      "loginFailed": "Login failed",
+      "accessRestricted": "Access restricted to participants only."
+    },
+    "forgotPassword": "Forgot Password?",
+    "forgotPasswordTitle": "Reset Password",
+    "forgotPasswordDescription": "Enter your email to receive a reset link",
+    "sendResetLink": "Send Reset Link",
+    "resetEmailSent": "Reset link sent! Check your email.",
+    "updatePasswordTitle": "Update Password",
+    "updatePasswordDescription": "Enter your new password below",
+    "updatePasswordButton": "Update Password",
+    "passwordUpdated": "Password updated successfully!",
+    "backToLogin": "Back to Login",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password"
   }
 }

@@ -4,11 +4,10 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getMessages } from "next-intl/server";
-import Header from "@/components/common/header";
-import Footer from "@/components/common/footer";
-import AOSInit from "@/components/AOSInit";
+
 import "aos/dist/aos.css";
 import { Analytics } from '@vercel/analytics/react';
+import { ToastProvider } from "@/components/shadcn/toast";
 
 export const metadata = {
   title: "Protothon | هاكثون النمذجة",
@@ -46,7 +45,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
 
@@ -75,7 +74,6 @@ export default async function RootLayout({
         />
       </head>
       <body className={`antialiased w-screen overflow-x-hidden`}>
-        <AOSInit />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -83,9 +81,9 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <Header />
-            {children}
-            <Footer />
+            <ToastProvider>
+              {children}
+            </ToastProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />

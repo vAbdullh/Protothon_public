@@ -12,7 +12,8 @@
     "university": "جامعة الملك عبدالعزيز",
     "venue": "مركز الملك فيصل للمؤتمرات",
     "details": "التفاصيل",
-    "time": "9:00 صباحاً - 3:00 مساءً"
+    "time": "9:00 صباحاً - 3:00 مساءً",
+    "backToHome": "العودة للصفحة الرئيسية"
   },
   "header": {
     "home": "الصفحة الرئيسية",
@@ -24,7 +25,8 @@
       "vehicle": "مسار النقل والمركبات"
     },
     "rules": "الشروط",
-    "contact": "تواصل معنا"
+    "contact": "تواصل معنا",
+    "login": "تسجيل الدخول"
   },
   "footer": {
     "about_hackathon": "نبذه عن هاكاثون النمذجة",
@@ -421,5 +423,31 @@
       "readRulesSuffix": "",
       "dataSharing": "أوافق على مشاركة بياناتي مع الرعاة والأطراف الخارجية"
     }
+  },
+  "auth": {
+    "loginTitle": "تسجيل دخول المشاركين",
+    "loginDescription": "قم بتسجيل الدخول لعرض ملفك الشخصي وحالة طلبك",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "loginButton": "تسجيل الدخول",
+    "loading": "جاري التحميل...",
+    "errors": {
+      "required": "مطلوب",
+      "invalidEmail": "بريد إلكتروني غير صالح",
+      "loginFailed": "فشل تسجيل الدخول",
+      "accessRestricted": "الوصول مقتصر على المشاركين فقط."
+    },
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "forgotPasswordTitle": "إعادة تعيين كلمة المرور",
+    "forgotPasswordDescription": "أدخل بريدك الإلكتروني لاستلام رابط إعادة التعيين",
+    "sendResetLink": "إرسال رابط إعادة التعيين",
+    "resetEmailSent": "تم إرسال الرابط! تفقد بريدك الإلكتروني.",
+    "updatePasswordTitle": "تحديث كلمة المرور",
+    "updatePasswordDescription": "أدخل كلمة المرور الجديدة أدناه",
+    "updatePasswordButton": "تحديث كلمة المرور",
+    "passwordUpdated": "تم تحديث كلمة المرور بنجاح!",
+    "backToLogin": "العودة لتسجيل الدخول",
+    "newPassword": "كلمة المرور الجديدة",
+    "confirmPassword": "تأكيد كلمة المرور"
   }
 }
