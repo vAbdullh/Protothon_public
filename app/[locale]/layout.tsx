@@ -8,6 +8,7 @@ import { getMessages } from "next-intl/server";
 import "aos/dist/aos.css";
 import { Analytics } from '@vercel/analytics/react';
 import { ToastProvider } from "@/components/shadcn/toast";
+import AOSInit from "@/components/AOSInit"; 
 
 export const metadata = {
   title: "Protothon | هاكثون النمذجة",
@@ -80,6 +81,7 @@ export default async function RootLayout({
           forcedTheme="light"
           disableTransitionOnChange
         >
+          <AOSInit />
           <NextIntlClientProvider locale={locale} messages={messages}>
             <ToastProvider>
               {children}
