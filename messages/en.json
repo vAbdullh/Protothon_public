@@ -26,7 +26,9 @@
     },
     "rules": "Rules",
     "contact": "Contact Us",
-    "login": "Login"
+    "login": "Login",
+    "welcome": "Welcome, {name}",
+    "signOut": "Sign Out"
   },
   "footer": {
     "about_hackathon": "About the Hackathon",
@@ -449,5 +451,35 @@
     "backToLogin": "Back to Login",
     "newPassword": "New Password",
     "confirmPassword": "Confirm Password"
+  },
+  "submissions": {
+    "title": "My Submissions",
+    "status": {
+      "pending": "Pending",
+      "submitted": "Submitted",
+      "passed": "Passed"
+    },
+    "fileUrl": "Upload File",
+    "maxSizeNote": "(Max size 150 MB)",
+    "notes": "Notes (Optional)",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "replaceWarning": "Submitting again will replace your current file.",
+    "viewFile": "View File",
+    "success": "Submission successful!",
+    "passedMessage": "Deadline has passed.",
+    "tableHeaders": {
+      "title": "Task Title",
+      "deadline": "Deadline",
+      "status": "Status",
+      "submission": "Submission",
+      "action": "Action"
+    },
+    "update": "Update",
+    "closed": "Closed"
+  },
+  "dashboard": {
+    "title": "Submissions",
+    "description": "View active tasks and submit your work for the hackathon."
   }
 }

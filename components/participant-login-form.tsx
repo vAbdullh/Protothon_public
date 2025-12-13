@@ -76,7 +76,7 @@ export function ParticipantLoginForm() {
             });
             return;
         }
-        router.push("/profile");
+        router.push("/dashboard");
       }
     } catch (error: any) {
       addToast({

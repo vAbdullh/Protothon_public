@@ -26,7 +26,9 @@
     },
     "rules": "الشروط",
     "contact": "تواصل معنا",
-    "login": "تسجيل الدخول"
+    "login": "تسجيل الدخول",
+    "welcome": "مرجباً, {name}",
+    "signOut": "تسجيل خروج"
   },
   "footer": {
     "about_hackathon": "نبذه عن هاكاثون النمذجة",
@@ -449,5 +451,35 @@
     "backToLogin": "العودة لتسجيل الدخول",
     "newPassword": "كلمة المرور الجديدة",
     "confirmPassword": "تأكيد كلمة المرور"
+  },
+  "submissions": {
+    "title": "تسليماتي",
+    "status": {
+      "pending": "قيد الانتظار",
+      "submitted": "تم التسليم",
+      "passed": "انتهى الوقت"
+    },
+    "fileUrl": "رفع الملف",
+    "maxSizeNote": "(الحجم الأقصى 150 ميجابايت)",
+    "notes": "ملاحظات (اختياري)",
+    "submit": "تسليم",
+    "submitting": "جاري التسليم...",
+    "replaceWarning": "إعادة التسليم سيستبدل الملف الحالي.",
+    "viewFile": "عرض الملف",
+    "success": "تم التسليم بنجاح!",
+    "passedMessage": "انتهى موعد التسليم.",
+    "tableHeaders": {
+      "title": "عنوان المهمة",
+      "deadline": "الموعد النهائي",
+      "status": "الحالة",
+      "submission": "التسليم",
+      "action": "الإجراء"
+    },
+    "update": "تحديث",
+    "closed": "مغلق"
+  },
+  "dashboard": {
+    "title": "التسليمات",
+    "description": "عرض المهام النشطة وتسليم عملك للهاكاثون."
   }
 }

@@ -12,7 +12,7 @@ export default function AuthLayout({
 
     const t = useTranslations("shared");
   return (
-    <div className="min-h-screen w-full lg:grid lg:grid-cols-2">
+    <div className="h-screen w-full lg:grid lg:grid-cols-2 px-5 lg:px-0">
       {/* Left Side: Logo */}
       <div className="hidden bg-muted lg:flex items-center justify-center relative p-10 bg-gray-50 order-1">
         <Image
@@ -26,7 +26,15 @@ export default function AuthLayout({
       </div>
 
       {/* Right Side: Form (Children) */}
-      <div className="flex flex-col gap-2 items-center justify-center py-12">
+      <div className="flex flex-col gap-2 items-center justify-center py-12 my-auto">
+         <Image
+          src="/protothon-logo-purple.png"
+          alt="Protothon Logo"
+          width={200}
+          height={200}
+          className="object-contain lg:hidden"
+          priority
+        />
             {children}
         <LanguageSwitcher/>
         <div className="flex items-center gap-2">
