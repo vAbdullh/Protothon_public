@@ -431,13 +431,19 @@
     "loginDescription": "قم بتسجيل الدخول لعرض ملفك الشخصي وحالة طلبك",
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
+    "sendMagicLink": "أرسل رابط الدخول",
+    "magicLinkSentTitle": "تفقد بريدك الإلكتروني",
+    "magicLinkSentDescription": "تم إرسال رابط الدخول. تأكد من التحقق من مجلد الرسائل غير المرغوب فيها.",
     "loginButton": "تسجيل الدخول",
     "loading": "جاري التحميل...",
     "errors": {
       "required": "مطلوب",
       "invalidEmail": "بريد إلكتروني غير صالح",
       "loginFailed": "فشل تسجيل الدخول",
-      "accessRestricted": "الوصول مقتصر على المشاركين فقط."
+      "accessRestricted": "الوصول مقتصر على المشاركين فقط.",
+      "overEmailSendRateLimit": "تم إرسال عدد كبير من الرسائل لهذا البريد الإلكتروني، يرجى المحاولة مرة أخرى بعد عدة دقائق",
+      "emailAddressInvalid": "عنوان البريد الإلكتروني غير صالح",
+      "userNotFound": "هذا البريد الإلكتروني غير مسجل."
     },
     "forgotPassword": "نسيت كلمة المرور؟",
     "forgotPasswordTitle": "إعادة تعيين كلمة المرور",

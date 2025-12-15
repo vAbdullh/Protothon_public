@@ -12,7 +12,7 @@ export default function AuthLayout({
 
     const t = useTranslations("shared");
   return (
-    <div className="h-screen w-full lg:grid lg:grid-cols-2 px-5 lg:px-0">
+    <div className="h-screen w-full grid lg:grid-cols-2 px-5 lg:px-0">
       {/* Left Side: Logo */}
       <div className="hidden bg-muted lg:flex items-center justify-center relative p-10 bg-gray-50 order-1">
         <Image
@@ -30,8 +30,8 @@ export default function AuthLayout({
          <Image
           src="/protothon-logo-purple.png"
           alt="Protothon Logo"
-          width={200}
-          height={200}
+          width={150}
+          height={150}
           className="object-contain lg:hidden"
           priority
         />

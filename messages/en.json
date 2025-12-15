@@ -431,13 +431,19 @@
     "loginDescription": "Login to view your profile and application status",
     "email": "Email",
     "password": "Password",
+    "sendMagicLink": "Send Magic Link",
+    "magicLinkSentTitle": "Check your email",
+    "magicLinkSentDescription": "We sent you a login link. Be sure to check your spam folder.",
     "loginButton": "Login",
     "loading": "Loading...",
     "errors": {
       "required": "Required",
       "invalidEmail": "Invalid email",
       "loginFailed": "Login failed",
-      "accessRestricted": "Access restricted to participants only."
+      "accessRestricted": "Access restricted to participants only.",
+      "overEmailSendRateLimit": "Too many emails sent to this email, please try again after some minutes",
+      "emailAddressInvalid": "Invalid email address",
+      "userNotFound": "This email is not registered."
     },
     "forgotPassword": "Forgot Password?",
     "forgotPasswordTitle": "Reset Password",
