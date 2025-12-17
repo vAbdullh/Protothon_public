@@ -42,6 +42,7 @@ const UNIVERSITY_OPTIONS = [
 export default function MyApplicationClient() {
   const t = useTranslations("myApplication");
   const tForm = useTranslations("form");
+  const tTracks = useTranslations("header.tracksList");
   const locale = useLocale();
   const isRTL = locale === "ar";
   const { addToast } = useToast();
@@ -214,7 +215,7 @@ export default function MyApplicationClient() {
         </div>
         <div>
             <Label className="text-gray-500 mb-2 block">{t("track")}</Label>
-            <p className="text-lg font-semibold capitalize">{appData.track}</p>
+            <p className="text-lg font-semibold capitalize">{tTracks(appData.track)}</p>
         </div>
         <div>
             <Label className="text-gray-500 mb-2 block">{t("ideaTitle")}</Label>
