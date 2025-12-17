@@ -459,7 +459,7 @@
     "confirmPassword": "تأكيد كلمة المرور"
   },
   "myApplication": {
-    "title": "طلبي / فريقي",
+    "title": "بيانات الفريق",
     "editTeam": "تعديل الفريق",
     "saveChanges": "حفظ التغييرات",
     "cancel": "إلغاء",
@@ -480,7 +480,7 @@
     }
   },
   "submissions": {
-    "title": "تسليماتي",
+    "title": "التسليمات",
     "status": {
       "pending": "قيد الانتظار",
       "submitted": "تم التسليم",

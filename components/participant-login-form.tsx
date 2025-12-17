@@ -32,7 +32,7 @@ export function ParticipantLoginForm() {
         const { data: { session } } = await supabase.auth.getSession();
         if (session) {
           if (session.user.user_metadata?.role === "participant") {
-            router.push("/dashboard");
+            router.push("/submissions");
           } else {
             await supabase.auth.signOut();
             addToast({
@@ -55,7 +55,7 @@ export function ParticipantLoginForm() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (event === "SIGNED_IN" && session) {
         if (session.user.user_metadata?.role === "participant") {
-          router.push("/dashboard");
+          router.push("/submissions");
         } else {
            await supabase.auth.signOut();
            addToast({

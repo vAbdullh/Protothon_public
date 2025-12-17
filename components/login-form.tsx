@@ -31,7 +31,7 @@ export function LoginForm() {
     const checkAuth = async () => {
       const { data } = await supabase.auth.getUser();
       if (data?.user) {
-        router.push("/dashboard");
+        router.push("/submissions");
       }
     };
     checkAuth();
@@ -71,14 +71,14 @@ export function LoginForm() {
       if (!isEmailValid || (type === "password" && !isPasswordValid)) {
         return;
       }
-// add callback to /dashboard in magic  link
+// add callback to /submissions in magic  link
       const authAction =
         type === "password"
           ? supabase.auth.signInWithPassword({ email, password })
           : supabase.auth.signInWithOtp({ 
           email,
           options: {
-            emailRedirectTo: `${window.location.origin}/dashboard` 
+            emailRedirectTo: `${window.location.origin}/submissions` 
           }
         });
 
@@ -86,7 +86,7 @@ export function LoginForm() {
       if (error) throw error;
 
       if (type === "password") {
-        router.push("/dashboard");
+        router.push("/submissions");
       } else {
         setMessage("Magic link sent to your email!");
         setEmailSent(true);
