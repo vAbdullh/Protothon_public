@@ -458,6 +458,27 @@
     "newPassword": "كلمة المرور الجديدة",
     "confirmPassword": "تأكيد كلمة المرور"
   },
+  "myApplication": {
+    "title": "طلبي / فريقي",
+    "editTeam": "تعديل الفريق",
+    "saveChanges": "حفظ التغييرات",
+    "cancel": "إلغاء",
+    "teamName": "اسم الفريق",
+    "track": "المسار",
+    "ideaTitle": "عنوان الفكرة",
+    "ideaDescription": "وصف الفكرة",
+    "members": "الأعضاء",
+    "addMember": "إضافة عضو",
+    "removeMember": "حذف",
+    "leader": "قائد الفريق",
+    "errors": {
+      "teamSize": "يجب أن يتكون الفريق من 3 إلى 5 أعضاء",
+      "leaderRequired": "يجب تحديد قائد للفريق",
+      "fetchFailed": "فشل في جلب بيانات الطلب",
+      "updateFailed": "فشل في تحديث الفريق",
+      "updateSuccess": "تم تحديث الفريق بنجاح"
+    }
+  },
   "submissions": {
     "title": "تسليماتي",
     "status": {

@@ -458,6 +458,27 @@
     "newPassword": "New Password",
     "confirmPassword": "Confirm Password"
   },
+  "myApplication": {
+    "title": "My Application",
+    "editTeam": "Edit Team",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "teamName": "Team Name",
+    "track": "Track",
+    "ideaTitle": "Idea Title",
+    "ideaDescription": "Idea Description",
+    "members": "Members",
+    "addMember": "Add Member",
+    "removeMember": "Remove",
+    "leader": "Leader",
+    "errors": {
+      "teamSize": "Team must have between 3 and 5 members",
+      "leaderRequired": "A team leader is required",
+      "fetchFailed": "Failed to fetch application data",
+      "updateFailed": "Failed to update team",
+      "updateSuccess": "Team updated successfully"
+    }
+  },
   "submissions": {
     "title": "My Submissions",
     "status": {
