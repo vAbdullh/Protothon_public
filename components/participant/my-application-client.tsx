@@ -9,7 +9,8 @@ import { Input } from "@/components/shadcn/input";
 import { Label } from "@/components/shadcn/label";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/shadcn/select";
 import { useToast } from "@/components/shadcn/toast";
-import { Loader2, Edit2, Save, X, Trash2, Plus, User } from "lucide-react";
+import { Loader2, Edit2, Save, X, Trash2, Plus, User, Bell } from "lucide-react";
+import Image from "next/image";
 
 // Types
 type Member = {
@@ -200,11 +201,20 @@ export default function MyApplicationClient() {
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-primary">{t("title")}</h1>
         
-        {!isEditing && (
-            <Button onClick={() => setIsEditing(true)} variant="outline" className="gap-2">
-                <Edit2 className="w-4 h-4" /> {t("editTeam")}
-            </Button>
-        )}
+        {/* Edit button removed to prevent updates */}
+      </div>
+
+      {/* Restriction Messages */}
+      <div className="relative bg-orange-50 ltr:border-l-4 rtl:border-r-4 border-orange-200 rounded-lg p-4 mb-6 flex items-center gap-4 ">
+        <Bell className="size-9 rounded-full bg-orange-200 p-2 text-orange-800" />
+        <div>
+            <h2 className="text-orange-800 font-bold mb-1 md:text-xl">
+          {t("updates_disabled_message")}
+        </h2>
+        <p className="text-orange-600 text-sm">
+          {t("hackathon_encouragement")}
+        </p>
+        </div>
       </div>
 
       {/* Application Details (Read Only) */}

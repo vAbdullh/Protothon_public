@@ -471,6 +471,8 @@
     "addMember": "إضافة عضو",
     "removeMember": "حذف",
     "leader": "قائد الفريق",
+    "updates_disabled_message": "تعديل أعضاء الفريق لم يعد متاحاً.",
+    "hackathon_encouragement": "نتطلع لرؤيتكم في أيام الهاكاثون الحضورية",
     "errors": {
       "teamSize": "يجب أن يتكون الفريق من 3 إلى 5 أعضاء",
       "leaderRequired": "يجب تحديد قائد للفريق",

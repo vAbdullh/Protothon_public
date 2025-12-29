@@ -90,6 +90,13 @@ export async function GET(request: Request) {
 }
 
 export async function PUT(request: Request) {
+  // Block updates
+    return NextResponse.json(
+    { error: "Updates are no longer allowed" },
+    { status: 403 }
+  );
+
+  // Update the application logic
   const authHeader = request.headers.get("Authorization");
   const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     auth: { persistSession: false },

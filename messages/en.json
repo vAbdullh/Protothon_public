@@ -471,6 +471,8 @@
     "addMember": "Add Member",
     "removeMember": "Remove",
     "leader": "Leader",
+    "updates_disabled_message": "Updating team members is no longer available.",
+    "hackathon_encouragement": "We look forward to seeing you at the Hackathon Days (In-Person).",
     "errors": {
       "teamSize": "Team must have between 3 and 5 members",
       "leaderRequired": "A team leader is required",
